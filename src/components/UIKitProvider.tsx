@@ -1,5 +1,5 @@
 import React, {memo, PropsWithChildren, useMemo} from 'react';
-import {ThemeProvider} from "styled-components";
+import {ThemeProvider} from "styled-components/native";
 import '@/types';
 import {useTheme} from "@/store/constant";
 import {darkMode, lightMode} from "@/assets/themes";

@@ -33,6 +33,7 @@ const Avatar = styled(FastImage)`
   border-width: 1px;
   border-color: #fff;
   margin-right: 6px;
+  background-color: ${p => p.theme.gray5};
 `;
 const TextItem = styled.Text`
   font-size: 13px;

@@ -12,7 +12,7 @@ import {useAsyncFn} from "@/hooks/useAsyncFn";
 
 const Container = styled(KeyboardAvoidingView)`
   flex: 1;
-  background-color: #fff;
+  background-color: ${p => p.theme.backgroundColor};
   padding-top: 150px;
 `;
 
@@ -22,7 +22,7 @@ const Title = styled.Text`
   text-align: center;
   padding-top: 16px;
   margin-top: 60px;
-  color:${Colors.backgroundColor}
+  color:${p => p.theme.gray1}
 `;
 
 const Content = styled.View`
@@ -38,7 +38,7 @@ const Footer = styled.View`
 
 const FooterText = styled.Text`
   font-size: 13px;
-  color: ${Colors.gray3};
+  color: ${p => p.theme.gray3};
 `;
 
 const FooterTextBlue = styled.Text`

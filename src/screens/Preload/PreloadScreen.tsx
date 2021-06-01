@@ -9,7 +9,7 @@ import {BaseStyles} from "@/themes/BaseStyles";
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.backgroundColor};
+  background-color: ${Colors.gray1};
   align-items: center;
   justify-content: center;
 `;
@@ -43,7 +43,7 @@ export const PreloadScreen = memo(function HomeScreen() {
     }, []);
     return (
         <Container>
-            <Logo source={require('@/assets/images/home_logo.png')} resizeMode={"contain"}/>
+            {/*<Logo source={require('@/assets/images/home_logo.png')} resizeMode={"contain"}/>*/}
             <ActivityIndicator style={BaseStyles.mt12} color={Colors.white}/>
         </Container>
     );

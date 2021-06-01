@@ -9,7 +9,7 @@ import {Fonts} from "@/assets/fonts";
 
 export const Divider = styled.View<{color?: string, height?: number}>`
   height: ${p => p.height || 1}px;
-  background-color: ${p => p.color || Colors.black10};
+  background-color: ${p => p.color || p.theme.divider};
 `;
 
 const ItemContainer = styled.View`

@@ -1,6 +1,5 @@
 import React, {memo, useCallback, useState} from 'react';
 import {Text, View, Image, TouchableOpacity, StyleSheet, ViewStyle} from 'react-native';
-import {Colors} from "@/themes/Colors";
 import useBoolean from "@/hooks/useBoolean";
 import PhotoViewModal from "@/components/PhotoView/PhotoViewModal";
 
@@ -61,22 +60,22 @@ const renderImages = (start: number, overflow: boolean, images: string[], onPres
     return (
         <>
             <ImageItem image={images[start]} onPress={onPress} index={start}/>
-            {images[start + 1] && (
-                <View style={styles.image_view}>
-                    <ImageItem
-                        image={images[start + 1]}
-                        onPress={onPress}
-                        index={start + 1}
-                    />
-                    {overflow && (
-                        <TouchableOpacity
-                            onPress={() => onPress && onPress(images[start + 1], start + 1)}
-                            style={styles.item_view_overlay}>
-                            <Text style={styles.text}>{`+${images.length - 5}`}</Text>
-                        </TouchableOpacity>
-                    )}
-                </View>
-            )}
+                {images[start + 1] && (
+                    <View style={styles.image_view}>
+                        <ImageItem
+                            image={images[start + 1]}
+                            onPress={onPress}
+                            index={start + 1}
+                        />
+                        {overflow && (
+                            <TouchableOpacity
+                                onPress={() => onPress && onPress(images[start + 1], start + 1)}
+                                style={styles.item_view_overlay}>
+                                <Text style={styles.text}>{`+${images.length - 5}`}</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                )}
         </>
     );
 };

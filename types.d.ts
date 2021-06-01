@@ -24,5 +24,6 @@ declare module 'styled-components' {
     gray5: string,
     gray6: string,
     gray7: string,
+    divider: string,
   }
 }

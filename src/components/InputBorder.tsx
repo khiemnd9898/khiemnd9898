@@ -35,12 +35,12 @@ const STextInput = styled.TextInput`
   margin: 0;
   height: 100%;
   padding: 0 30px 0 0 ;
-  color: ${Colors.backgroundColor};
+  color: ${p => p.theme.gray1};
 `;
 const Title = styled.Text`
   font-size: 12px;
   font-family: ${Fonts.Medium};
-  color: ${Colors.backgroundColor}
+  color: ${p => p.theme.gray1}
 `;
 const ValueView = styled.View`
   flex: 1;
