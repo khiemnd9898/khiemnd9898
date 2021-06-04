@@ -143,6 +143,7 @@ const PhotoViewContent = memo(({initialIndex = 0, images, onCloseRequest}: Props
             ref={scrollView}
             pagingEnabled={true}
             horizontal={true}
+            showsHorizontalScrollIndicator={false}
             onMomentumScrollEnd={onScrollEnd}
         >
             {images.map((image, index) =>

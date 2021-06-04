@@ -41,6 +41,7 @@ export const PreloadScreen = memo(function HomeScreen() {
     useEffect(() => {
         getData()
     }, []);
+
     return (
         <Container>
             {/*<Logo source={require('@/assets/images/home_logo.png')} resizeMode={"contain"}/>*/}

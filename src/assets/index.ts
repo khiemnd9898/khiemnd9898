@@ -54,6 +54,7 @@ export const IC_CALL_VIDEO = require('./icons/ic_call_video.png');
 export const IC_EMAIL = require('./icons/ic_email.png');
 export const IC_CHECK = require('./icons/ic_check.png');
 export const IC_UN_CHECK = require('./icons/ic_un_check.png');
+export const IC_LIKE = require('./icons/ic_like.png');
 
 export const IC_TAB_HOME = require('./icons/IC_TAB_HOME.png');
 export const IC_TAB_MARKET = require('./icons/IC_TAB_MARKET.png');
@@ -94,7 +95,7 @@ export const IC_RECALL = require('./icons/ic_recall.png');
 export const IC_HANDED = require('./icons/ic_handed.png');
 export const IC_EDIT_LOG = require('./icons/ic_edit_log.png');
 export const IC_CREATE_LOG = require('./icons/ic_create_log.png');
-export const IC_MENU = require('./icons/menu.png');
+export const IC_MENU = require('./icons/ic_menu.png');
 export const IC_SHOPPING_CART = require('./icons/shopping-cart.png');
 export const IC_NOTIFICATION = require('./icons/notification.png');
 export const IC_JOB = require('./icons/job.png');
@@ -109,6 +110,8 @@ export const IC_CONG_DONG = require('./icons/ic_cong_dong.png');
 export const IC_LIEU_TRINH = require('./icons/ic_lieu_trinh.png');
 export const IC_CONG_TAC = require('./icons/ic_cong_tac.png');
 export const IC_TAI_KHOAN = require('./icons/ic_tai_khoan.png');
+export const IC_VIDEO_CAMERA = require('./images/ic_video_camera.png');
+export const IMG_PHOTOS = require('./images/img_photos.png');
 
 export const IMG_CUP = require('./icons/ic_cup.png');
 export const IC_FACEBOOK = require('./icons/ic_facebook.png');

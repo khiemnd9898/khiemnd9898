@@ -10,7 +10,7 @@ const Container = styled.View`
 `;
 
 
-const renderItem = ({item}: any) => <PostComponent id={item}/>;
+const renderItem = ({item}: any) => <PostComponent id={item} />;
 const keyExtractor = (item: any) => item.toString();
 
 export const HomeScreen = memo(function HomeScreen() {
