@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {Colors} from '@/themes/Colors';
 import {ActivityIndicator, KeyboardAvoidingView, Platform,} from 'react-native';
 import {getBottomSpace} from "react-native-iphone-x-helper";
-import {IC_EYE, IC_USER} from "@/assets";
+import {IC_EYE, IC_USER, IMG_LOGO_APP} from "@/assets";
 import {InputBorder} from "@/components/InputBorder";
 import {navigateToRegisterScreen, replaceWithMainScreen} from "@/utils/navigation";
 import {LoginPrams} from "@/store/constant/functions";
@@ -74,6 +74,19 @@ const TextLogin = styled.Text<{ color?: string }>`
   color: ${p => p.color || Colors.white};
 `;
 
+const ViewAvatar = styled.View`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const LogoApp = styled.Image`
+  width: 150px;
+  height: 50px;
+  tint-color:${p => p.theme.gray1}
+`;
+
 export const LoginScreen = memo(function LoginScreen() {
     const [params, setParams] = useState<LoginPrams>({
         phone: '0973090393', //0979294748
@@ -99,9 +112,9 @@ export const LoginScreen = memo(function LoginScreen() {
     return (
         <>
             <Container behavior={Platform.OS == "ios" ? "padding" : "height"}>
-                <Title>
-                    Đăng nhập
-                </Title>
+                <ViewAvatar>
+                    <LogoApp source={IMG_LOGO_APP} resizeMode={"contain"}/>
+                </ViewAvatar>
                 <Content>
                     <InputBorder value={params.phone}
                                  title={"SỐ ĐIỆN THOẠI"}

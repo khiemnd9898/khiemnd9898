@@ -6,6 +6,7 @@ import {replaceToLoginScreen, replaceWithMainScreen} from '@/utils/navigation';
 import {useToken} from '@/store/constant';
 import SplashScreen from 'react-native-splash-screen';
 import {BaseStyles} from "@/themes/BaseStyles";
+import {IMG_LOGO_APP} from "@/assets";
 
 const Container = styled.View`
   flex: 1;
@@ -17,6 +18,7 @@ const Container = styled.View`
 const Logo = styled.Image`
   width: 120px;
   height: 120px;
+  tint-color: #fff
 `;
 export const PreloadScreen = memo(function HomeScreen() {
     const token = useToken();
@@ -44,7 +46,7 @@ export const PreloadScreen = memo(function HomeScreen() {
 
     return (
         <Container>
-            {/*<Logo source={require('@/assets/images/home_logo.png')} resizeMode={"contain"}/>*/}
+            <Logo source={IMG_LOGO_APP} resizeMode={"contain"}/>
             <ActivityIndicator style={BaseStyles.mt12} color={Colors.white}/>
         </Container>
     );

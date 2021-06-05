@@ -10,7 +10,7 @@ const Container = styled.View`
   flex-direction: row;
   align-items: center;
   background-color: ${props => props.theme.backgroundColor};
-  border-top-width: 0.7px;
+  border-top-width: 1px;
   border-top-color: ${p => p.theme.divider};
 `;
 

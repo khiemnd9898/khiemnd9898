@@ -12,7 +12,7 @@ export const lightMode: DefaultTheme = {
     gray5: '#E0E0E0',
     gray6: '#F2F2F2',
     gray7: 'rgba(0,0,0,0.05)', //10%
-    divider: 'rgba(0,0,0,0.05)'
+    divider: 'rgba(0,0,0,0.1)'
 };
 
 

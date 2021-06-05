@@ -21,9 +21,9 @@ export interface TabBarIconProps {
 }
 
 const Icon = styled.Image<{ isFocused: boolean }>`
-  width: 32px;
-  height: 32px;
-  tint-color: ${(p) => (p.isFocused ? p.theme.gray1 : p.theme.gray5)};
+  width: 24px;
+  height: 24px;
+  tint-color: ${(p) => (p.isFocused ? p.theme.gray1 : p.theme.gray4)};
 `;
 
 const Label = styled.Text<{ focused: boolean }>`
@@ -38,7 +38,7 @@ export const TabBarIcon = memo(function TabBarIcon({
                                                        icon,
                                                        isFocused,
                                                    }: TabBarIconProps) {
-    return <Icon source={icon} isFocused={isFocused}/>;
+    return <Icon resizeMode={"contain"} source={icon} isFocused={isFocused}/>;
 });
 
 const Container = styled.View`
