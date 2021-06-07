@@ -100,8 +100,6 @@ export const MessHeader = memo(function MessHeader() {
           placeholder="Search friend, message ..."
         />
       </TextViewInput>
-
-
     </Container>
   );
 });
