@@ -1,7 +1,10 @@
 import React, {memo} from 'react';
 import styled from "styled-components/native";
 import {BaseStyles} from "@/themes/BaseStyles";
-import {IC_SEND} from "@/assets";
+import {IC_IMAGE, IC_SEND} from "@/assets";
+import {Colors} from "@/themes/Colors";
+import {Gray1Icon} from "@/components";
+import {Keyboard} from "react-native";
 
 
 const Container = styled.View`
@@ -20,10 +23,10 @@ const TextInput = styled.TextInput`
   max-height: 75px;
   font-size: 13px;
   margin: 0;
-  padding: 6px 12px;
   color:${p => p.theme.gray1};
   background-color: ${p => p.theme.gray6};
   border-radius: 20px;
+  padding: 6px 40px 6px 12px;
 `;
 
 const ViewCenter = styled.View`
@@ -45,15 +48,31 @@ const IconSend = styled.Image`
   height: 24px;
   tint-color: #0077cc
 `;
+
+const BtnImageAb = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+`;
+
 export const InsertComment = memo(function InsertComment() {
     return (
         <Container style={BaseStyles.viewShadow}>
             <ViewCenter>
-                <TextInput multiline={true}/>
+                <TextInput
+                    placeholder={'Nhấp để bình luận'}
+                    placeholderTextColor={Colors.gray5}
+                    onBlur={Keyboard.dismiss}
+                    multiline={true}/>
+                <BtnImageAb>
+                    <Gray1Icon source={IC_IMAGE} />
+                </BtnImageAb>
             </ViewCenter>
 
             <BtnSend>
-                <IconSend source={IC_SEND} />
+                <IconSend source={IC_SEND}/>
             </BtnSend>
         </Container>
     )

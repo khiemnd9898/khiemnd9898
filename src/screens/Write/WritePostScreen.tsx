@@ -32,6 +32,7 @@ export const WritePostScreen = memo(function WritePostScreen() {
             <HeaderWrite/>
             <Container>
                 <Input
+                    autoFocus={true}
                     placeholderTextColor={''}
                     placeholder={'Bạn đang nghĩ gì ... '}
                 />

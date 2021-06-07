@@ -10,7 +10,16 @@ import {ButtonReply} from "@/components/ButtonReply";
 import FastImage from "react-native-fast-image";
 import {EmotionComponent} from "@/components/EmotionComponent";
 import useBoolean from "@/hooks/useBoolean";
-import {IC_DEPARTMENT, IC_HANDED, IC_MENU, IC_MORE, IC_TAB_ACCOUNT, IC_TAB_HOME, IC_TAB_MESSAGE} from "@/assets";
+import {
+    IC_BOOK_MARK,
+    IC_DEPARTMENT, IC_EYE_HIDE, IC_FLAG,
+    IC_HANDED,
+    IC_MENU, IC_MINUS_CIRCLE,
+    IC_MORE,
+    IC_TAB_ACCOUNT,
+    IC_TAB_HOME,
+    IC_TAB_MESSAGE, IC_URL
+} from "@/assets";
 import {BottomMenuSelector} from "@/components/BottomMenu";
 import {syncPosts, usePost} from "@/store/post";
 import {getPreviewData} from "@/utils/preview";
@@ -77,19 +86,29 @@ interface Props {
 
 const menuOptions = [
     {
-        icon: IC_TAB_HOME,
+        icon: IC_BOOK_MARK,
         label: 'Lưu bài viết',
         value: 'save'
     },
     {
-        icon: IC_TAB_ACCOUNT,
-        label: 'Báo cáo bài viết',
+        icon: IC_MINUS_CIRCLE,
+        label: 'Bỏ theo dõi',
         value: 'report'
     },
     {
-        icon: IC_TAB_MESSAGE,
+        icon: IC_EYE_HIDE,
         label: 'Ẩn bài viết',
         value: 'hide'
+    },
+    {
+        icon: IC_FLAG,
+        label: 'Báo cáo bài viết',
+        value: 'hide'
+    },
+    {
+        icon: IC_URL,
+        label: 'Mở link trên website',
+        value: 'website'
     },
 ];
 

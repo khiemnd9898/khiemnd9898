@@ -1,9 +1,7 @@
 import React, {memo} from 'react';
 import styled from "styled-components/native";
-import {HeaderModal} from "@/components/HeaderModal";
 import {useNavigationParams} from "@/hooks/useNavigationParams";
-import {FlatList, KeyboardAvoidingView, Platform, TextInput, View} from "react-native";
-import {HeaderBack} from "@/components/HeaderBack";
+import {FlatList, KeyboardAvoidingView, Platform} from "react-native";
 import {PostComponent} from "@/components/PostComponent";
 import {HeaderComment} from "@/components/HeaderComment";
 import {CommentItem} from "@/screens/Comment/CommentItem";
@@ -32,7 +30,7 @@ export interface CommentScreenProps {
     id: string
 }
 
-const renderItem = ({item, index}: any) => <WrapItem><CommentItem commentId={item.toString()}/></WrapItem>;
+const renderItem = ({item}: any) => <WrapItem><CommentItem commentId={item.toString()}/></WrapItem>;
 
 const keyExtractor = (item: any) => item.toString();
 
@@ -56,6 +54,7 @@ export const CommentScreen = memo(function CommentScreen() {
                                     id={'1'}/>
                             </WrapHeader>
                         }
+                        keyboardDismissMode={"on-drag"}
                         data={Array.from(new Array(20).keys())}
                         renderItem={renderItem}
                         keyExtractor={keyExtractor}
