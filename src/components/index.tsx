@@ -24,7 +24,7 @@ const Icon1 = styled.Image`
   margin: 8px 8px 6px -4px;
   width: 24px;
   height: 24px;
-  tint-color: ${Colors.gray3}
+  tint-color: ${p => p.theme.gray3}
 `;
 
 const Label = styled.Text`
@@ -33,14 +33,14 @@ const Label = styled.Text`
   padding-right: 16px;
   font-size: 15px;
   line-height: 18px;
-  color: ${Colors.gray3};
+  color: ${p => p.theme.gray3};
   max-width: 80%;
 `;
 
 const SDivider = styled.View`
   margin: 0 16px;
   height: 1px;
-  background-color: ${Colors.gray6};
+  background-color: ${p => p.theme.gray6};
 `;
 const Left = styled.View`
   flex: 1;
@@ -116,18 +116,18 @@ export const ItemContent = styled.Text`
   line-height: 18px;
   text-align: right;
   margin: 13px 0;
-  color: ${Colors.gray1};
+  color: ${p => p.theme.gray1};
 `;
 
 export const ClickableText = styled(ItemContent)<{clickable?: boolean}>`
-  color: ${(props) => (props.clickable ? props.theme.blue : props.theme.grey1)};
+  color: ${(props) => (props.clickable ? Colors.blue : Colors.grey1)};
 `;
 
 const SectionContainer = styled.View<{withDivider: boolean}>`
   height: 44px;
   margin: 8px 16px 0 16px;
   flex-direction: row;
-  border-bottom-color: ${Colors.gray5}80;
+  border-bottom-color: ${p => p.theme.gray5}80;
   border-bottom-width: ${(props) => (props.withDivider ? 1 : 0)}px;
   justify-content: space-between;
 `;
@@ -135,7 +135,7 @@ const SectionContainer = styled.View<{withDivider: boolean}>`
 const SectionText = styled.Text`
   font-size: 18px;
   line-height: 21px;
-  color: ${Colors.gray1};
+  color: ${p => p.theme.gray1};
   margin-top: 12px;
   text-align: left;
   font-family: ${Fonts.Medium};
@@ -191,7 +191,7 @@ export const ItemsWrapper = styled.View`
 
 
 const YesNo = styled(ItemContent)<{active: boolean}>`
-  color: ${(p) => (p.active ? Colors.green1 : Colors.red1)};
+  color: ${(p) => (p.active ? p => Colors.green1 : p => Colors.red1)};
 `;
 
 interface Props {
@@ -223,45 +223,45 @@ export const Icon = styled.Image`
 `;
 
 export const Blue1Text = styled(Text)`
-  color: ${Colors.blue1}
+  color: ${p => Colors.blue1}
 `;
 export const IconColor = styled(Icon)<{color: string}>`
   tint-color: ${p => p.color || "none"};
 `;
 export const Gray1Icon = styled(Icon)`
-  tint-color: ${Colors.gray1}
+  tint-color: ${p => p.theme.gray1}
 `;
 export const Gray2Icon = styled(Icon)`
-  tint-color: ${Colors.gray2}
+  tint-color: ${p => p.theme.gray2}
 `;
 export const Gray3Icon = styled(Icon)`
-  tint-color: ${Colors.gray3}
+  tint-color: ${p => p.theme.gray3}
 `;
 export const Gray4Icon = styled(Icon)`
-  tint-color: ${Colors.gray4}
+  tint-color: ${p => p.theme.gray4}
 `;
 export const Gray5Icon = styled(Icon)`
-  tint-color: ${Colors.gray5}
+  tint-color: ${p => p.theme.gray5}
 `;
 
 export const Gray1Text = styled(Text)`
-  color: ${Colors.gray1}
+  color: ${p => p.theme.gray1}
 `;
 export const Gray2Text = styled(Text)`
-  color: ${Colors.gray2}
+  color: ${p => p.theme.gray2}
 `;
 export const Gray3Text = styled(Text)`
-  color: ${Colors.gray3}
+  color: ${p => p.theme.gray3}
 `;
 export const Gray4Text = styled(Text)`
-  color: ${Colors.gray4}
+  color: ${p => p.theme.gray4}
 `;
 export const Gray5Text = styled(Text)`
-  color: ${Colors.gray5}
+  color: ${p => p.theme.gray5}
 `;
 
 export const BlueText = styled(Text)`
-  color: ${Colors.blue1}
+  color: ${p => Colors.blue1}
 `;
 
 export const Bold = styled(Text)`

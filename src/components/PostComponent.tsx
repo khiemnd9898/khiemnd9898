@@ -10,7 +10,7 @@ import {ButtonReply} from "@/components/ButtonReply";
 import FastImage from "react-native-fast-image";
 import {EmotionComponent} from "@/components/EmotionComponent";
 import useBoolean from "@/hooks/useBoolean";
-import {IC_DEPARTMENT, IC_HANDED, IC_MENU, IC_TAB_ACCOUNT, IC_TAB_HOME, IC_TAB_MESSAGE} from "@/assets";
+import {IC_DEPARTMENT, IC_HANDED, IC_MENU, IC_MORE, IC_TAB_ACCOUNT, IC_TAB_HOME, IC_TAB_MESSAGE} from "@/assets";
 import {BottomMenuSelector} from "@/components/BottomMenu";
 import {syncPosts, usePost} from "@/store/post";
 import {getPreviewData} from "@/utils/preview";
@@ -147,7 +147,7 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                         </Time>
                     </View>
                     <BtnMoreMenu onPress={setShowMenu}>
-                        <IconMoreMenu source={IC_MENU}/>
+                        <IconMoreMenu source={IC_MORE}/>
                     </BtnMoreMenu>
                 </Row>}
                 <TouchableOpacity onPress={goToDetail}>

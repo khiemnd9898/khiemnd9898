@@ -2,8 +2,11 @@ import React, {memo, useCallback} from 'react';
 import {Image, ImageSourcePropType, StyleSheet, TouchableOpacity} from 'react-native';
 import {Colors} from "@/themes/Colors";
 import styled from "styled-components/native";
+import {IC_CHECK_ROUND} from "@/assets";
 
-const CheckIcon = styled.Image``;
+const CheckIcon = styled.Image`
+  tint-color: ${Colors.gray1}
+`;
 
 const STranslatedText = styled.Text`
   flex: 1;
@@ -11,7 +14,7 @@ const STranslatedText = styled.Text`
   font-size: 15px;
 `;
 
-export const UNIQUE_STRING = 'wework@unique123';
+export const UNIQUE_STRING = 'kaka@unique123';
 
 export interface SelectorOption {
     value: string | number | undefined;
@@ -53,7 +56,7 @@ export const SelectorItem = memo(function SelectorItem({
                     <CheckIcon
                         resizeMode="contain"
                         style={styles.selectedIcon}
-                        source={require('@/assets/icons/check-round.png')}
+                        source={IC_CHECK_ROUND}
                     />
                 )}
             </>

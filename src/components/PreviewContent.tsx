@@ -6,7 +6,11 @@ import FastImage from "react-native-fast-image";
 
 const Container = styled.TouchableOpacity`
   width: 100%;
-  background-color: ${p => p.theme.gray5};
+  background-color: ${p => p.theme.name === 'dark' ? p.theme.gray5 : p.theme.gray6};
+  padding-bottom: 12px;
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
 `;
 
 const ImagePreview = styled(FastImage)`
@@ -16,14 +20,16 @@ const ImagePreview = styled(FastImage)`
 
 const Title = styled.Text`
   font-size: 15px;
-  color: ${p => p.theme.gray3};
+  color: ${p => p.theme.gray1};
   font-family: ${Fonts.Medium};
   line-height: 20px;
+  padding: 8px 16px 4px;
 `;
 
 const Domain = styled.Text`
   font-size: 13px;
-  color: ${p => p.theme.gray3}
+  color: ${p => p.theme.gray3};
+  padding: 0 16px
 `;
 
 interface Props {
@@ -43,10 +49,10 @@ export const PreviewContent = memo(function PreviewContent(props: Props) {
     return (
         <Container onPress={openWeb}>
             <ImagePreview source={{uri: image}}/>
-            <Title>
+            <Title numberOfLines={2}>
                 {title}
             </Title>
-            <Domain>
+            <Domain numberOfLines={3}>
                 {description}
             </Domain>
         </Container>

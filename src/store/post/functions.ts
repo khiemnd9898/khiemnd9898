@@ -46,16 +46,14 @@ const fakeData: RawPost[] = [
     },
     {
         avatar: 'https://hinhanhdep.org/wp-content/uploads/2016/07/anh-avatar-girl-xinh.jpg',
-        content: `Tin tuc dan tri https://dantri.com.vn/suc-khoe/sang-76-them-44-ca-covid19-viet-nam-co-8791-benh-nhan-20210607060659035.htm
-        `,
+        content: `Tin tuc dan tri https://dantri.com.vn/suc-khoe/sang-76-them-44-ca-covid19-viet-nam-co-8791-benh-nhan-20210607060659035.htm`,
         id: '',
         images: [],
         link: ''
     },
     {
         avatar: 'https://hinhanhdep.org/wp-content/uploads/2016/07/anh-avatar-girl-xinh.jpg',
-        content: `Tin tuc dan tri https://dantri.com.vn/suc-khoe/sang-76-them-44-ca-covid19-viet-nam-co-8791-benh-nhan-20210607060659035.htm
-        `,
+        content: `Tin tuc dan tri`,
         id: '',
         images: [
             "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg",

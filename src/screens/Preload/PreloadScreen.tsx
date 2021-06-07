@@ -1,9 +1,9 @@
 import React, {memo, useCallback, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {Colors} from '@/themes/Colors';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, StatusBar} from 'react-native';
 import {replaceToLoginScreen, replaceWithMainScreen} from '@/utils/navigation';
-import {useToken} from '@/store/constant';
+import {useTheme, useToken} from '@/store/constant';
 import SplashScreen from 'react-native-splash-screen';
 import {BaseStyles} from "@/themes/BaseStyles";
 import {IMG_LOGO_APP} from "@/assets";
@@ -22,6 +22,8 @@ const Logo = styled.Image`
 `;
 export const PreloadScreen = memo(function HomeScreen() {
     const token = useToken();
+    const currentTheme = useTheme();
+
 
     const getData = useCallback(async () => {
         setTimeout(() => {
@@ -39,6 +41,10 @@ export const PreloadScreen = memo(function HomeScreen() {
     useEffect(() => {
         SplashScreen.hide();
     }, []);
+
+    useEffect(() => {
+        StatusBar.setBarStyle(currentTheme === 'dark' ? "light-content" : "dark-content")
+    }, [currentTheme]);
 
     useEffect(() => {
         getData()

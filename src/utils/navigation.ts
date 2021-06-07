@@ -72,6 +72,10 @@ export const openCommentScreen = createNavigate<CommentScreenProps>(
     'CommentScreen'
 );
 
+export const openWritePostScreen = createNavigate(
+    'WritePostScreen'
+);
+
 
 /**
  * USAGE EXAMPLE:

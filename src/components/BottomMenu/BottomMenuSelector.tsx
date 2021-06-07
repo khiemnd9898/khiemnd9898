@@ -29,7 +29,7 @@ const SText = styled(Content)<{ hasValue: boolean }>`
 `;
 
 interface Props {
-    label: string;
+    label?: string;
     options: SelectorOption[];
     selectedValue?: string | number;
     placeholder?: string;
@@ -95,26 +95,28 @@ export const BottomMenuSelector = memo(
                 isVisible={visible}
                 onClose={hideMenu}
                 propagateSwipe={true}>
-              <BottomMenuContainer>
-                <BottomMenuHeader title={label} onClose={hideMenu}/>
-                <ScrollView style={styles.maxHeightScroll}>
-                  {options.map((option) => {
-                    const selected = option.value === selectedValue;
-                    return (
-                        <View
-                            style={styles.optionContainer}
-                            key={option.value || UNIQUE_STRING}>
-                          <SelectorItem
-                              option={option}
-                              renderIcon={renderIcon}
-                              selected={selected}
-                              onSelect={onSelectOptionCb}
-                          />
-                        </View>
-                    );
-                  })}
-                </ScrollView>
-              </BottomMenuContainer>
+                <BottomMenuContainer>
+                    {
+                        label ? <BottomMenuHeader title={label} onClose={hideMenu}/> : null
+                    }
+                    <ScrollView style={styles.maxHeightScroll}>
+                        {options.map((option) => {
+                            const selected = option.value === selectedValue;
+                            return (
+                                <View
+                                    style={styles.optionContainer}
+                                    key={option.value || UNIQUE_STRING}>
+                                    <SelectorItem
+                                        option={option}
+                                        renderIcon={renderIcon}
+                                        selected={selected}
+                                        onSelect={onSelectOptionCb}
+                                    />
+                                </View>
+                            );
+                        })}
+                    </ScrollView>
+                </BottomMenuContainer>
             </BottomMenuModal>
         );
     },

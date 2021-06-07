@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from "@/assets";
 import {Fonts} from "@/assets/fonts";
+import {openWritePostScreen} from "@/utils/navigation";
 
 
 const Container = styled.View`
@@ -81,7 +82,7 @@ const ButtonText = styled.Text`
   padding-left: 10px;
 `;
 
-const Footer  = styled(Row)`
+const Footer = styled(Row)`
   border-top-width: 0.7px;
   border-top-color: ${p => p.theme.gray5};
 `;
@@ -101,7 +102,7 @@ export const HomeHeader = memo(function HomeHeader() {
             <Row2>
                 <Avatar
                     source={{uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg'}}/>
-                <ViewFull>
+                <ViewFull onPress={openWritePostScreen}>
                     <TextMind numberOfLines={1}>
                         What is on your mind? #Hashtag.. @Mention.. Link..
                     </TextMind>
@@ -114,14 +115,14 @@ export const HomeHeader = memo(function HomeHeader() {
                         Photo
                     </ButtonText>
                 </Button>
-                <DividerVertical />
+                <DividerVertical/>
                 <Button>
                     <IconAction source={IC_VIDEO_CAMERA}/>
                     <ButtonText>
                         Video
                     </ButtonText>
                 </Button>
-                <DividerVertical />
+                <DividerVertical/>
                 <Button>
                     <IconMenu source={IC_MENU}/>
                     <ButtonText>
