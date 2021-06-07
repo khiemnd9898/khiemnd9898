@@ -1,6 +1,6 @@
-import React, {memo} from 'react';
+import React, { memo } from "react";
 import styled from "styled-components/native";
-import {getStatusBarHeight} from 'react-native-status-bar-height';
+import { getStatusBarHeight } from "react-native-status-bar-height";
 import FastImage from "react-native-fast-image";
 import {
   IC_HOME_SEARCH,
@@ -11,10 +11,10 @@ import {
   IMG_LOGO_APP,
   IMG_PHOTOS
 } from "@/assets";
-import { TextInput, View,Image } from "react-native";
-import {Colors} from "@/themes/Colors";
-import {Fonts} from "@/assets/fonts";
-import {BaseStyles} from "@/themes/BaseStyles";
+import { TextInput, View, Image } from "react-native";
+import { Colors } from "@/themes/Colors";
+import { Fonts } from "@/assets/fonts";
+import { BaseStyles } from "@/themes/BaseStyles";
 
 
 const Container = styled.View`
@@ -40,36 +40,37 @@ const ViewFull = styled.TouchableOpacity`
 `;
 
 const TextMind = styled.Text`
-    padding-left: 12px;
-    padding-right: 10px;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -0.24px;
-    color: #ffffff;
+  padding-left: 12px;
+  padding-right: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  color: #ffffff;
 `;
-const Buttonicon=styled.TouchableOpacity`
+const Buttonicon = styled.TouchableOpacity`
   width: 40px;
   justify-content: center;
   align-items: flex-end;
 `;
-const Icons=styled.Image`
-  width: 16px;
-  height: 16px;
+const IconPlus = styled.Image`
+  width: 24px;
+  height: 24px;
   tint-color: ${p => p.theme.gray1};
 `;
-const SearchIcon=styled.Image`
+// chú ý format code
+const SearchIcon = styled.Image`
   width: 18px;
   height: 18px;
 `;
-const TextViewInput=styled.View`
+const TextViewInput = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 36px;
-  margin:12px 12px 12px 12px;
-  borderRadius:18px;
-  background-color:#3B3D3D;
-  padding:0 12px
+  margin: 12px 12px 12px 12px;
+  borderRadius: 18px;
+  background-color: #3B3D3D;
+  padding: 0 12px
 `;
 
 
@@ -80,27 +81,27 @@ export const MessHeader = memo(function MessHeader() {
     <Container>
       <Row>
         <Avatar
-          source={{uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg'}}/>
+          source={{ uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg" }} />
         <ViewFull>
           <TextMind numberOfLines={1}>
             Định Pu
           </TextMind>
         </ViewFull>
         <Buttonicon>
-          <Icons  resizeMode={"contain"} source={IC_PLUS} />
+          <IconPlus resizeMode={"contain"} source={IC_PLUS} /> {/* 1 icon là số ít  ko thêm s */}
         </Buttonicon>
       </Row>
-        <TextViewInput>
-          <SearchIcon source={IC_SEACH}  />
-          <TextInput
-            style={{ flex:1,paddingLeft:15,height:36}}
-            onChangeText={onChangeNumber}
-            value={number}
-            placeholder="Search friend, message ..."
-          />
-        </TextViewInput>
+      <TextViewInput>
+        <SearchIcon source={IC_SEACH} />
+        <TextInput
+          style={{ flex: 1, paddingLeft: 15, height: 36 }}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Search friend, message ..."
+        />
+      </TextViewInput>
 
 
     </Container>
-  )
+  );
 });
