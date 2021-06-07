@@ -57,6 +57,6 @@ export const WritePostScreen = memo(function WritePostScreen() {
 
 const styles = StyleSheet.create({
     icon: {
-        marginLeft: 12
+        marginRight: 16
     }
 });
