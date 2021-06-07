@@ -1,6 +1,7 @@
 import React, {memo, useCallback} from 'react';
 import styled from "styled-components/native";
 import {setThemeAction, useTheme} from "@/store/constant";
+import {StatusBar} from "react-native";
 
 const Container = styled.View`
   flex: 1;
@@ -25,8 +26,10 @@ const TextChangeTheme = styled.Text`
 
 export const AccountScreen = memo(function AccountScreen() {
     const currentTheme = useTheme();
+
     const onChangeTheme = useCallback(() => {
-        setThemeAction(currentTheme === 'dark' ? "light" : "dark")
+        setThemeAction(currentTheme === 'dark' ? "light" : "dark");
+        StatusBar.setBarStyle(currentTheme === 'light' ? "light-content" : "dark-content")
     }, [currentTheme]);
 
     return (

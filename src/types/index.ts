@@ -78,3 +78,12 @@ export interface RawBanner {
     active: number;
     createdTime: string;
 }
+
+export interface RawPost {
+    id: string;
+    avatar: string;
+    link: string;
+    content: string;
+    images: string[];
+    preview?: any
+}

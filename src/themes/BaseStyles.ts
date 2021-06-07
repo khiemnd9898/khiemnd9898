@@ -53,6 +53,12 @@ export const BaseStyles = StyleSheet.create({
     ml20: {
       marginLeft: 20
     },
+    pl4: {
+      paddingLeft: 4
+    },
+    pl8: {
+      paddingLeft: 8
+    },
     pl16: {
       paddingLeft: 16
     },

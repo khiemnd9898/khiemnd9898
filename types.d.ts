@@ -1,5 +1,5 @@
 export * from 'react-redux/index';
-import styled from 'styled-components/native';
+import 'styled-components/native';
 
 declare type RootState = ReturnType<
     typeof import('./src/store')['store']['getState']
@@ -12,7 +12,7 @@ declare module 'react-redux' {
   ): TSelected;
 }
 
-declare module 'styled-components' {
+declare module 'styled-components/native' {
   export interface DefaultTheme {
     backgroundColor: string,
     backgroundColor1: string,
@@ -25,5 +25,6 @@ declare module 'styled-components' {
     gray6: string,
     gray7: string,
     divider: string,
+    name: 'dark' | 'light'
   }
 }

@@ -99,7 +99,7 @@ export const IC_MENU = require('./icons/ic_menu.png');
 export const IC_SHOPPING_CART = require('./icons/shopping-cart.png');
 export const IC_NOTIFICATION = require('./icons/notification.png');
 export const IC_JOB = require('./icons/job.png');
-export const IC_BACK = require('./icons/back_icon.png');
+export const IC_BACK = require('./icons/ic_back.png');
 export const IC_EYE = require('./icons/ic_eye.png');
 export const IC_EYE_HIDE = require('./icons/ic_eye_hide.png');
 
@@ -132,6 +132,9 @@ export const IC_CAMERA = require('./icons/photo-camera.png');
 export const IC_VIDEO = require('./icons/video-camera.png');
 export const IC_IMAGE = require('./icons/image-gallery.png');
 export const IC_HOME_SEARCH = require('./icons/ic_home_search.png');
+export const IC_MORE = require('./icons/ic_more_function.png');
+export const IC_MINUS_CIRCLE = require('./icons/ic_minus_circle.png');
+export const IC_URL = require('./icons/ic_url.png');
 
 
 export const IMG_DEMO = require('./images/image_demo.png');
