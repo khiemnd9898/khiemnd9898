@@ -3,7 +3,6 @@ import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import FastImage from "react-native-fast-image";
 import {
-  IC_CLOSE31,
   IC_DANHBA,
   IC_HOME_SEARCH,
   IC_MENU,
@@ -15,8 +14,6 @@ import {
 import { TextInput, View, Image, FlatList, StyleSheet } from "react-native";
 import { Colors } from "@/themes/Colors";
 import { Fonts } from "@/assets/fonts";
-import { BaseStyles } from "@/themes/BaseStyles";
-import { MessComponent1 } from "@/components/MessComponent1";
 
 const DATA = [
   {
@@ -77,7 +74,7 @@ const TextMind = styled.Text`
   color: ${Colors.gray6};
   font-family: ${Fonts.Medium};
 `;
-const Buttonicon = styled.TouchableOpacity`
+const ButtonIcon = styled.TouchableOpacity`
   padding-right: 16px;
   padding-bottom: 18px;
   width: 85px;
@@ -98,12 +95,12 @@ const Name = styled.Text`
 `;
 const Item = ({ item, index }: any) => {
   return (
-    <Buttonicon>
+    <ButtonIcon>
       <Row2>
         <Avatar source={{ uri: item.image }} />
         <Name numberOfLines={2}>{item.Name}</Name>
       </Row2>
-    </Buttonicon>
+    </ButtonIcon>
 
 
   );

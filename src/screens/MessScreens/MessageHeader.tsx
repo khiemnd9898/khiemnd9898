@@ -88,7 +88,7 @@ export const MessHeader = memo(function MessHeader() {
           </TextMind>
         </ViewFull>
         <Buttonicon>
-          <IconPlus resizeMode={"contain"} source={IC_PLUS} /> {/* 1 icon là số ít  ko thêm s */}
+          <IconPlus resizeMode={"contain"} source={IC_PLUS} />
         </Buttonicon>
       </Row>
       <TextViewInput>
