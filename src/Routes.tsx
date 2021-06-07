@@ -18,6 +18,7 @@ import {AccountScreen} from "@/screens/Account/AccountScreen";
 import { MessScreen } from "@/screens/MessScreens/MessageScreen";
 import {CommentScreen} from "@/screens/Comment/CommentScreen";
 import {WritePostScreen} from "@/screens/Write/WritePostScreen";
+import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
 
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -68,7 +69,7 @@ const TabBarStackComponent = memo(function TabBarStackComponent() {
                         <TabBarIcon isFocused={focused} icon={IC_TAB_NOTIFY}/>
                     ),
                 }}
-                component={HomeScreen}
+                component={NotifyScreen}
             />
 
             <TabBarStack.Screen
