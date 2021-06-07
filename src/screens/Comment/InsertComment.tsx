@@ -51,10 +51,12 @@ const IconSend = styled.Image`
 
 const BtnImageAb = styled.TouchableOpacity`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2px;
+  right: 4px;
   width: 40px;
-  height: 40px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const InsertComment = memo(function InsertComment() {
@@ -63,7 +65,7 @@ export const InsertComment = memo(function InsertComment() {
             <ViewCenter>
                 <TextInput
                     placeholder={'Nhấp để bình luận'}
-                    placeholderTextColor={Colors.gray5}
+                    placeholderTextColor={Colors.gray4}
                     onBlur={Keyboard.dismiss}
                     multiline={true}/>
                 <BtnImageAb>

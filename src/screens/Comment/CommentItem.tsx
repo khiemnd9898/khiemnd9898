@@ -1,10 +1,12 @@
-import React, {memo} from 'react';
+import React, {memo, useState} from 'react';
 import styled from "styled-components/native";
 import {Fonts} from "@/assets/fonts";
 import FastImage from "react-native-fast-image";
-import {View} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import {BaseStyles} from "@/themes/BaseStyles";
 import {CommentEmotion} from "@/screens/Comment/CommentEmotion";
+import PhotoViewModal from "@/components/PhotoView/PhotoViewModal";
+import useBoolean from "@/hooks/useBoolean";
 
 
 const Container = styled.View`
@@ -69,11 +71,11 @@ interface Props {
     commentId: string
 }
 
+
 export const CommentItem = memo(function CommentItem(props: Props) {
     const {commentId} = props;
-    const _index = Math.floor(Math.random() * fakeData.length);
-    const data = fakeData[_index];
-
+    const [data, ] = useState(fakeData[Math.floor(Math.random() * fakeData.length)]);
+    const [visibleImage, showImage, hideImage] = useBoolean(false);
     return (
         <Container>
             <Avatar source={{uri: data.avatar}}/>
@@ -85,11 +87,26 @@ export const CommentItem = memo(function CommentItem(props: Props) {
                     {data.content}
                 </Description>
                 {
-                    data?.image ? <ImagePreview resizeMode={"cover"}
-                                                source={{uri: data.image}}/> : null
+                    data?.image
+                        ? <TouchableOpacity onPress={showImage}>
+                            <ImagePreview
+                                resizeMode={"cover"}
+                                source={{uri: data.image}}/>
+                        </TouchableOpacity>
+                        : null
                 }
-                <CommentEmotion />
+                <CommentEmotion/>
             </View>
+            {
+                data?.image
+                    ? <PhotoViewModal
+                        initialIndex={0}
+                        images={[data.image]}
+                        isVisible={visibleImage}
+                        onCloseRequest={hideImage}
+                    />
+                    : null
+            }
         </Container>
     )
 });
