@@ -2,12 +2,13 @@ import React, {memo} from 'react';
 import styled from 'styled-components/native';
 import {Fonts} from '@/assets/fonts';
 import {NotifyItem} from './NotifyItem';
+import { Divider } from '@/components';
+import {BaseStyles} from "@/themes/BaseStyles";
 
 const Container = styled.View<{color?: string}>`
-  background-color: ${(p) => p.color || p.theme.backgroundColor1};
+  background-color: ${(p) => p.color || p.theme.backgroundColor};
 `;
 const StyledText = styled.Text`
-  background-color: ${(p) => p.theme.backgroundColor1};
   color: ${(p) => p.theme.gray1};
   font-family: ${Fonts.Medium};
   font-size: 14px;
@@ -23,8 +24,9 @@ export const NewSection = memo(function NewSection() {
       <StyledText>New</StyledText>
 
       {DATA.map((item, i) => (
-        <NotifyItem key={i} />
+        <NotifyItem id={item} key={i} />
       ))}
+      <Divider height={8} style={BaseStyles.mt12} />
     </Container>
   );
 });

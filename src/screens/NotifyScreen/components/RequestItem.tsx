@@ -2,6 +2,7 @@ import React, {memo} from 'react';
 import styled from 'styled-components/native';
 import {Colors} from '@/themes/Colors';
 import {IC_MORE} from '@/assets';
+import FastImage from "react-native-fast-image";
 
 const Row = styled.View`
   flex-direction: row;
@@ -11,11 +12,9 @@ const Row = styled.View`
 const ViewLeft = styled.View`
   flex: 1;
 `;
-const Avatar = styled.Image`
+const Avatar = styled(FastImage)`
   width: 50px;
   height: 50px;
-  tint-color: ${(p) => p.theme.gray1};
-
   border-radius: 30px;
 `;
 const ViewRight = styled.View`
@@ -41,7 +40,6 @@ const InfoSection = styled.View`
 const BtnMoreInfo = styled.TouchableHighlight`
   justify-content: center;
   align-items: center;
-
   height: 40px;
   width: 40px;
   border-radius: 50px;
@@ -57,66 +55,82 @@ const RowBtn = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-const StyledBtn = styled.TouchableOpacity<{suggestion?: boolean}>`
+const StyledBtn = styled.TouchableOpacity<{ suggestion?: boolean }>`
   flex: 1;
   align-items: center;
   justify-content: center;
-
-  background-color: ${(p) =>
-    p.suggestion ? 'rgba(66, 150, 246, 0.301)' : Colors.blue1};
+  background-color: ${p => p?.suggestion ? '#1d87cc' : '#0077cc'};
   border-radius: 4px;
   margin-right: 5px;
-
   padding: 10px 0;
 `;
 const DeleteBtn = styled(StyledBtn)`
-  background-color: ${(p) => p.theme.gray5};
+  background-color: ${Colors.red0};
 `;
-const TextBtn = styled.Text<{suggestion?: boolean}>`
+const TextBtn = styled.Text`
   font-size: 14px;
-  color: ${(p) => (p.suggestion ? '#449bff' : p.theme.gray1)};
+  color: #fff
 `;
 
-export const RequestItem = memo(function RequestItem(props: {
-  suggestion?: boolean;
-}) {
-  return (
-    <Row>
-      <ViewLeft>
-        <Avatar
-          source={{
-            uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-          }}
-        />
-      </ViewLeft>
+interface Props {
+    id: string;
+    suggestion?: boolean;
+}
 
-      <ViewRight>
-        <RowInfo>
-          <InfoSection>
-            <StyledText>Lương Thuỳ Linh sent you a friend request.</StyledText>
-            <TimeText>10m</TimeText>
-          </InfoSection>
+export const RequestItem = memo(function RequestItem(props: Props) {
+    return (
+        <Row>
+            <ViewLeft>
+                <Avatar
+                    source={{
+                        uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
+                    }}
+                />
+            </ViewLeft>
 
-          {!props.suggestion ? (
-            <BtnMoreInfo
-              onPress={() => {}}
-              activeOpacity={0.6}
-              underlayColor="#5f5f5f">
-              <IconMore source={IC_MORE} />
-            </BtnMoreInfo>
-          ) : null}
-        </RowInfo>
+            <ViewRight>
+                <RowInfo>
+                    <InfoSection>
+                        <StyledText>Lương Thuỳ Linh sent you a friend request.</StyledText>
+                        <TimeText>10m</TimeText>
+                    </InfoSection>
 
-        <RowBtn>
-          <StyledBtn suggestion={props.suggestion}>
-            <TextBtn suggestion={props.suggestion}>Confirm</TextBtn>
-          </StyledBtn>
+                    {!props.suggestion ? (
+                        <BtnMoreInfo
+                            onPress={() => {
+                            }}
+                            activeOpacity={0.6}
+                            underlayColor="#5f5f5f">
+                            <IconMore source={IC_MORE}/>
+                        </BtnMoreInfo>
+                    ) : null}
+                </RowInfo>
 
-          <DeleteBtn>
-            <TextBtn>Delete</TextBtn>
-          </DeleteBtn>
-        </RowBtn>
-      </ViewRight>
-    </Row>
-  );
+                {
+                    props.suggestion
+                        ? <RowBtn>
+                            <StyledBtn suggestion={true}>
+                                <TextBtn>
+                                    Thêm bạn bè
+                                </TextBtn>
+                            </StyledBtn>
+                            <DeleteBtn>
+                                <TextBtn>
+                                    Xóa
+                                </TextBtn>
+                            </DeleteBtn>
+                        </RowBtn>
+                        : <RowBtn>
+                            <StyledBtn>
+                                <TextBtn>Đồng ý</TextBtn>
+                            </StyledBtn>
+
+                            <DeleteBtn>
+                                <TextBtn>Delete</TextBtn>
+                            </DeleteBtn>
+                        </RowBtn>
+                }
+            </ViewRight>
+        </Row>
+    );
 });

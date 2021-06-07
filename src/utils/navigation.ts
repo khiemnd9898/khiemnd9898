@@ -76,6 +76,10 @@ export const openWritePostScreen = createNavigate(
     'WritePostScreen'
 );
 
+export const navigateFriendlyRequestScreen = createNavigate(
+    'FriendlyRequestScreen'
+);
+
 
 /**
  * USAGE EXAMPLE:

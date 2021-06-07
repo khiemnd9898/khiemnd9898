@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {Fonts} from '@/assets/fonts';
 import {NotifyItem} from './NotifyItem';
 
-const Container = styled.View<{color?: string}>`
+const Container = styled.View<{ color?: string }>`
   background-color: ${(p) => p.color || p.theme.backgroundColor1};
 `;
 const StyledText = styled.Text`
@@ -18,13 +18,12 @@ const StyledText = styled.Text`
 const DATA = ['1', '2'];
 
 export const OlderSection = memo(function OlderSection() {
-  return (
-    <Container>
-      <StyledText>Older</StyledText>
-
-      {DATA.map((item, i) => (
-        <NotifyItem key={i} />
-      ))}
-    </Container>
-  );
+    return (
+        <Container>
+            <StyledText>Older</StyledText>
+            {DATA.map((item, i) => (
+                <NotifyItem id={item} key={i}/>
+            ))}
+        </Container>
+    );
 });

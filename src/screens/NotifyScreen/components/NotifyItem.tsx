@@ -1,8 +1,9 @@
 import React, {memo, useState} from 'react';
 import styled from 'styled-components/native';
+import FastImage from "react-native-fast-image";
 
 const Container = styled.TouchableOpacity<{color?: any}>`
-  background: ${(p) => (p.color ? p.color : p.theme.backgroundColor1)};
+  background: ${(p) => (p.color ? p.color : p.theme.backgroundColor)};
   padding: 7px 16px;
 `;
 const Row = styled.View`
@@ -12,11 +13,9 @@ const Row = styled.View`
 const ViewLeft = styled.View`
   flex: 1;
 `;
-const Avatar = styled.Image`
+const Avatar = styled(FastImage)`
   width: 50px;
   height: 50px;
-  tint-color: ${(p) => p.theme.gray1};
-
   border-radius: 30px;
 `;
 const ViewRight = styled.View`
@@ -32,11 +31,17 @@ const TimeText = styled.Text`
   line-height: 20px;
 `;
 
-export const NotifyItem = memo(function NotifyItem() {
+interface Props {
+  id: string
+}
+
+export const NotifyItem = memo(function NotifyItem(props: Props) {
+  const {id} = props;
+
   const [isSeen, setIsSeen] = useState(true);
 
   return (
-    <Container color={isSeen ? false : 'rgba(66, 149, 246, 0.2)'}>
+    <Container>
       <Row>
         <ViewLeft>
           <Avatar

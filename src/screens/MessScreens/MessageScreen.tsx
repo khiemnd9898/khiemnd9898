@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components/native";
 import { MessHeader } from "@/screens/MessScreens/MessageHeader";
-import { MessComponent } from "@/components/MessComponent";
 import {MessComponent1} from "@/components/MessComponent1";
 
 const Container = styled.View`

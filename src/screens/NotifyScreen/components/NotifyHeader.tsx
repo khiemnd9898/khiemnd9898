@@ -6,7 +6,7 @@ import { Fonts } from "@/assets/fonts";
 const Container = styled.View`
   width: 100%;
   padding-top: ${getStatusBarHeight()};
-  background-color: ${p => p.theme.backgroundColor1};
+  background-color: ${p => p.theme.backgroundColor};
 `;
 const StyledView = styled.View`
   height: 44px;

@@ -19,6 +19,7 @@ import { MessScreen } from "@/screens/MessScreens/MessageScreen";
 import {CommentScreen} from "@/screens/Comment/CommentScreen";
 import {WritePostScreen} from "@/screens/Write/WritePostScreen";
 import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
+import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
 
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -112,6 +113,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'Main'} component={TabBarStackComponent}/>
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
             <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
+            <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
         </ModalStack.Navigator>
     );
 });
