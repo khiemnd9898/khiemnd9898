@@ -15,6 +15,7 @@ import {VideoScreen} from "@/screens/VideoScreen";
 import {SearchScreen} from "@/screens/Preload/SearchScreen";
 import {HomeScreen} from "@/screens/HomeScreen/HomeScreen";
 import {AccountScreen} from "@/screens/Account/AccountScreen";
+import {CommentScreen} from "@/screens/Comment/CommentScreen";
 
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -107,6 +108,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'Routes'} component={MainStackComponent}/>
             <ModalStack.Screen name={'Main'} component={TabBarStackComponent}/>
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
+            <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
         </ModalStack.Navigator>
     );
 });

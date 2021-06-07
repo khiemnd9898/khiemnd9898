@@ -1,12 +1,8 @@
 import React, {memo} from 'react';
 import styled from "styled-components/native";
 import {getStatusBarHeight} from 'react-native-status-bar-height';
-import FastImage from "react-native-fast-image";
 import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from "@/assets";
-import {View} from "react-native";
-import {Colors} from "@/themes/Colors";
 import {Fonts} from "@/assets/fonts";
-import {BaseStyles} from "@/themes/BaseStyles";
 
 
 const Container = styled.View`

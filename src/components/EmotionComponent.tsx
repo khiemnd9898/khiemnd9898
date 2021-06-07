@@ -1,8 +1,9 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import styled from "styled-components/native";
 import {IC_COMMENT, IC_LIKE, IC_LOVE, IC_SHARE} from "@/assets";
 import {Fonts} from "@/assets/fonts";
 import {Colors} from "@/themes/Colors";
+import {openCommentScreen} from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -14,7 +15,7 @@ const Container = styled.View`
   border-top-color: ${p => p.theme.divider};
 `;
 
-const IconAction = styled.Image<{liked?: boolean}>`
+const IconAction = styled.Image<{ liked?: boolean }>`
   width: 20px;
   height: 20px;
   tint-color: ${p => p.liked ? Colors.red0 : p.theme.gray1}
@@ -27,7 +28,7 @@ const Button = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
-const ButtonText = styled.Text<{isLiked?: boolean}>`
+const ButtonText = styled.Text<{ isLiked?: boolean }>`
   font-size: 13px;
   color: ${p => p.isLiked ? Colors.red0 : p.theme.gray1};
   font-family: ${Fonts.Medium};
@@ -42,6 +43,10 @@ interface Props {
 export const EmotionComponent = memo(function EmotionComponent(props: Props) {
     const {isLiked, onLikePress} = props;
 
+    const openCommentModal = useCallback(() => {
+        openCommentScreen({id: '1'})
+    }, []);
+
     return (
         <Container>
             <Button onPress={onLikePress}>
@@ -50,7 +55,7 @@ export const EmotionComponent = memo(function EmotionComponent(props: Props) {
                     Thích
                 </ButtonText>
             </Button>
-            <Button>
+            <Button onPress={openCommentModal}>
                 <IconAction source={IC_COMMENT}/>
                 <ButtonText>
                     Bình luận

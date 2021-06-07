@@ -99,7 +99,7 @@ export const IC_MENU = require('./icons/ic_menu.png');
 export const IC_SHOPPING_CART = require('./icons/shopping-cart.png');
 export const IC_NOTIFICATION = require('./icons/notification.png');
 export const IC_JOB = require('./icons/job.png');
-export const IC_BACK = require('./icons/back_icon.png');
+export const IC_BACK = require('./icons/ic_back.png');
 export const IC_EYE = require('./icons/ic_eye.png');
 export const IC_EYE_HIDE = require('./icons/ic_eye_hide.png');
 

@@ -25,5 +25,6 @@ declare module 'styled-components/native' {
     gray6: string,
     gray7: string,
     divider: string,
+    name: string
   }
 }

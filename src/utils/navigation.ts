@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/native';
 
 import {TransitionPresets} from "@react-navigation/stack";
+import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -67,8 +68,8 @@ export const navigateMessengerScreen = createNavigate(
     'MessengerScreen'
 );
 
-export const openSearchScreen = createNavigate(
-    'SearchScreen'
+export const openCommentScreen = createNavigate<CommentScreenProps>(
+    'CommentScreen'
 );
 
 

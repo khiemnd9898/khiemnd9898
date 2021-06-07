@@ -43,9 +43,9 @@ const Avatar = styled(FastImage)`
 
 const Des = styled.Text`
   padding-top: 8px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 19px;
-  color:${Colors.brown1}
+  color:${p => p.theme.gray2}
 `;
 
 const BtnMoreMenu = styled.TouchableOpacity`
@@ -62,7 +62,9 @@ const IconMoreMenu = styled.Image`
 `;
 
 interface Props {
-    id: string
+    id: string,
+    hideHeader?: boolean,
+    fullContent?: boolean
 }
 
 const menuOptions = [
@@ -92,7 +94,7 @@ const images = [
     "https://lh3.googleusercontent.com/proxy/4iagsx5h4rOWEoA__8tOdsAUhxadZ94dvAee2ALJm03BhKSArXN1XghDvBSJjei614hA6htaTrCv1es6eNyqPl7Q5_fk1BDXtzYu839jBuPhu0j-j2HYGojqIfLNm4WRQrVsqQ"
 ];
 export const PostComponent = memo(function PostComponent(props: Props) {
-    const {id} = props;
+    const {id, hideHeader, fullContent} = props;
     const [isLiked, setLike, setUnLike] = useBoolean(false);
     const [isShowMenu, setShowMenu, setHideMenu] = useBoolean(false);
 
@@ -112,7 +114,7 @@ export const PostComponent = memo(function PostComponent(props: Props) {
     return (
         <Container>
             <ContentContainer>
-                <Row style={BaseStyles.alignItemCenter}>
+                {!hideHeader && <Row style={BaseStyles.alignItemCenter}>
                     <Avatar source={{uri: "https://meta.vn/Data/image/2020/10/09/dat-ten-tieng-anh-cho-be-gai-1.jpg"}}/>
                     <View style={[BaseStyles.ph9, BaseStyles.flex1]}>
                         <Name numberOfLines={1}>
@@ -125,11 +127,17 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                     <BtnMoreMenu onPress={setShowMenu}>
                         <IconMoreMenu source={IC_MENU}/>
                     </BtnMoreMenu>
-                </Row>
+                </Row>}
                 <TouchableOpacity onPress={goToDetail}>
-                    <Des numberOfLines={3}>
-                        Bộ Y tế cho biết đến trưa nay nước ta có 50 ca Covid-19 mới, nhiều nhất vẫn là Bắc Giang với 32
-                        ca bệnh. Ngoài ra, Bắc Ninh cũng có 2 trường hợp được phát hiện qua sàng lọc sốt ho ở cộng đồng.
+                    <Des numberOfLines={fullContent ? undefined : 3}>
+                        - Ca bệnh BN8751, BN8753-BN8754, BN8757-BN8758, NB8761 tại tỉnh Bắc Ninh: 4 ca liên quan đến ổ dịch Khu công nghiệp Quế Võ, 2 ca liên quan đến ổ dịch Khu công nghiệp Khắc Niệm. Kết quả xét nghiệm dương tính với SARS-CoV-2.
+
+                        - Ca bệnh BN8769, BN8779 tại tỉnh Hà Nam: là các trường hợp F1, đã được cách ly. Kết quả xét nghiệm ngày 6/6dương tính với SARS-CoV-2.
+
+                        - Ca bệnh BN8780-BN8791 tại TPHCM: liên quan đến Nhóm truyền giáo Phục Hưng. Kết quả xét nghiệm dương tính với SARS-CoV-2.
+
+                        Như vậy, tính đến 6h ngày 7/6, Việt Nam có tổng cộng 7.235 ca ghi nhận trong nước và 1.556 ca nhập cảnh. Số lượng ca mắc mới tính từ ngày 27/4 đến nay: 5.656 ca.
+                        Có 15 tỉnh (Yên Bái, Quảng Ngãi, Đồng Nai, Nghệ An, Quảng Ninh, Quảng Nam, Quảng Trị, Thừa Thiên Huế, Đắk Lắk, Nam Định, Hòa Bình, Tuyên Quang, Phú Thọ, Sơn La, Ninh Bình) đã qua 14 ngày không có trường hợp mắc mới.
                     </Des>
                 </TouchableOpacity>
                 {
