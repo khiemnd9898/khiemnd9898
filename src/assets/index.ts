@@ -152,3 +152,7 @@ export const IMG_GIAI_THUONG_2 = require('./images/GiaiThuong2.png');
 export const IMG_GIAI_THUONG_3 = require('./images/GiaiThuong3.png');
 export const IMG_DoiNguChuyenNghiep = require('./images/DoiNguChuyenNghiep.png');
 export const IMG_DEFAULT_AVATAR = require('./images/woman.png');
+export const IC_MOREDOT=require('./icons/ic_more_function.png')
+export const IC_CLOSE31=require('./icons/Close_31.png')
+export const IC_DANHBA=require('./icons/danhba.png')
+export const IC_SEACH=require("./icons/search1.png")

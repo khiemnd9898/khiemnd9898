@@ -10,7 +10,7 @@ import {ButtonReply} from "@/components/ButtonReply";
 import FastImage from "react-native-fast-image";
 import {EmotionComponent} from "@/components/EmotionComponent";
 import useBoolean from "@/hooks/useBoolean";
-import {IC_DEPARTMENT, IC_HANDED, IC_MENU, IC_TAB_ACCOUNT, IC_TAB_HOME, IC_TAB_MESSAGE} from "@/assets";
+import { IC_DEPARTMENT, IC_HANDED, IC_MENU, IC_MOREDOT, IC_TAB_ACCOUNT, IC_TAB_HOME, IC_TAB_MESSAGE } from "@/assets";
 import {BottomMenuSelector} from "@/components/BottomMenu";
 
 const {width} = Dimensions.get("window");
@@ -51,13 +51,13 @@ const Des = styled.Text`
 const BtnMoreMenu = styled.TouchableOpacity`
   width: 40px;
   height: 40px;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 `;
 
 const IconMoreMenu = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   tint-color: ${p => p.theme.gray1}
 `;
 
@@ -123,7 +123,7 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                         </Time>
                     </View>
                     <BtnMoreMenu onPress={setShowMenu}>
-                        <IconMoreMenu source={IC_MENU}/>
+                        <IconMoreMenu source={IC_MOREDOT}/>
                     </BtnMoreMenu>
                 </Row>
                 <TouchableOpacity onPress={goToDetail}>
