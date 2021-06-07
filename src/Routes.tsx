@@ -138,5 +138,6 @@ export const Routes = memo(function Routes() {
         </NavigationContainer>
     );
 });
-
+// sao 3 file tên khác nhau thế này
+// mà nó là dấu cộng sao lại đặt tên là close
 export default Routes;

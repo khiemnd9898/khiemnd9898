@@ -3,7 +3,6 @@ import styled from "styled-components/native";
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import FastImage from "react-native-fast-image";
 import {
-  IC_CLOSE31,
   IC_HOME_SEARCH,
   IC_MENU,
   IC_MOREDOT,
@@ -76,7 +75,7 @@ const TextViewInput=styled.View`
 
 export const MessHeader = memo(function MessHeader() {
   const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(null);
+  const [number, onChangeNumber] = React.useState(""); // string ko có thì để rỗng
   return (
     <Container>
       <Row>
@@ -88,7 +87,7 @@ export const MessHeader = memo(function MessHeader() {
           </TextMind>
         </ViewFull>
         <Buttonicon>
-          <Icons  resizeMode={"contain"} source={IC_CLOSE31} />
+          <Icons  resizeMode={"contain"} source={IC_PLUS} />
         </Buttonicon>
       </Row>
         <TextViewInput>
