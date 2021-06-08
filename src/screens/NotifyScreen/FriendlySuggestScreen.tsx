@@ -12,73 +12,73 @@ const Container = styled.View`
 const DATA = [
     {
         id: 1,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '4d',
+        title: 'Ninh Dương Lan Ngọc',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
     {
         id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
+        title: 'Lương Thuỳ Linh',
+        subTitle: '1 mutual friend',
         avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
+        suggestion: true,
     },
 ];
 
@@ -93,10 +93,10 @@ const renderItem = ({item}: any) => (
 );
 const keyExtractor = (item: any) => item.toString();
 
-export const FriendlyRequestScreen = memo(function FriendlyRequestScreen() {
+export const FriendlySuggestScreen = memo(function FriendlySuggestScreen() {
     return (
         <Container>
-            <HeaderBack title={'Tất cả lời mời'} />
+            <HeaderBack title={'Tất cả gợi ý'} />
             <FlatList
                 contentContainerStyle={{paddingVertical: 16}}
                 data={DATA}
