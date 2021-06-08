@@ -20,6 +20,7 @@ import {CommentScreen} from "@/screens/Comment/CommentScreen";
 import {WritePostScreen} from "@/screens/Write/WritePostScreen";
 import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
 import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
+import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScreen";
 
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -114,6 +115,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
             <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
             <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
+            <ModalStack.Screen name={'FriendlySuggestScreen'} component={FriendlySuggestScreen}/>
         </ModalStack.Navigator>
     );
 });
