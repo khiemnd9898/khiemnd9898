@@ -20,7 +20,8 @@ const ViewLeft = styled.View`
 const Avatar = styled(FastImage)`
     width: 50px;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 32px;
+    background-color: ${p => p.theme.gray5};
 `;
 const ViewRight = styled.View`
     flex: 6;
@@ -115,6 +116,7 @@ export const RequestItem = memo(function RequestItem(props: Props) {
         }
     }, []);
 
+    if (!item) return null;
     return (
         <>
             <Row>

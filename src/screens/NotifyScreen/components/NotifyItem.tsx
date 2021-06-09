@@ -20,7 +20,8 @@ const ViewLeft = styled.View`
 const Avatar = styled(FastImage)`
     width: 50px;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 32px;
+    background-color: ${p => p.theme.gray5};
 `;
 const ViewRight = styled.View`
     flex: 6;
@@ -44,6 +45,7 @@ export const NotifyItem = memo(function NotifyItem(props: Props) {
     const notification = useNotification(id);
     const created_at = moment(notification?.created_at).startOf('day').fromNow();
 
+    if (!notification) return null;
     return (
         <Container
             activeOpacity={0.4}

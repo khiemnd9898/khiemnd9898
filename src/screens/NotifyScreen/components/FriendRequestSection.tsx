@@ -39,10 +39,12 @@ export const FriendRequestSection = memo(function FriendRequestSection() {
 
     const [{}, getData] = useAsyncFn(async () => {
         requestRequestList();
-    });
+    }, []);
     useEffect(() => {
         getData();
     }, []);
+
+    if (allRequest.length === 0) return null;
 
     return (
         <Container>

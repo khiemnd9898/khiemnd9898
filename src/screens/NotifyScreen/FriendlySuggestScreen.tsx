@@ -21,7 +21,7 @@ export const FriendlySuggestScreen = memo(function FriendlySuggestScreen() {
     const allSuggest = useSuggestionsByQuery('all') || [];
     const [{}, getData] = useAsyncFn(async () => {
         requestSuggestList();
-    });
+    }, []);
     useEffect(() => {
         getData();
     }, []);

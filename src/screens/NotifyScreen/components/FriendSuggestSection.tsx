@@ -37,11 +37,12 @@ export const FriendSuggestSection = memo(function FriendSuggestSection() {
     const allSuggest = useSuggestionsByQuery('all') || [];
     const [{}, getData] = useAsyncFn(async () => {
         requestSuggestList();
-    });
+    }, []);
     useEffect(() => {
         getData();
     }, []);
 
+    if (allSuggest.length === 0) return null;
     return (
         <Container>
             <StyledText>Friend Suggestion</StyledText>

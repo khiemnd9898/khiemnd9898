@@ -22,7 +22,7 @@ export const FriendlyRequestScreen = memo(function FriendlyRequestScreen() {
 
     const [{}, getData] = useAsyncFn(async () => {
         requestRequestList();
-    });
+    }, []);
     useEffect(() => {
         getData();
     }, []);

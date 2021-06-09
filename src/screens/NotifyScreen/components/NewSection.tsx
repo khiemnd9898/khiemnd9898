@@ -28,6 +28,7 @@ export const NewSection = memo(function NewSection() {
         getData();
     }, []);
 
+    if (allNotification.length === 0) return null;
     return (
         <Container>
             <StyledText>New</StyledText>
