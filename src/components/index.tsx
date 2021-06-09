@@ -225,8 +225,10 @@ export const Icon = styled.Image`
 export const Blue1Text = styled(Text)`
   color: ${p => Colors.blue1}
 `;
-export const IconColor = styled(Icon)<{color: string}>`
+export const IconColor = styled.Image<{color?: string, size?: number}>`
   tint-color: ${p => p.color || "none"};
+  width: ${p => p.size || 24}px;
+  height: ${p => p.size || 24}px;
 `;
 export const Gray1Icon = styled(Icon)`
   tint-color: ${p => p.theme.gray1}

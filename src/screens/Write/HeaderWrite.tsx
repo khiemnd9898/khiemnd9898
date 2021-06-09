@@ -15,6 +15,8 @@ const Header = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-bottom-width: 0.7px;
+  border-bottom-color: ${p => p.theme.gray5};
 `;
 
 const Left = styled.TouchableOpacity`

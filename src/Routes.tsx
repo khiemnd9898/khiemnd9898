@@ -18,6 +18,9 @@ import {AccountScreen} from "@/screens/Account/AccountScreen";
 import { MessScreen } from "@/screens/MessScreens/MessageScreen";
 import {CommentScreen} from "@/screens/Comment/CommentScreen";
 import {WritePostScreen} from "@/screens/Write/WritePostScreen";
+import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
+import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
+import {ChatScreen} from "@/screens/MessScreens/components/ChatScreen";
 
 const RootStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -68,7 +71,7 @@ const TabBarStackComponent = memo(function TabBarStackComponent() {
                         <TabBarIcon isFocused={focused} icon={IC_TAB_NOTIFY}/>
                     ),
                 }}
-                component={HomeScreen}
+                component={NotifyScreen}
             />
 
             <TabBarStack.Screen
@@ -97,6 +100,7 @@ const MainStackComponent = memo(function MainStackComponent() {
             <MainStack.Screen name={'RegisterManualScreen'} component={RegisterManualScreen}/>
             <MainStack.Screen name={'OTPScreen'} component={OTPScreen}/>
             <MainStack.Screen name={'RegisterScreen'} component={RegisterScreen}/>
+            <MainStack.Screen name={'MessScreen'} component={MessScreen}/>
         </MainStack.Navigator>
     );
 });
@@ -111,6 +115,8 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'Main'} component={TabBarStackComponent}/>
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
             <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
+            <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
+          <ModalStack.Screen name={'MessengerScreen'} component={ChatScreen}/>
         </ModalStack.Navigator>
     );
 });

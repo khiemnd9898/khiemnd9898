@@ -16,7 +16,7 @@ const fakeData: RawPost[] = [
         id: '',
         images: [
             "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg",
-            "https://lh3.googleusercontent.com/proxy/4iagsx5h4rOWEoA__8tOdsAUhxadZ94dvAee2ALJm03BhKSArXN1XghDvBSJjei614hA6htaTrCv1es6eNyqPl7Q5_fk1BDXtzYu839jBuPhu0j-j2HYGojqIfLNm4WRQrVsqQ"
+            "https://th.bing.com/th/id/R859ee27e113224cb26bab1a5d69a1967?rik=Cwm5sJmsxxKNHg&pid=ImgRaw"
         ],
         link: ''
     },
@@ -40,7 +40,7 @@ const fakeData: RawPost[] = [
             "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg",
             "https://photographer.com.vn/wp-content/uploads/2020/08/1598380289_Hinh-nen-Girl-Xinh-tit-mu-tap-cho-desktop-laptop.jpg",
             "https://wikihow.com.vn/wp-content/uploads/2020/07/anh-gai-xinh-trung-hoc-co-so.jpg",
-            "https://lh3.googleusercontent.com/proxy/4iagsx5h4rOWEoA__8tOdsAUhxadZ94dvAee2ALJm03BhKSArXN1XghDvBSJjei614hA6htaTrCv1es6eNyqPl7Q5_fk1BDXtzYu839jBuPhu0j-j2HYGojqIfLNm4WRQrVsqQ"
+            "https://th.bing.com/th/id/R859ee27e113224cb26bab1a5d69a1967?rik=Cwm5sJmsxxKNHg&pid=ImgRaw"
         ],
         link: ''
     },
@@ -61,7 +61,7 @@ const fakeData: RawPost[] = [
             "https://wikihow.com.vn/wp-content/uploads/2020/07/anh-gai-xinh-trung-hoc-co-so.jpg",
             "https://hinhanhdep.org/wp-content/uploads/2016/07/anh-avatar-girl-xinh.jpg",
             "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg",
-            "https://lh3.googleusercontent.com/proxy/4iagsx5h4rOWEoA__8tOdsAUhxadZ94dvAee2ALJm03BhKSArXN1XghDvBSJjei614hA6htaTrCv1es6eNyqPl7Q5_fk1BDXtzYu839jBuPhu0j-j2HYGojqIfLNm4WRQrVsqQ"
+            "https://th.bing.com/th/id/R859ee27e113224cb26bab1a5d69a1967?rik=Cwm5sJmsxxKNHg&pid=ImgRaw"
         ],
         link: ''
     },

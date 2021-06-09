@@ -6,6 +6,7 @@ import {
 
 import {TransitionPresets} from "@react-navigation/stack";
 import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
+import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -64,7 +65,7 @@ export const navigateToRegisterManualScreen = createNavigate(
     'RegisterManualScreen'
 );
 
-export const navigateMessengerScreen = createNavigate(
+export const navigateMessengerScreen = createNavigate<ChatScreenProps>(
     'MessengerScreen'
 );
 
@@ -74,6 +75,10 @@ export const openCommentScreen = createNavigate<CommentScreenProps>(
 
 export const openWritePostScreen = createNavigate(
     'WritePostScreen'
+);
+
+export const navigateFriendlyRequestScreen = createNavigate(
+    'FriendlyRequestScreen'
 );
 
 

@@ -9,7 +9,7 @@ import {Fonts} from "@/assets/fonts";
 
 const Container = styled.View`
   height: ${getStatusBarHeight() + 56}px;
-  background-color: ${Colors.white};
+  background-color: ${p => p.theme.backgroundColor};
   padding-top: ${getStatusBarHeight()}px;
   flex-direction: row;
   border-bottom-width: 1px;
@@ -42,12 +42,12 @@ const Right = styled.View`
 const Icon = styled.Image<{ color?: string }>`
   width: 24px;
   height: 24px;
-  tint-color: ${p => p.color || Colors.orange1};
+  tint-color: ${p => p.color || p.theme.gray1};
 `;
 
 const BannerText = styled.Text`
   font-size: 17px;
-  color: ${Colors.gray1};
+  color: ${p => p.theme.gray1};
   font-family: ${Fonts.Medium};
   padding: 0 12px;
 `;

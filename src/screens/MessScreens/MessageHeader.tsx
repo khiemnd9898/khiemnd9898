@@ -1,20 +1,20 @@
-import React, { memo } from "react";
+import React, {memo} from "react";
 import styled from "styled-components/native";
-import { getStatusBarHeight } from "react-native-status-bar-height";
+import {getStatusBarHeight} from "react-native-status-bar-height";
 import FastImage from "react-native-fast-image";
 import {
-  IC_HOME_SEARCH,
-  IC_MENU,
-  IC_MOREDOT,
-  IC_PLUS, IC_SEACH, IC_SHARE,
-  IC_VIDEO_CAMERA,
-  IMG_LOGO_APP,
-  IMG_PHOTOS
+    IC_HOME_SEARCH,
+    IC_MENU,
+    IC_MOREDOT,
+    IC_PLUS, IC_SEACH, IC_SHARE,
+    IC_VIDEO_CAMERA,
+    IMG_LOGO_APP,
+    IMG_PHOTOS
 } from "@/assets";
-import { TextInput, View, Image } from "react-native";
-import { Colors } from "@/themes/Colors";
-import { Fonts } from "@/assets/fonts";
-import { BaseStyles } from "@/themes/BaseStyles";
+import {TextInput, View, Image} from "react-native";
+import {Colors} from "@/themes/Colors";
+import {Fonts} from "@/assets/fonts";
+import {BaseStyles} from "@/themes/BaseStyles";
 
 
 const Container = styled.View`
@@ -45,9 +45,9 @@ const TextMind = styled.Text`
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.24px;
-  color: #ffffff;
+  color: ${p => p.theme.gray1};
 `;
-const Buttonicon = styled.TouchableOpacity`
+const ButtonIcon = styled.TouchableOpacity`
   width: 40px;
   justify-content: center;
   align-items: flex-end;
@@ -57,7 +57,6 @@ const IconPlus = styled.Image`
   height: 24px;
   tint-color: ${p => p.theme.gray1};
 `;
-// chú ý format code
 const SearchIcon = styled.Image`
   width: 18px;
   height: 18px;
@@ -68,11 +67,17 @@ const TextViewInput = styled.View`
   justify-content: center;
   height: 36px;
   margin: 12px 12px 12px 12px;
-  borderRadius: 18px;
-  background-color: #3B3D3D;
+  border-radius: 18px;
+  background-color: ${p => p.theme.gray5};
   padding: 0 12px
 `;
 
+const STextInput = styled.TextInput`
+  flex: 1;
+  height:36px;
+  margin: 0px;
+  padding: 0 0 0 12px;
+`;
 
 export const MessHeader = memo(function MessHeader() {
   const [text, onChangeText] = React.useState("Useless Text");
@@ -87,14 +92,13 @@ export const MessHeader = memo(function MessHeader() {
             Định Pu
           </TextMind>
         </ViewFull>
-        <Buttonicon>
+        <ButtonIcon>
           <IconPlus resizeMode={"contain"} source={IC_PLUS} />
-        </Buttonicon>
+        </ButtonIcon>
       </Row>
       <TextViewInput>
         <SearchIcon source={IC_SEACH} />
-        <TextInput
-          style={{ flex: 1, paddingLeft: 15, height: 36 }}
+        <STextInput
           onChangeText={onChangeNumber}
           value={number}
           placeholder="Search friend, message ..."

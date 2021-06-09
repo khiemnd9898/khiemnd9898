@@ -1,9 +1,8 @@
 import React, {memo} from 'react';
 import styled from "styled-components/native";
 import {BaseStyles} from "@/themes/BaseStyles";
-import {IC_IMAGE, IC_SEND} from "@/assets";
+import { IC_EMOJI, IC_IMAGE, IC_LIKE, IC_PLUS, IC_SEND } from "@/assets";
 import {Colors} from "@/themes/Colors";
-import {Gray1Icon} from "@/components";
 import {Keyboard} from "react-native";
 
 
@@ -13,8 +12,6 @@ const Container = styled.View`
   width: 100%;
   min-height: 56px;
   background-color: ${p => p.theme.backgroundColor};
-  border-top-width: 1px;
-  border-top-color: ${p => p.theme.divider};
 `;
 
 const TextInput = styled.TextInput`
@@ -28,7 +25,12 @@ const TextInput = styled.TextInput`
   border-radius: 20px;
   padding: 6px 40px 6px 12px;
 `;
-
+const Viewv = styled.View`
+  width: 30px;
+  padding-left: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+`;
 const ViewCenter = styled.View`
   flex: 1;
   padding-left: 12px;
@@ -42,11 +44,16 @@ const BtnSend = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 `;
+const IconEmoji=styled.Image`
+  width: 24px;
+  height: 24px;
+  tint-color:#4CAF50;
 
+`;
 const IconSend = styled.Image`
   width: 24px;
   height: 24px;
-  tint-color: #0077cc
+  tint-color:#4CAF50;
 `;
 
 const BtnImageAb = styled.TouchableOpacity`
@@ -59,23 +66,26 @@ const BtnImageAb = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const InsertComment = memo(function InsertComment() {
-    return (
-        <Container style={BaseStyles.viewShadow}>
-            <ViewCenter>
-                <TextInput
-                    placeholder={'Nhấp để bình luận'}
-                    placeholderTextColor={Colors.gray4}
-                    onBlur={Keyboard.dismiss}
-                    multiline={true}/>
-                <BtnImageAb>
-                    <Gray1Icon source={IC_IMAGE} />
-                </BtnImageAb>
-            </ViewCenter>
+export const InsertChat= memo(function InsertChat() {
+  return (
+    <Container style={BaseStyles.viewShadow}>
+      <Viewv>
+        <IconEmoji source={IC_PLUS} />
+      </Viewv>
+      <ViewCenter>
+        <TextInput
+          placeholder={'Input message...'}
+          placeholderTextColor={Colors.gray4}
+          onBlur={Keyboard.dismiss}
+          multiline={true}/>
+        <BtnImageAb>
+          <IconEmoji source={IC_EMOJI} />
+        </BtnImageAb>
+      </ViewCenter>
 
-            <BtnSend>
-                <IconSend source={IC_SEND}/>
-            </BtnSend>
-        </Container>
-    )
+      <BtnSend>
+        <IconSend source={IC_LIKE}/>
+      </BtnSend>
+    </Container>
+  )
 });

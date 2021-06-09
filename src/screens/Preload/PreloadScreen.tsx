@@ -43,7 +43,9 @@ export const PreloadScreen = memo(function HomeScreen() {
     }, []);
 
     useEffect(() => {
-        StatusBar.setBarStyle(currentTheme === 'dark' ? "light-content" : "dark-content")
+        if (currentTheme) {
+            StatusBar.setBarStyle(currentTheme === 'dark' ? "light-content" : "dark-content")
+        }
     }, [currentTheme]);
 
     useEffect(() => {
