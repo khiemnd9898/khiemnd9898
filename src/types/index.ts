@@ -87,3 +87,18 @@ export interface RawPost {
     images: string[];
     preview?: any
 }
+
+export interface RawNotification {
+    id: string;
+    content: string;
+    image: string;
+    seen: boolean;
+    created_at: string;
+}
+
+export interface RawFriendRequest {
+    id: string;
+    title: string;
+    subTitle: number | string;
+    image: string;
+}

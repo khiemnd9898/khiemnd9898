@@ -1,9 +1,13 @@
 import React, {memo, useState} from 'react';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
+import {useNotification} from '@/store/notification';
+import moment from 'moment';
+import 'moment/locale/vi';
 
-const Container = styled.TouchableOpacity<{color?: any}>`
-    background: ${p => (p.color ? p.color : p.theme.backgroundColor)};
+const Container = styled.TouchableOpacity<{seen?: boolean}>`
+    background: ${(p) =>
+        p.seen ? 'rgba(66, 149, 246, 0.2)' : p.theme.backgroundColor};
     padding: 7px 16px;
 `;
 const Row = styled.View`
@@ -37,26 +41,22 @@ interface Props {
 
 export const NotifyItem = memo(function NotifyItem(props: Props) {
     const {id} = props;
-
-    const [isSeen, setIsSeen] = useState(true);
+    const notification = useNotification(id);
+    const created_at = moment(notification?.created_at).startOf('day').fromNow();
 
     return (
-        <Container activeOpacity={0.4} onPress={() => {}}>
+        <Container
+            activeOpacity={0.4}
+            onPress={() => {}}
+            seen={notification?.seen}>
             <Row>
                 <ViewLeft>
-                    <Avatar
-                        source={{
-                            uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-                        }}
-                    />
+                    <Avatar source={{uri: notification?.image}} />
                 </ViewLeft>
 
                 <ViewRight>
-                    <StyledText>
-                        Kỳ Duyên, Lương Thuỳ Linh and others added to their
-                        stories.
-                    </StyledText>
-                    <SubTitle>10m</SubTitle>
+                    <StyledText>{notification?.content}</StyledText>
+                    <SubTitle>{created_at}</SubTitle>
                 </ViewRight>
             </Row>
         </Container>

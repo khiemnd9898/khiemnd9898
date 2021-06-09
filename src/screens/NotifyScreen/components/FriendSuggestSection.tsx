@@ -1,10 +1,13 @@
 import {Fonts} from '@/assets/fonts';
 import {Divider} from '@/components';
+import useAsyncFn from '@/hooks/useAsyncFn';
 import {RequestItem} from '@/screens/NotifyScreen/components/RequestItem';
+import {useSuggestionsByQuery} from '@/store/suggestion';
 import {BaseStyles} from '@/themes/BaseStyles';
 import {navigateFriendlySuggestScreen} from '@/utils/navigation';
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import styled from 'styled-components/native';
+import {requestSuggestList} from '@/store/suggestion/function';
 
 const Container = styled.View<{color?: string}>`
     margin-bottom: 12px;
@@ -30,39 +33,21 @@ const TextBtn = styled.Text<{color?: string}>`
     color: ${(p) => p.color || p.theme.gray1};
 `;
 
-const DATA = [
-    {
-        id: 1,
-        title: 'Ninh Dương Lan Ngọc',
-        subTitle: '1 mutual friend',
-        avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: true,
-    },
-    {
-        id: 2,
-        title: 'Lương Thuỳ Linh',
-        subTitle: '1 mutual friend',
-        avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: true,
-    },
-];
-
 export const FriendSuggestSection = memo(function FriendSuggestSection() {
+    const allSuggest = useSuggestionsByQuery('all') || [];
+    const [{}, getData] = useAsyncFn(async () => {
+        requestSuggestList();
+    });
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <Container>
             <StyledText>Friend Suggestion</StyledText>
 
-            {DATA.map((item, index) => {
-                return (
-                    <RequestItem
-                        key={index}
-                        id={item.id}
-                        title={item.title}
-                        avatar={item.avatar}
-                        subTitle={item.subTitle}
-                        suggestion={item.suggestion}
-                    />
-                );
+            {allSuggest.slice(0, 2).map((item, index) => {
+                return <RequestItem key={index} id={item.toString()} suggestion={true} />;
             })}
             <FooterBtn onPress={navigateFriendlySuggestScreen}>
                 <TextBtn>Show All</TextBtn>

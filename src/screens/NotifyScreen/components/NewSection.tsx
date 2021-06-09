@@ -1,7 +1,10 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {Fonts} from '@/assets/fonts';
 import {NotifyItem} from '@/screens/NotifyScreen/components/NotifyItem';
+import {useNotificationsByQuery} from '@/store/notification';
+import useAsyncFn from '@/hooks/useAsyncFn';
+import {requestGetNotificationList} from '@/store/notification/function';
 
 const Container = styled.View<{color?: string}>`
     background-color: ${(p) => p.color || p.theme.backgroundColor};
@@ -15,11 +18,21 @@ const StyledText = styled.Text`
 `;
 
 export const NewSection = memo(function NewSection() {
+    const allNotification = useNotificationsByQuery('all') || [];
+
+    const [{loading, error, value}, getData] = useAsyncFn(async () => {
+        requestGetNotificationList();
+    }, []);
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <Container>
             <StyledText>New</StyledText>
 
-            {Array.from(new Array(3).keys()).map((item, i) => (
+            {allNotification.slice(0, 2).map((item, i) => (
                 <NotifyItem id={item.toString()} key={i} />
             ))}
         </Container>
