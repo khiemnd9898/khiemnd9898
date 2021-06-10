@@ -7,6 +7,7 @@ import {
 import {TransitionPresets} from "@react-navigation/stack";
 import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
+import {ProfileScreenProps} from "@/screens/ProfileScreen/ProfileScreen"
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -83,6 +84,9 @@ export const navigateFriendlyRequestScreen = createNavigate(
 
 export const navigateFriendlySuggestScreen = createNavigate(
     'FriendlySuggestScreen'
+);
+export const navigateProfileScreen = createNavigate<ProfileScreenProps>(
+  'ProfileScreen'
 );
 
 

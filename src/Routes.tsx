@@ -20,6 +20,8 @@ import {CommentScreen} from "@/screens/Comment/CommentScreen";
 import {WritePostScreen} from "@/screens/Write/WritePostScreen";
 import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
 import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
+import {ProfileScreen} from "@/screens/ProfileScreen/ProfileScreen";
+import {PostComponent} from "@/components/PostComponent";
 import {ChatScreen} from "@/screens/MessScreens/components/ChatScreen";
 import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScreen";
 
@@ -103,6 +105,10 @@ const MainStackComponent = memo(function MainStackComponent() {
             <MainStack.Screen name={'OTPScreen'} component={OTPScreen}/>
             <MainStack.Screen name={'RegisterScreen'} component={RegisterScreen}/>
             <MainStack.Screen name={'MessScreen'} component={MessScreen}/>
+
+          <MainStack.Screen name={'PostComponent'} component={PostComponent}/>
+
+
         </MainStack.Navigator>
     );
 });
@@ -118,6 +124,8 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
             <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
             <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
+          <MainStack.Screen name={'MessengerScreen'} component={ChatScreen}/>
+          <MainStack.Screen name={'ProfileScreen'} component={ProfileScreen}/>
         </ModalStack.Navigator>
     );
 });
