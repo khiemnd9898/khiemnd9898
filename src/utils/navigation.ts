@@ -81,6 +81,10 @@ export const navigateFriendlyRequestScreen = createNavigate(
     'FriendlyRequestScreen'
 );
 
+export const navigateFriendlySuggestScreen = createNavigate(
+    'FriendlySuggestScreen'
+);
+
 
 /**
  * USAGE EXAMPLE:

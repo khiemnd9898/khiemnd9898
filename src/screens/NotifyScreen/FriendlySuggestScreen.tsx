@@ -1,11 +1,11 @@
-import React, {memo, useEffect} from 'react';
-import styled from 'styled-components/native';
 import {HeaderBack} from '@/components/HeaderBack';
-import {FlatList} from 'react-native';
-import {RequestItem} from '@/screens/NotifyScreen/components/RequestItem';
-import {useRequestsByQuery} from '@/store/request';
 import useAsyncFn from '@/hooks/useAsyncFn';
-import {requestRequestList} from '@/store/request/function';
+import {RequestItem} from '@/screens/NotifyScreen/components/RequestItem';
+import {useSuggestionsByQuery} from '@/store/suggestion';
+import {requestSuggestList} from '@/store/suggestion/function';
+import React, {memo, useEffect} from 'react';
+import {FlatList} from 'react-native';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
     flex: 1;
@@ -13,15 +13,14 @@ const Container = styled.View`
 `;
 
 const renderItem = ({item}: any) => (
-    <RequestItem id={item.toString()} suggestion={false} />
+    <RequestItem id={item.toString()} suggestion={true} />
 );
 const keyExtractor = (item: any) => item.toString();
 
-export const FriendlyRequestScreen = memo(function FriendlyRequestScreen() {
-    const allRequest = useRequestsByQuery('all') || [];
-
+export const FriendlySuggestScreen = memo(function FriendlySuggestScreen() {
+    const allSuggest = useSuggestionsByQuery('all') || [];
     const [{}, getData] = useAsyncFn(async () => {
-        requestRequestList();
+        requestSuggestList();
     }, []);
     useEffect(() => {
         getData();
@@ -29,10 +28,10 @@ export const FriendlyRequestScreen = memo(function FriendlyRequestScreen() {
 
     return (
         <Container>
-            <HeaderBack title={'Tất cả lời mời'} />
+            <HeaderBack title={'Tất cả gợi ý'} />
             <FlatList
                 contentContainerStyle={{paddingVertical: 16}}
-                data={allRequest}
+                data={allSuggest}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
             />
