@@ -24,6 +24,7 @@ import {ChatScreen} from "@/screens/MessScreens/components/ChatScreen";
 import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScreen";
 import {MarketScreen} from "@/screens/Market/MarketScreen";
 import {MarketDetailScreen} from "@/screens/Market/MarketDetailScreen";
+import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 
 
 const RootStack = createStackNavigator();
@@ -144,7 +145,8 @@ export const Routes = memo(function Routes() {
             <RootStack.Navigator initialRouteName={'Root'} headerMode={'none'} mode={'modal'}>
                 <RootStack.Screen name={'Root'} component={ModalStackComponent}/>
                 <RootStack.Screen name={'VideoScreen'} component={VideoScreen}/>
-                <RootStack.Screen name={'WritePostScreen'} component={WritePostScreen}/>
+                <RootStack.Screen name={'WritePostScreen'} component={WritePostScreen} />
+                <ModalStack.Screen name={'SelectAlbumScreen'} component={SelectAlbumScreen}/>
             </RootStack.Navigator>
         </NavigationContainer>
     );

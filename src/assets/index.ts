@@ -13,6 +13,7 @@ export const IC_CHECK_ROUND = require("./icons/check-round.png");
 export const IC_CHECK_BOX = require("./icons/checkbox.png");
 export const IC_FILTER = require("./icons/ic-filter.png");
 export const IC_DROPDOWN = require("./icons/ic_drop_down.png");
+export const IC_ADD = require("./icons/add-follower.png");
 
 export const IC_CALENDAR = require("./icons/calendar.png");
 
