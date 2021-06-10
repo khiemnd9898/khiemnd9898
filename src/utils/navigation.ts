@@ -7,6 +7,7 @@ import {
 import {TransitionPresets} from "@react-navigation/stack";
 import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
+import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -83,6 +84,10 @@ export const navigateFriendlyRequestScreen = createNavigate(
 
 export const navigateFriendlySuggestScreen = createNavigate(
     'FriendlySuggestScreen'
+);
+
+export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps>(
+    'MarketDetailScreen'
 );
 
 

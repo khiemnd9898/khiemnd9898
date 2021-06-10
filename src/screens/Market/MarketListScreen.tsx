@@ -1,11 +1,12 @@
-import React, {memo, useEffect, useRef, useState} from 'react';
+import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import styled from "styled-components/native";
 import {DataProvider, LayoutProvider, RecyclerListView} from "recyclerlistview";
 import {Dimensions, StyleSheet} from "react-native";
 import {useAsyncFn} from "@/hooks/useAsyncFn";
 import FastImage from "react-native-fast-image";
 import {Fonts} from "@/assets/fonts";
-import {MarketLoadingComponent} from "@/screens/Market/MarketLoadingComponent"; // 1.2.2
+import {MarketLoadingComponent} from "@/screens/Market/MarketLoadingComponent";
+import {navigateMarketDetailScreen} from "@/utils/navigation"; // 1.2.2
 
 const {width} = Dimensions.get('window');
 const SCREEN_WIDTH = width - 32;
@@ -20,7 +21,7 @@ const Container = styled.View`
   padding: 0 16px;
 `;
 
-const ItemContainer = styled.View`
+const ItemContainer = styled.TouchableOpacity`
   overflow: hidden;
   width: ${ITEM_WIDTH - PRODUCT_ITEM_OFFSET}px;
   height: ${PRODUCT_ITEM_HEIGHT}px;
@@ -44,9 +45,17 @@ const keyExtractor = (item: any) => {
     return item.toString();
 };
 
-const renderItem = (type: any, data: any) => {
+interface Props {
+    data: any
+}
+const Item = memo((props: Props) => {
+    const {data} = props;
+    const onDetail = useCallback(() => {
+        navigateMarketDetailScreen({id: '1'})
+    }, []);
+
     return (
-        <ItemContainer>
+        <ItemContainer onPress={onDetail}>
             <ItemImage
                 source={{uri: data?.avatar || ""}}
                 resizeMode={"cover"}
@@ -55,6 +64,12 @@ const renderItem = (type: any, data: any) => {
                 500.000 VNĐ
             </Price>
         </ItemContainer>
+    )
+});
+
+const renderItem = (type: any, data: any) => {
+    return (
+        <Item data={data}/>
     );
 };
 
@@ -82,7 +97,7 @@ export const MarketListScreen = memo(function MarketListScreen() {
         try {
             let result = [];
 
-            for (let i = 0; i<1000; i++) {
+            for (let i = 0; i < 1000; i++) {
                 const _index = Math.floor(Math.random() * avatars.length);
                 result.push({
                     id: i.toString(),
