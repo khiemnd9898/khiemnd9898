@@ -50,7 +50,7 @@ const STabBarIndicator = styled(TabBarIndicator)`
   background-color: ${p => p.theme.gray1};
 `;
 
-export const MarketScreen = memo(function MarketScreen() {
+export const MarketDetailScreen = memo(function MarketDetailScreen() {
     const [route, setRoute] = useState({
         index: 0,
         routes: [
