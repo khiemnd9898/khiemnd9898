@@ -22,7 +22,6 @@ const Container = styled.View`
 
 const ItemContainer = styled.View`
   overflow: hidden;
-  border-radius: 3px;
   width: ${ITEM_WIDTH - PRODUCT_ITEM_OFFSET}px;
   height: ${PRODUCT_ITEM_HEIGHT}px;
   flex-direction: column;
@@ -31,14 +30,14 @@ const ItemContainer = styled.View`
 const ItemImage = styled(FastImage)`
   width: ${ITEM_WIDTH - PRODUCT_ITEM_OFFSET}px;
   height: ${PRODUCT_ITEM_HEIGHT - 30}px;
-  border-radius: 8px;
+  border-radius: 4px;
 `;
 
 const Price = styled.Text`
   font-size: 15px;
   color: #fff;
   font-family: ${Fonts.Medium};
-  padding-top: 8px;
+  padding-top: 2px;
 `;
 
 const keyExtractor = (item: any) => {
