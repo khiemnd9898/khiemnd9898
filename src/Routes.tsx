@@ -22,6 +22,7 @@ import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
 import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
 import {ChatScreen} from "@/screens/MessScreens/components/ChatScreen";
 import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScreen";
+import {MarketScreen} from "@/screens/Market/MarketScreen";
 
 
 const RootStack = createStackNavigator();
@@ -53,7 +54,7 @@ const TabBarStackComponent = memo(function TabBarStackComponent() {
                         <TabBarIcon isFocused={focused} icon={IC_TAB_MARKET}/>
                     ),
                 }}
-                component={HomeScreen}
+                component={MarketScreen}
             />
             <TabBarStack.Screen
                 name={'Messenger'}
@@ -118,6 +119,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
             <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
             <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
+            <ModalStack.Screen name={'FriendlySuggestScreen'} component={FriendlySuggestScreen}/>
         </ModalStack.Navigator>
     );
 });
