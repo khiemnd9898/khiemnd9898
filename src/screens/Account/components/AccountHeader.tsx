@@ -30,7 +30,6 @@ const Header = styled.TouchableOpacity`
 export const AccountHeader = memo(function AccountHeader() {
   return (
     <Container>
-      <Divider height={9} />
       <Header>
         <Image
           source={{ uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg" }} />

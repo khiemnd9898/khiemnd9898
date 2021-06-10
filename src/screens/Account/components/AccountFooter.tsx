@@ -27,6 +27,7 @@ const Name = styled.Text`
 const Header = styled.View`
   padding: 0 0 0 16px;
   height:264px;
+  margin-bottom: 5px;
   flex-direction: column;
 `;
 const ButtonIcon=styled.TouchableOpacity`

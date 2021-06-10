@@ -2,25 +2,32 @@ import React, { memo, useCallback, useState } from "react";
 import styled from "styled-components/native";
 import { setThemeAction, useTheme } from "@/store/constant";
 import { StatusBar, Switch } from "react-native";
-import { View } from "react-native-animatable";
+import { IC_CHANGETHEMES } from "@/assets";
 
 const Container = styled.View`
   flex: 1;
+  flex-direction: row;
 `;
-
-const BtnChangeTheme = styled.TouchableOpacity`
-  width: 120px;
-  height: 44px;
+const ViewIcon = styled.View`
   align-items: center;
+  flex-direction: row;
+  flex:9;
+`;
+const ViewSwitch = styled.View`
   justify-content: center;
-  background-color: ${props => props.theme.backgroundColor2};
+  flex: 1;
 `;
-
-const TextChangeTheme = styled.Text`
-  font-size: 14px;
+const Icon=styled.Image`
+  width: 20px;
+  height: 20px;
+  tint-color: ${p => p.theme.gray1};
+`;
+const Name = styled.Text`
+  font-size: 13px;
   color: ${p => p.theme.gray1};
+  padding-left: 18px;
+  line-height: 44px;
 `;
-
 export const ChangeThemes = memo(function ChangeThemes() {
   const currentTheme = useTheme();
 
@@ -33,7 +40,11 @@ export const ChangeThemes = memo(function ChangeThemes() {
   console.log('vcurrentTheme ', currentTheme)
   return (
     <Container>
-      <View style={{ justifyContent: "flex-end" }}>
+      <ViewIcon>
+        <Icon source={IC_CHANGETHEMES}/>
+        <Name>Changes Themes </Name>
+      </ViewIcon>
+      <ViewSwitch>
         <Switch trackColor={{ false: "#999", true: "#eee" }}
                 thumbColor={currentTheme === 'dark' ? "#999" : "#111"}
                 onValueChange={onChangeTheme}
@@ -44,7 +55,7 @@ export const ChangeThemes = memo(function ChangeThemes() {
             Change theme
           </TextChangeTheme>
         </BtnChangeTheme>*/}
-      </View>
+      </ViewSwitch>
     </Container>
   );
 });

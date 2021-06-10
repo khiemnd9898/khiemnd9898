@@ -26,6 +26,7 @@ const Name = styled.Text`
 const Header = styled.View`
   padding: 0 0 0 16px;
   height:200px;
+  margin-bottom: 5px;
   flex-direction: column;
 `;
 const ButtonIcon=styled.TouchableOpacity`
@@ -34,7 +35,7 @@ const ButtonIcon=styled.TouchableOpacity`
   align-items: center;
   padding-left: 5px;
 `;
-const Changethemes = styled.View`
+const Themes = styled.View`
   flex:1;
   flex-direction:row;
   align-items: center;
@@ -47,9 +48,9 @@ export const AccountCenter = memo(function AccountCenter() {
     <Container>
       <Divider height={20} />
       <Header>
-        <Changethemes>
+        <Themes>
           <ChangeThemes />
-        </Changethemes>
+        </Themes>
         <ButtonIcon>
           <Icondownload source={IC_DOCUMENT1}/>
           <Name>News feed </Name>
