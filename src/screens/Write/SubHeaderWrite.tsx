@@ -2,10 +2,12 @@ import React, {useCallback, useState} from 'react';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 import {Fonts} from '@/assets/fonts';
-import {IC_CLOCK, IC_CLOSE, IC_DROPDOWN, IC_GLOBAL, IC_USER} from '@/assets';
+import {IC_CLOCK, IC_DROPDOWN, IC_GLOBAL, IC_USER} from '@/assets';
 import useBoolean from '@/hooks/useBoolean';
 import {BottomMenuSelector} from '@/components/BottomMenu';
-import {RoleNameEnum, AlbumNameEnum} from '@/screens/Write/index';
+import {RoleNameEnum} from '@/screens/Write/index';
+import {navigateSelectAlbumScreen, navigation} from '@/utils/navigation';
+import {ListAlbum} from '@/screens/Write/index';
 
 const Container = styled.View`
     justify-content: center;
@@ -77,35 +79,7 @@ const options = [
         icon: IC_USER,
     },
 ];
-const options2 = [
-    {
-        label: 'General',
-        value: AlbumNameEnum.general,
-        icon: IC_GLOBAL,
-    },
-    {
-        label: 'Album 1',
-        value: AlbumNameEnum.album1,
-        icon: IC_GLOBAL,
-    },
-    {
-        label: 'Album 2',
-        value: AlbumNameEnum.album2,
-        icon: IC_GLOBAL,
-    },
-    {
-        label: 'Album 3',
-        value: AlbumNameEnum.album3,
-        icon: IC_GLOBAL,
-    },
-];
 
-const AlbumName: {[id: string]: string} = {
-    general: 'General',
-    album1: 'Album1',
-    album2: 'Album2',
-    album3: 'Album3',
-};
 const RoleName: {[id: string]: string} = {
     public: 'Công khai',
     private: 'Chỉ mình tôi',
@@ -114,15 +88,19 @@ const RoleName: {[id: string]: string} = {
 
 const SubHeaderWrite = () => {
     const [roleVisible, showRoleMenu, hideRoleMenu] = useBoolean(false);
-    const [albumVisible, showAlbumMenu, hideAlbumMenu] = useBoolean(false);
     const [role, setRole] = useState<string>(RoleNameEnum.public);
-    const [album, setAlbum] = useState<string>(AlbumNameEnum.general);
+    const [album, setAlbum] = useState<string>('0');
 
     const onSelectRoleOption = useCallback((keyName: string, value: string) => {
         setRole(value);
     }, []);
-    const onSelectAlbumOption = useCallback((keyName: string, value: string) => {
-        setAlbum(value);
+
+    const handleSelectAlbum = useCallback(() => {
+        navigateSelectAlbumScreen({
+            onSelect: (id: string) => {
+                setAlbum(id);
+            },
+        });
     }, []);
 
     return (
@@ -141,9 +119,9 @@ const SubHeaderWrite = () => {
                         <StyledText>Ninh Dương Lan Ngọc</StyledText>
 
                         <ActionSection>
-                            <ActionBtn onPress={showAlbumMenu}>
+                            <ActionBtn onPress={handleSelectAlbum}>
                                 <ActionBtnText>
-                                    {AlbumName[album]}
+                                    {ListAlbum[album]}
                                 </ActionBtnText>
                                 <IconDropdown
                                     resizeMode={'contain'}
@@ -167,15 +145,6 @@ const SubHeaderWrite = () => {
                 onHide={hideRoleMenu}
                 options={options}
                 onSelectOption={onSelectRoleOption}
-                inputName={'keyname'}
-                selectedValue={role}
-                label={''}
-            />
-            <BottomMenuSelector
-                visible={albumVisible}
-                onHide={hideAlbumMenu}
-                options={options2}
-                onSelectOption={onSelectAlbumOption}
                 inputName={'keyname'}
                 selectedValue={role}
                 label={''}
