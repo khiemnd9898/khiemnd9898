@@ -5,8 +5,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import {setStore} from '@/store/getStore';
 import {constantReducer, constantSetStore} from '@/store/constant';
-import {categoryReducer, setCategoriesStore} from "@/store/categories";
-import {postReducer, setPostsStore} from "@/store/post";
+import {categoryReducer, setCategoriesStore} from '@/store/categories';
+import {postReducer, setPostsStore} from '@/store/post';
+import {notificationReducer, setNotificationStore} from '@/store/notification';
+import {requestReducer, setRequestStore} from '@/store/request';
+import {suggestionReducer, setSuggestionStore} from '@/store/suggestion';
 
 const middlewares: any[] = [];
 
@@ -16,6 +19,9 @@ const appReducer = combineReducers({
     constant: constantReducer,
     categories: categoryReducer,
     posts: postReducer,
+    notifications: notificationReducer,
+    requests: requestReducer,
+    suggestions: suggestionReducer,
 });
 
 const rootReducer = (state: any, action: any) => {
@@ -51,4 +57,7 @@ export default store;
 setStore(store);
 setCategoriesStore(store);
 setPostsStore(store);
+setNotificationStore(store);
+setRequestStore(store);
+setSuggestionStore(store);
 constantSetStore(store);

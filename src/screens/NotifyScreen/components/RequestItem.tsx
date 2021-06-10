@@ -1,16 +1,13 @@
-import {
-    IC_BOOK_MARK,
-    IC_EYE_HIDE,
-    IC_FLAG,
-    IC_MINUS_CIRCLE,
-    IC_MORE,
-} from '@/assets';
+import {IC_BOOK_MARK, IC_EYE_HIDE, IC_FLAG, IC_MORE} from '@/assets';
 import {BottomMenuSelector} from '@/components/BottomMenu';
 import useBoolean from '@/hooks/useBoolean';
+import {useRequest} from '@/store/request';
+import {useSuggestion} from '@/store/suggestion';
 import {Colors} from '@/themes/Colors';
 import React, {memo, useCallback} from 'react';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
+import moment from 'moment';
 
 const Row = styled.View`
     flex-direction: row;
@@ -23,7 +20,8 @@ const ViewLeft = styled.View`
 const Avatar = styled(FastImage)`
     width: 50px;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 32px;
+    background-color: ${p => p.theme.gray5};
 `;
 const ViewRight = styled.View`
     flex: 6;
@@ -32,6 +30,9 @@ const ViewRight = styled.View`
 const StyledText = styled.Text`
     color: ${(p) => p.theme.gray1};
     line-height: 20px;
+`;
+const StyledTextBold = styled(StyledText)`
+    font-weight: bold;
 `;
 const SubTitle = styled.Text`
     color: ${(p) => p.theme.gray3};
@@ -44,6 +45,9 @@ const RowInfo = styled.View`
 `;
 const InfoSection = styled.View`
     flex: 6;
+`;
+const RowInfoText = styled.View`
+    flex-direction: row;
 `;
 const BtnMoreInfo = styled.TouchableOpacity`
     justify-content: center;
@@ -97,15 +101,13 @@ const menuOptions = [
 ];
 
 interface Props {
-    id: number;
-    title: string;
-    avatar: string;
-    subTitle: string;
+    id: string;
     suggestion?: boolean;
 }
 
 export const RequestItem = memo(function RequestItem(props: Props) {
-    const {id, title, subTitle, avatar, suggestion} = props;
+    const {id, suggestion} = props;
+    const item = suggestion ? useSuggestion(id) : useRequest(id);
     const [isShowMenu, setShowMenu, setHideMenu] = useBoolean(false);
 
     const onSelectOption = useCallback((keyName: string, value: string) => {
@@ -114,18 +116,30 @@ export const RequestItem = memo(function RequestItem(props: Props) {
         }
     }, []);
 
+    if (!item) return null;
     return (
         <>
             <Row>
                 <ViewLeft>
-                    <Avatar source={{uri: avatar}} />
+                    <Avatar source={{uri: item?.image}} />
                 </ViewLeft>
 
                 <ViewRight>
                     <RowInfo>
                         <InfoSection>
-                            <StyledText>{title}</StyledText>
-                            <SubTitle>{subTitle}</SubTitle>
+                            <RowInfoText>
+                                <StyledTextBold>{item?.title}</StyledTextBold>
+                                {!suggestion ? (
+                                    <StyledText>
+                                        &nbsp;sent you a friend request.
+                                    </StyledText>
+                                ) : null}
+                            </RowInfoText>
+                            <SubTitle>
+                                {suggestion
+                                    ? `${item?.subTitle} bạn chung`
+                                    : `${moment(item?.subTitle).startOf('day').fromNow()}`}
+                            </SubTitle>
                         </InfoSection>
 
                         {!suggestion ? (

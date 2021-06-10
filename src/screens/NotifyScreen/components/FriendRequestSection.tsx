@@ -1,10 +1,13 @@
-import React, {memo} from 'react';
-import styled from 'styled-components/native';
 import {Fonts} from '@/assets/fonts';
-import {RequestItem} from '@/screens/NotifyScreen/components/RequestItem';
 import {Divider} from '@/components';
+import useAsyncFn from '@/hooks/useAsyncFn';
+import {RequestItem} from '@/screens/NotifyScreen/components/RequestItem';
+import {useRequestsByQuery} from '@/store/request';
+import {requestRequestList} from '@/store/request/function';
 import {BaseStyles} from '@/themes/BaseStyles';
 import {navigateFriendlyRequestScreen} from '@/utils/navigation';
+import React, {memo, useEffect} from 'react';
+import styled from 'styled-components/native';
 
 const Container = styled.View<{color?: string}>`
     margin-bottom: 12px;
@@ -31,40 +34,29 @@ const TextBtn = styled.Text<{color?: string}>`
     color: ${(p) => p.color || p.theme.gray1};
 `;
 
-const DATA = [
-    {
-        id: 1,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '4d',
-        avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
-    },
-    {
-        id: 2,
-        title: 'Lương Thuỳ Linh sent you a friend request.',
-        subTitle: '3d',
-        avatar: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg',
-        suggestion: false,
-    },
-];
-
 export const FriendRequestSection = memo(function FriendRequestSection() {
+    const allRequest = useRequestsByQuery('all') || [];
+
+    const [{}, getData] = useAsyncFn(async () => {
+        requestRequestList();
+    }, []);
+    useEffect(() => {
+        getData();
+    }, []);
+
+    if (allRequest.length === 0) return null;
+
     return (
         <Container>
             <StyledText>Friend Request</StyledText>
 
-            {DATA.map((item, index) => {
-                return (
-                    <RequestItem
-                        key={index}
-                        id={item.id}
-                        title={item.title}
-                        avatar={item.avatar}
-                        subTitle={item.subTitle}
-                        suggestion={item.suggestion}
-                    />
-                );
-            })}
+            {allRequest.slice(0, 2).map((item, index) => (
+                <RequestItem
+                    key={index}
+                    id={item.toString()}
+                    suggestion={false}
+                />
+            ))}
 
             <FooterBtn onPress={navigateFriendlyRequestScreen}>
                 <TextBtn>Show All</TextBtn>
