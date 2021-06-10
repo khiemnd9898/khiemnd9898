@@ -6,27 +6,28 @@ import {Divider} from "@/components";
 
 const Container = styled.View`
   width: 100%;
-  padding-top: ${getStatusBarHeight()};
   background-color: ${p => p.theme.backgroundColor1};
+  padding: 12px 16px
 `;
 const Image = styled.Image`
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   border-radius: ${60 / 2}px;
 `;
 const Name = styled.Text`
-  font-size: 13px;
+  font-size: 15px;
   color: ${p => p.theme.gray1};
   font-family: ${Fonts.Medium};
-  padding-left: 13px;
   line-height: 20px;
+  padding-left: 12px;
 `;
 const Header = styled.TouchableOpacity`
-  padding: 0 0 0 16px;
-  height:53px;
+  height:44px;
   align-items: center;
   flex-direction: row;
 `;
+
+
 export const AccountHeader = memo(function AccountHeader() {
   return (
     <Container>

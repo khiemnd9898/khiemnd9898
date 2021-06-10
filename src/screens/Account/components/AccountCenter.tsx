@@ -24,22 +24,21 @@ const Name = styled.Text`
   line-height: 44px;
 `;
 const Header = styled.View`
-  padding: 0 0 0 16px;
-  height:200px;
   margin-bottom: 5px;
   flex-direction: column;
 `;
 const ButtonIcon=styled.TouchableOpacity`
-  flex:1;
+  width: 100%;
   flex-direction:row;
   align-items: center;
-  padding-left: 5px;
+  padding: 0 16px;
+  height: 44px;
 `;
 const Themes = styled.View`
-  flex:1;
+  width: 100%;
   flex-direction:row;
   align-items: center;
-  padding-left: 5px;
+  padding: 0 16px;
 `;
 
 
