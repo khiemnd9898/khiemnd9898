@@ -8,6 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import FastImage from "react-native-fast-image";
 import {BaseStyles} from "@/themes/BaseStyles";
 import {Colors} from "@/themes/Colors";
+import SubHeaderWrite from './SubHeaderWrite';
 
 const Container = styled.View`
   flex: 1;
@@ -103,7 +104,8 @@ export const WritePostScreen = memo(function WritePostScreen() {
 
     return (
         <Container>
-            <HeaderWrite/>
+            <HeaderWrite />
+            <SubHeaderWrite />
             <Container>
                 <Input
                     multiline={true}
