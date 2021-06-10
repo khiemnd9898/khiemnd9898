@@ -8,7 +8,6 @@ const Container = styled.View`
   background-color: ${p => p.theme.backgroundColor};
 `;
 
-
 export const MessScreen = memo(function MessScreen() {
   return (
     <Container>

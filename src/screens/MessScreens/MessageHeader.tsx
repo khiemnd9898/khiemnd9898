@@ -74,37 +74,36 @@ const TextViewInput = styled.View`
 
 const STextInput = styled.TextInput`
   flex: 1;
-  height: 36px;
-  margin: 0;
+  height:36px;
+  margin: 0px;
   padding: 0 0 0 12px;
 `;
 
 export const MessHeader = memo(function MessHeader() {
-    const [number, onChangeNumber] = React.useState(""); // string ko có thì để rỗng
-    return (
-        <Container>
-            <Row>
-                <Avatar
-                    source={{uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg"}}/>
-                <ViewFull>
-                    <TextMind numberOfLines={1}>
-                        Định Pu
-                    </TextMind>
-                </ViewFull>
-                <ButtonIcon>
-                    <IconPlus resizeMode={"contain"} source={IC_PLUS}/>
-                </ButtonIcon>
-            </Row>
-            <TextViewInput>
-                <SearchIcon source={IC_SEACH}/>
-                <STextInput
-                    onChangeText={onChangeNumber}
-                    value={number}
-                    placeholder="Search friend, message ..."
-                />
-            </TextViewInput>
-
-
-        </Container>
-    );
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(""); // string ko có thì để rỗng
+  return (
+    <Container>
+      <Row>
+        <Avatar
+          source={{ uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg" }} />
+        <ViewFull>
+          <TextMind numberOfLines={1}>
+            Định Pu
+          </TextMind>
+        </ViewFull>
+        <ButtonIcon>
+          <IconPlus resizeMode={"contain"} source={IC_PLUS} />
+        </ButtonIcon>
+      </Row>
+      <TextViewInput>
+        <SearchIcon source={IC_SEACH} />
+        <STextInput
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Search friend, message ..."
+        />
+      </TextViewInput>
+    </Container>
+  );
 });
