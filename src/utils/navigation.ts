@@ -9,6 +9,8 @@ import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
 import {ProfileScreenProps} from "@/screens/ProfileScreen/ProfileScreen"
 
+import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
+
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
@@ -87,6 +89,10 @@ export const navigateFriendlySuggestScreen = createNavigate(
 );
 export const navigateProfileScreen = createNavigate<ProfileScreenProps>(
   'ProfileScreen'
+);
+
+export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps>(
+    'MarketDetailScreen'
 );
 
 

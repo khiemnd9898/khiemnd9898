@@ -1,111 +1,54 @@
-import React, {memo, useCallback, useState} from "react";
+import React, {memo} from "react";
 import styled from "styled-components/native";
+import {useNavigationParams} from "@/hooks/useNavigationParams";
+import {Dimensions, ScrollView} from "react-native";
+import FastImage from "react-native-fast-image";
 import {getStatusBarHeight} from "react-native-status-bar-height";
-import {Fonts} from "@/assets/fonts";
-import {TouchableOpacity, View} from "react-native";
-import {IC_HOME_SEARCH} from "@/assets";
-import {TabBar, TabBarIndicator, TabView} from 'react-native-tab-view';
-import {MarketListScreen} from "@/screens/Market/MarketListScreen";
+import {Gray1Icon} from "@/components";
+import {IC_BACK} from "@/assets";
+
+const {width} = Dimensions.get("window");
+
+const HeaderImageWidth = width;
+const HeaderImageHeight = (16 / 9) * width;
 
 const Container = styled.View`
   flex: 1;
   background-color: ${p => p.theme.backgroundColor};
 `;
 
-const Header = styled.View`
-  width: 100%;
-  height: ${56 + getStatusBarHeight()}px;
-  padding-top: ${getStatusBarHeight()}px;
+const BackAbsolute = styled.TouchableOpacity`
+  position: absolute;
+  top: ${getStatusBarHeight()}px;
+  left: 0;
+  width: 60px;
+  height: 56px;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px; 
+  padding-left: 16px;
 `;
 
-const HeaderTitle = styled.Text`
-  font-size: 25px;
-  font-family: ${Fonts.Medium};
-  color: ${p => p.theme.gray1}
+
+const HeaderImage = styled(FastImage)`
+  width: ${HeaderImageWidth}px;
+  height: ${HeaderImageHeight}px;
 `;
 
-const Icon = styled.Image`
-  width: 24px;
-  height: 24px;
-  tint-color: ${p => p.theme.gray1}
-`;
-
-const STabBar = styled(TabBar).attrs((props) => ({
-    tabStyle: {
-        paddingHorizontal: 20,
-        width: 'auto'
-    },
-    activeColor: props.theme.gray1,
-    inactiveColor: props.theme.gray3
-}))`
-  background-color: ${p => p.theme.backgroundColor};
-`;
-
-const STabBarIndicator = styled(TabBarIndicator)`
-  background-color: ${p => p.theme.gray1};
-`;
+export interface MarketDetailScreenProps {
+    id: string
+}
 
 export const MarketDetailScreen = memo(function MarketDetailScreen() {
-    const [route, setRoute] = useState({
-        index: 0,
-        routes: [
-            {key: 'first', title: 'WOMAN FASHION'},
-            {key: 'second', title: 'Bag'},
-            {key: '333', title: 'Beauty'},
-            {key: '2', title: 'Handbag'},
-            {key: '22', title: 'Fashion'},
-            {key: '11', title: 'Second'},
-        ]
-    });
-
-    const renderScene = ({route}: any) => {
-        return <MarketListScreen/>
-    };
-
-    const handleIndexChange = (_index: number) => setRoute({...route, index: _index});
-
-    const renderTabBarIndicator = useCallback((props) => {
-        return (
-            <STabBarIndicator {...props}/>
-        )
-    }, []);
-
-    const renderTabBar = useCallback((props) => {
-        return (
-            <STabBar scrollEnabled={true}
-                     lazy={true}
-                     renderIndicator={renderTabBarIndicator}
-                     {...props} />
-        )
-    }, [renderTabBarIndicator]);
-
-    const renderLazyPlaceholder = useCallback(() => {
-        return <View/>
-    }, []);
+    const {id} = useNavigationParams<MarketDetailScreenProps>();
 
     return (
         <Container>
-            <Header>
-                <HeaderTitle>
-                    Market
-                </HeaderTitle>
-                <TouchableOpacity>
-                    <Icon source={IC_HOME_SEARCH}/>
-                </TouchableOpacity>
-            </Header>
-            <TabView
-                navigationState={route}
-                renderScene={renderScene}
-                onIndexChange={handleIndexChange}
-                renderTabBar={renderTabBar}
-                renderLazyPlaceholder={renderLazyPlaceholder}
-            />
-
+            <BackAbsolute>
+                <Gray1Icon source={IC_BACK} />
+            </BackAbsolute>
+            <ScrollView>
+                <HeaderImage source={{uri: 'https://hinhanhdep.org/wp-content/uploads/2016/07/anh-avatar-girl-xinh.jpg'}} />
+            </ScrollView>
         </Container>
     )
 });
