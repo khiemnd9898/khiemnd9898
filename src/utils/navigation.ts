@@ -7,10 +7,7 @@ import {
 import {TransitionPresets} from "@react-navigation/stack";
 import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
-<<<<<<< HEAD
 import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
-=======
->>>>>>> c323b3f9ef74d1d438faf1359c2c711b6c671673
 import {SelectAlbumProps} from '@/screens/SelectAlbum/SelectAlbumScreen'
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;

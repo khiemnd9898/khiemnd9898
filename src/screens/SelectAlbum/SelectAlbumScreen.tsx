@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import styled from 'styled-components/native';
 import {HeaderBack} from '@/components/HeaderBack';
 import {AlbumItem} from '@/screens/SelectAlbum/components/AlbumItem';
@@ -46,13 +46,13 @@ export interface SelectAlbumProps {
     onSelect: (id: string) => void;
 }
 
+const keyExtractor = (item: any) => item.toString();
 export const SelectAlbumScreen = memo(function SelectAlbumScreen() {
     const {onSelect} = useNavigationParams();
 
-    const keyExtractor = (item: any) => item.toString();
-    const renderItem = ({item}: any) => (
+    const renderItem = useCallback(({item}: any) => (
         <AlbumItem id={item.toString()} onSelect={onSelect} />
-    );
+    ), []);
 
     return (
         <Container>
