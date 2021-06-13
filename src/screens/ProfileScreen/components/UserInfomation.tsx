@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components/native";
-import { IC_HEART, IC_MORE, IC_PLUS } from "@/assets";
+import { IC_CLOCK, IC_GRADUATED, IC_HEART, IC_LOCATION, IC_MORE, IC_PLUS, IC_TAB_HOME } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 import { Divider } from "@/components";
 
@@ -9,7 +9,7 @@ const Container = styled.View`
   background-color: ${p => p.theme.backgroundColor};
 `;
 const Nameuser = styled.View`
-  padding: 10px 0 5px 0;
+  padding: 5px 0 10px 0;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
@@ -28,12 +28,11 @@ const TextName1 = styled.Text`
 `;
 const ViewButton = styled.View`
   flex-direction: row;
-  padding: 10px 16px 20px 16px;
+  padding: 10px 16px 10px 16px;
 `;
 const Buttoninfo = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
-  height: 36px;
   background-color: #253391;
   border-radius: 10px;
   align-items: center;
@@ -52,12 +51,13 @@ const Des = styled.Text`
   font-size: 13px;
   padding-left: 10px;
   line-height: 19px;
-  color: ${p => p.theme.gray5};
+  color: #fff;
   font-family: ${Fonts.Medium};
 `;
 const ButtonImage = styled.Image`
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
+  tint-color: #fff;
 `;
 const ButtonImage1 = styled.Image`
   width: 24px;
@@ -67,11 +67,10 @@ const ButtonImage1 = styled.Image`
 const ViewInfo = styled.View`
   flex-direction: column;
   padding-top: 10px;
-
 `;
 const TextViewInfo = styled.View`
   flex: 1;
-  padding: 10px 16px 15px 16px;
+  padding: 10px 16px 10px 16px;
   flex-direction: row;
   align-items: center;
 `;
@@ -110,23 +109,27 @@ export const UserInfomation = memo(function UserInfomation() {
       <Divider height={1} />
       <ViewInfo>
         <TextViewInfo>
-          <ButtonImage source={IC_HEART} />
+          <ButtonImage1 source={IC_GRADUATED} />
           <Tex>Đã từng học ở Hà Nội </Tex>
         </TextViewInfo>
         <TextViewInfo>
-          <ButtonImage source={IC_HEART} />
-          <Tex>Đã từng học ở Đại Học Công Ngiêp Hà Nội </Tex>
+          <ButtonImage1 source={IC_TAB_HOME} />
+          <Tex>Sống tại Hà Nội </Tex>
         </TextViewInfo>
         <TextViewInfo>
-          <ButtonImage source={IC_HEART} />
-          <Tex>Đã từng học ở Đại Học Công Ngiêp Hà Nội </Tex>
+          <ButtonImage1 source={IC_LOCATION} />
+          <Tex>Đến từ Hà Nội</Tex>
         </TextViewInfo>
         <TextViewInfo>
-          <ButtonImage source={IC_HEART} />
-          <Tex>Đã từng học ở Đại Học Công Ngiêp Hà Nội </Tex>
+          <ButtonImage1 source={IC_HEART} />
+          <Tex>Độc thân </Tex>
         </TextViewInfo>
         <TextViewInfo>
-          <ButtonImage source={IC_MORE} />
+          <ButtonImage1 source={IC_CLOCK} />
+          <Tex>Tham gia tư tháng 6 2020 </Tex>
+        </TextViewInfo>
+        <TextViewInfo>
+          <ButtonImage1 source={IC_MORE} />
           <Tex>Xem thông tin giới thiệu của bạn </Tex>
         </TextViewInfo>
         <TextViewInfo>

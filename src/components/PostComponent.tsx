@@ -208,7 +208,6 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                 onLikePress={isLiked ? setUnLike : setLike}
             />
             <Divider height={12}/>
-
             <BottomMenuSelector
                 visible={isShowMenu}
                 onHide={setHideMenu}

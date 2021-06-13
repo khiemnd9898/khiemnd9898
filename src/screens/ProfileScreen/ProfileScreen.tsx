@@ -3,8 +3,10 @@ import styled from "styled-components/native";
 import { ProfileHeader } from "@/screens/ProfileScreen/components/ProfileHeader";
 import { useNavigationParams } from "@/hooks/useNavigationParams";
 import { Divider } from "@/components";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import { ProfileImage } from "@/screens/ProfileScreen/components/ProfileImage";
+import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
+import { UserNews } from "@/screens/ProfileScreen/components/UserNews";
 
 
 const Container = styled.View`
@@ -18,13 +20,11 @@ export interface ProfileScreenProps {
 
 export const ProfileScreen = memo(function ProfileScreen() {
   const { id } = useNavigationParams();
+
   return (
     <Container>
       <ProfileHeader />
-      <Divider height={1.5} />
-      <ScrollView>
-        <ProfileImage />
-      </ScrollView>
+      <UserNews />
     </Container>
   );
 

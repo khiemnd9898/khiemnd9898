@@ -102,3 +102,10 @@ export interface RawFriendRequest {
     subTitle: number | string;
     image: string;
 }
+export interface RawFriend {
+    id: string;
+    name: string;
+    avatar:string;
+    title: string;
+
+}

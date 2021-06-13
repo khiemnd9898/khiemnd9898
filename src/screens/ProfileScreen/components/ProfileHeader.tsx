@@ -6,6 +6,7 @@ import {
   IC_SEACH,
 } from "@/assets";
 import { goBack } from "@/utils/navigation";
+import { Divider } from "@/components";
 
 const Container = styled.View`
   width: 100%;
@@ -59,6 +60,7 @@ export const ProfileHeader = memo(function ProfileHeader() {
          <STextInput>Seach.... </STextInput>
         </ButtonInput>
       </Row>
+      <Divider height={1.5} />
     </Container>
   );
 });

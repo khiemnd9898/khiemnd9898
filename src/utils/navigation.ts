@@ -10,6 +10,7 @@ import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
 import {ProfileScreenProps} from "@/screens/ProfileScreen/ProfileScreen"
 
 import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
+import { ListFriendProps } from "@/screens/ProfileScreen/components/ListFriend";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -94,6 +95,10 @@ export const navigateProfileScreen = createNavigate<ProfileScreenProps>(
 export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps>(
     'MarketDetailScreen'
 );
+export const navigateListFriendScreen = createNavigate<ListFriendProps>(
+  'ListFriend'
+);
+
 
 
 /**

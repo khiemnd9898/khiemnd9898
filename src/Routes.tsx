@@ -25,14 +25,9 @@ import { PostComponent } from "@/components/PostComponent";
 import { ChatScreen } from "@/screens/MessScreens/components/ChatScreen";
 import { FriendlySuggestScreen } from "@/screens/NotifyScreen/FriendlySuggestScreen";
 import { MarketScreen } from "@/screens/Market/MarketScreen";
-import {CommentScreen} from "@/screens/Comment/CommentScreen";
-import {WritePostScreen} from "@/screens/Write/WritePostScreen";
-import {NotifyScreen} from "@/screens/NotifyScreen/NotifyScreen";
-import {FriendlyRequestScreen} from "@/screens/NotifyScreen/FriendlyRequestScreen";
-import {ChatScreen} from "@/screens/MessScreens/components/ChatScreen";
-import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScreen";
-import {MarketScreen} from "@/screens/Market/MarketScreen";
 import {MarketDetailScreen} from "@/screens/Market/MarketDetailScreen";
+import { ListFriend } from "@/screens/ProfileScreen/components/ListFriend";
+import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
 
 
 const RootStack = createStackNavigator();
@@ -135,6 +130,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <MainStack.Screen name={"MessengerScreen"} component={ChatScreen} />
       <MainStack.Screen name={"ProfileScreen"} component={ProfileScreen} />
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
+      <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
     </ModalStack.Navigator>
   );
 
@@ -150,6 +146,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
             <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
             <ModalStack.Screen name={'FriendlySuggestScreen'} component={FriendlySuggestScreen}/>
             <ModalStack.Screen name={'MarketDetailScreen'} component={MarketDetailScreen}/>
+
         </ModalStack.Navigator>
     );
 });
