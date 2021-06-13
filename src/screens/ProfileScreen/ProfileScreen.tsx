@@ -1,12 +1,8 @@
-import React, { memo, useCallback, useEffect } from "react";
+import React, {memo} from "react";
 import styled from "styled-components/native";
-import { ProfileHeader } from "@/screens/ProfileScreen/components/ProfileHeader";
-import { useNavigationParams } from "@/hooks/useNavigationParams";
-import { Divider } from "@/components";
-import { ScrollView, View } from "react-native";
-import { ProfileImage } from "@/screens/ProfileScreen/components/ProfileImage";
-import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
-import { UserNews } from "@/screens/ProfileScreen/components/UserNews";
+import {ProfileHeader} from "@/screens/ProfileScreen/components/ProfileHeader";
+import {useNavigationParams} from "@/hooks/useNavigationParams";
+import {UserNews} from "@/screens/ProfileScreen/components/UserNews";
 
 
 const Container = styled.View`

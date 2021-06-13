@@ -1,18 +1,13 @@
-import React, { memo, useEffect } from "react";
+import React, {memo, useEffect} from "react";
 import styled from "styled-components/native";
-import { FlatList, View } from "react-native";
-import { PostComponent } from "@/components/PostComponent";
-import { useAsyncFn } from "@/hooks/useAsyncFn";
-import { requestGetPostList } from "@/store/post/functions";
-import { usePostsByQuery } from "@/store/post";
-import { HomeHeader } from "@/screens/HomeScreen/HomeHeader";
-import { UsernewHeader } from "@/screens/ProfileScreen/components/UsernewHeader";
-import { NewSection } from "@/screens/NotifyScreen/components/NewSection";
-import { FriendRequestSection } from "@/screens/NotifyScreen/components/FriendRequestSection";
-import { FriendSuggestSection } from "@/screens/NotifyScreen/components/FriendSuggestSection";
-import { ProfileImage } from "@/screens/ProfileScreen/components/ProfileImage";
-import { Divider } from "@/components";
-import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
+import {FlatList} from "react-native";
+import {PostComponent} from "@/components/PostComponent";
+import {useAsyncFn} from "@/hooks/useAsyncFn";
+import {requestGetPostList} from "@/store/post/functions";
+import {usePostsByQuery} from "@/store/post";
+import {UsernewHeader} from "@/screens/ProfileScreen/components/UsernewHeader";
+import {ProfileImage} from "@/screens/ProfileScreen/components/ProfileImage";
+import {Friendly} from "@/screens/ProfileScreen/components/Friendly";
 
 const Container = styled.View`
   flex: 1;
