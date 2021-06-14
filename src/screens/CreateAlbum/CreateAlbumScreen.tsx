@@ -6,7 +6,6 @@ import {HeaderBack} from '@/components/HeaderBack';
 import useBoolean from '@/hooks/useBoolean';
 import {RoleNameEnum} from '@/screens/Write';
 import {
-    openWritePostScreen,
     navigateSelectAlbumScreen,
 } from '@/utils/navigation';
 import React, {memo, useCallback, useState} from 'react';

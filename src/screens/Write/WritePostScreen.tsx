@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useState} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import styled from "styled-components/native";
 import {HeaderWrite} from "@/screens/Write/HeaderWrite";
 import {KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
@@ -9,6 +9,7 @@ import FastImage from "react-native-fast-image";
 import {BaseStyles} from "@/themes/BaseStyles";
 import {Colors} from "@/themes/Colors";
 import SubHeaderWrite from './SubHeaderWrite';
+import {useNavigationParams} from "@/hooks/useNavigationParams";
 
 const Container = styled.View`
   flex: 1;
@@ -68,8 +69,16 @@ const IconClose = styled.Image`
   width: 16px;
   height: 16px;
 `;
+
+export interface WritePostScreenProps {
+    images?: string[],
+    videos?: string[]
+}
+
 export const WritePostScreen = memo(function WritePostScreen() {
-    const [images, setImages] = useState<string[]>([]);
+    const {images, videos} = useNavigationParams<WritePostScreenProps>();
+    const [stateImages, setStateImages] = useState<string[]>([]);
+    const [stateVideos, setStateVideos] = useState<string[]>([]);
 
     const onImagePicker = useCallback(() => {
         ImagePicker.openPicker({
@@ -77,9 +86,9 @@ export const WritePostScreen = memo(function WritePostScreen() {
             compressImageQuality: 0.6
         }).then((values) => {
             const urls = values.map(item => item.path);
-            setImages([...images, ...urls])
+            setStateImages([...stateImages, ...urls])
         })
-    }, [images]);
+    }, [stateImages]);
 
 
     const onCameraPicker = useCallback(() => {
@@ -88,9 +97,9 @@ export const WritePostScreen = memo(function WritePostScreen() {
             multiple: true,
             compressImageQuality: 0.6
         }).then(value => {
-            setImages([...images, value[0].path])
+            setStateImages([...stateImages, value[0].path])
         })
-    }, [images]);
+    }, [stateImages]);
 
     const onVideoPicker = useCallback(() => {
         ImagePicker.openCamera({
@@ -101,6 +110,18 @@ export const WritePostScreen = memo(function WritePostScreen() {
 
         })
     }, []);
+
+    useEffect(() => {
+        if (images && images.length) {
+            setStateImages(images)
+        }
+    }, [images]);
+
+    useEffect(() => {
+        if (videos && videos.length) {
+            setStateVideos(videos)
+        }
+    }, [videos]);
 
     return (
         <Container>
@@ -120,7 +141,7 @@ export const WritePostScreen = memo(function WritePostScreen() {
                         showsHorizontalScrollIndicator={false}
                     >
                         {
-                            images.map(item => <ImageView>
+                            stateImages.map(item => <ImageView>
                                 <BtnClose>
                                     <IconColor size={16} color={Colors.white}  source={IC_CLOSE}/>
                                 </BtnClose>
