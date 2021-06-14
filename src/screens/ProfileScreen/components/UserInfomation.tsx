@@ -39,7 +39,7 @@ const Buttoninfo = styled.TouchableOpacity`
   justify-content: center;
 `;
 const Buttonleft = styled.TouchableOpacity`
-  height: 36px;
+  height: 44px;
   width: 40px;
   background-color: ${p => p.theme.gray5};
   border-radius: 10px;
@@ -83,12 +83,11 @@ const Tex = styled.Text`
 const Buttonabc = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
-  height: 36px;
+  height: 44px;
   background-color: #253391;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
-  padding: 5px 16px 5px 16px;
 `;
 export const UserInfomation = memo(function UserInfomation() {
   return (
@@ -98,10 +97,10 @@ export const UserInfomation = memo(function UserInfomation() {
         <TextName1>(OK OK OK)</TextName1>
       </Nameuser>
       <ViewButton>
-        <Buttoninfo>
+        <Buttonabc>
           <ButtonImage source={IC_PLUS} />
           <Des>Thêm vào tin</Des>
-        </Buttoninfo>
+        </Buttonabc>
         <Buttonleft>
           <ButtonImage1 source={IC_MORE} />
         </Buttonleft>
