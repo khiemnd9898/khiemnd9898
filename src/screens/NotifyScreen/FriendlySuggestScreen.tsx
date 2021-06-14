@@ -19,12 +19,6 @@ const keyExtractor = (item: any) => item.toString();
 
 export const FriendlySuggestScreen = memo(function FriendlySuggestScreen() {
     const allSuggest = useSuggestionsByQuery('all') || [];
-    const [{}, getData] = useAsyncFn(async () => {
-        requestSuggestList();
-    }, []);
-    useEffect(() => {
-        getData();
-    }, []);
 
     return (
         <Container>

@@ -25,6 +25,7 @@ import {FriendlySuggestScreen} from "@/screens/NotifyScreen/FriendlySuggestScree
 import {MarketScreen} from "@/screens/Market/MarketScreen";
 import {MarketDetailScreen} from "@/screens/Market/MarketDetailScreen";
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
+import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
 
 
 const RootStack = createStackNavigator();
@@ -146,7 +147,8 @@ export const Routes = memo(function Routes() {
                 <RootStack.Screen name={'Root'} component={ModalStackComponent}/>
                 <RootStack.Screen name={'VideoScreen'} component={VideoScreen}/>
                 <RootStack.Screen name={'WritePostScreen'} component={WritePostScreen} />
-                <ModalStack.Screen name={'SelectAlbumScreen'} component={SelectAlbumScreen}/>
+                <RootStack.Screen name={'SelectAlbumScreen'} component={SelectAlbumScreen}/>
+                <RootStack.Screen name={'CreateAlbumScreen'} component={CreateAlbumScreen}/>
             </RootStack.Navigator>
         </NavigationContainer>
     );
