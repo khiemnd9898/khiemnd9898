@@ -12,6 +12,7 @@ import {ProfileScreenProps} from "@/screens/ProfileScreen/ProfileScreen"
 import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
 import { ListFriendProps } from "@/screens/ProfileScreen/components/ListFriend";
 import {SelectAlbumProps} from '@/screens/SelectAlbum/SelectAlbumScreen'
+import {WritePostScreenProps} from "@/screens/Write/WritePostScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -78,7 +79,7 @@ export const openCommentScreen = createNavigate<CommentScreenProps>(
     'CommentScreen'
 );
 
-export const openWritePostScreen = createNavigate(
+export const openWritePostScreen = createNavigate<WritePostScreenProps>(
     'WritePostScreen'
 );
 

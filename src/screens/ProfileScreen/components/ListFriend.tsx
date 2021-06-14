@@ -17,6 +17,10 @@ const Container = styled.View`
 const renderItem = ({ item }: any) => <ItemFriend id={item.toString()} />;
 const keyExtractor = (item: any) => item.toString();
 const Headerright = styled.View``;
+
+export interface ListFriendProps {
+  id: string
+}
 export const ListFriend = memo(function ListFriend() {
   const { id } = useNavigationParams();
   const allPost = useFriendsByQuery("all") || [];

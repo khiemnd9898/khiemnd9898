@@ -1,9 +1,10 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import styled from "styled-components/native";
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from "@/assets";
 import {Fonts} from "@/assets/fonts";
 import {openWritePostScreen} from "@/utils/navigation";
+import ImagePicker from "react-native-image-crop-picker";
 
 
 const Container = styled.View`
@@ -93,6 +94,32 @@ const DividerVertical = styled.View`
   background-color: ${p => p.theme.gray5};
 `;
 export const HomeHeader = memo(function HomeHeader() {
+    const openWritePost = useCallback(() => {
+        openWritePostScreen({images: [], videos: []})
+    }, []);
+
+    const onImagePicker = useCallback(() => {
+        ImagePicker.openPicker({
+            mediaType: "photo",
+            multiple: true,
+            compressImageQuality: 0.6
+        }).then((values) => {
+            const urls = values.map(item => item.path);
+            openWritePostScreen({images: urls, videos: []})
+        })
+    }, []);
+
+    const onVideoPicker = useCallback(() => {
+        ImagePicker.openPicker({
+            mediaType: "video",
+            multiple: true,
+            compressImageQuality: 0.6
+        }).then((values) => {
+            const urls = values.map(item => item.path);
+            openWritePostScreen({images: [], videos: urls})
+        })
+    }, []);
+
     return (
         <Container>
             <Row>
@@ -102,21 +129,21 @@ export const HomeHeader = memo(function HomeHeader() {
             <Row2>
                 <Avatar
                     source={{uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg'}}/>
-                <ViewFull onPress={openWritePostScreen}>
+                <ViewFull onPress={openWritePost}>
                     <TextMind numberOfLines={1}>
                         What is on your mind? #Hashtag.. @Mention.. Link..
                     </TextMind>
                 </ViewFull>
             </Row2>
             <Footer>
-                <Button>
+                <Button onPress={onImagePicker}>
                     <IconAction source={IMG_PHOTOS}/>
                     <ButtonText>
                         Photo
                     </ButtonText>
                 </Button>
                 <DividerVertical/>
-                <Button>
+                <Button onPress={onVideoPicker}>
                     <IconAction source={IC_VIDEO_CAMERA}/>
                     <ButtonText>
                         Video
