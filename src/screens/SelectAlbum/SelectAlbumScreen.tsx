@@ -4,16 +4,17 @@ import {HeaderBack} from '@/components/HeaderBack';
 import {AlbumItem} from '@/screens/SelectAlbum/components/AlbumItem';
 import {FlatList} from 'react-native';
 import {Fonts} from '@/assets/fonts';
-import {IC_ADD} from '@/assets';
+import {IC_PLUS} from '@/assets';
 import {Colors} from '@/assets/themes';
 import {useNavigationParams} from '@/hooks/useNavigationParams';
 import {ListAlbum} from '@/screens/Write/index';
+import {navigateCreateAlbumScreen} from '@/utils/navigation';
 
 const Container = styled.View`
     flex: 1;
     background-color: ${(p) => p.theme.backgroundColor};
 `;
-const HeaderSelectAlbum = styled.View`
+const HeaderSelectAlbum = styled.TouchableOpacity`
     height: 70px;
     width: 100%;
     padding: 0 16px;
@@ -48,11 +49,12 @@ export interface SelectAlbumProps {
 
 const keyExtractor = (item: any) => item.toString();
 export const SelectAlbumScreen = memo(function SelectAlbumScreen() {
-    const {onSelect} = useNavigationParams();
+    const {onSelect} = useNavigationParams<SelectAlbumProps>();
 
-    const renderItem = useCallback(({item}: any) => (
-        <AlbumItem id={item.toString()} onSelect={onSelect} />
-    ), []);
+    const renderItem = useCallback(
+        ({item}: any) => <AlbumItem id={item.toString()} onSelect={onSelect} />,
+        [onSelect],
+    );
 
     return (
         <Container>
@@ -62,9 +64,9 @@ export const SelectAlbumScreen = memo(function SelectAlbumScreen() {
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
                 ListHeaderComponent={
-                    <HeaderSelectAlbum>
+                    <HeaderSelectAlbum onPress={navigateCreateAlbumScreen}>
                         <Left>
-                            <IconAdd source={IC_ADD} />
+                            <IconAdd source={IC_PLUS} />
                         </Left>
                         <Right>
                             <TextHeaderSelectAlbum>

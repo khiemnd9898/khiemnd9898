@@ -20,13 +20,6 @@ const keyExtractor = (item: any) => item.toString();
 export const FriendlyRequestScreen = memo(function FriendlyRequestScreen() {
     const allRequest = useRequestsByQuery('all') || [];
 
-    const [{}, getData] = useAsyncFn(async () => {
-        requestRequestList();
-    }, []);
-    useEffect(() => {
-        getData();
-    }, []);
-
     return (
         <Container>
             <HeaderBack title={'Tất cả lời mời'} />

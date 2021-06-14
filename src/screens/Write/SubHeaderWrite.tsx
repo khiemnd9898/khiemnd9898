@@ -6,8 +6,9 @@ import {IC_CLOCK, IC_DROPDOWN, IC_GLOBAL, IC_USER} from '@/assets';
 import useBoolean from '@/hooks/useBoolean';
 import {BottomMenuSelector} from '@/components/BottomMenu';
 import {RoleNameEnum} from '@/screens/Write/index';
-import {navigateSelectAlbumScreen, navigation} from '@/utils/navigation';
+import {navigateSelectAlbumScreen} from '@/utils/navigation';
 import {ListAlbum} from '@/screens/Write/index';
+import {goBack} from '@/utils/navigation';
 
 const Container = styled.View`
     justify-content: center;
@@ -99,6 +100,7 @@ const SubHeaderWrite = () => {
         navigateSelectAlbumScreen({
             onSelect: (id: string) => {
                 setAlbum(id);
+                goBack();
             },
         });
     }, []);
