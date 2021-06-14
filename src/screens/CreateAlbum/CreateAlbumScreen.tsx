@@ -5,9 +5,12 @@ import {BottomMenuSelector} from '@/components/BottomMenu';
 import {HeaderBack} from '@/components/HeaderBack';
 import useBoolean from '@/hooks/useBoolean';
 import {RoleNameEnum} from '@/screens/Write';
-import {openWritePostScreen, navigateSelectAlbumScreen} from '@/utils/navigation';
+import {
+    openWritePostScreen,
+    navigateSelectAlbumScreen,
+} from '@/utils/navigation';
 import React, {memo, useCallback, useState} from 'react';
-import {Keyboard} from 'react-native';
+import {Keyboard, TextInput} from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -18,10 +21,11 @@ const InputSection = styled.View`
     border-bottom-width: 1px;
     border-bottom-color: ${(p) => p.theme.gray5};
 `;
-const StyledTextInput = styled.TextInput`
+const StyledTextInput = styled(TextInput).attrs((props) => ({
+    placeholderTextColor: props.theme.gray3,
+}))`
     margin: 0;
     padding: 5px 16px;
-    color: ${(p) => p.theme.gray1};
 `;
 const RoleSection = styled.TouchableOpacity`
     padding: 5px 16px;
@@ -34,10 +38,12 @@ const RoleSectionText = styled.Text`
     font-size: 18px;
     font-family: ${Fonts.Regular};
     margin-left: 5px;
+    color: ${(p) => p.theme.gray1};
 `;
 const RoleSectionImg = styled.Image`
     width: 26px;
     height: 26px;
+    tint-color: ${(p) => p.theme.gray1};
 `;
 const RightSectionBtn = styled.TouchableOpacity``;
 const RightSectionBtnText = styled.Text`
