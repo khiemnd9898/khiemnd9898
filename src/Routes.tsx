@@ -28,6 +28,8 @@ import { MarketScreen } from "@/screens/Market/MarketScreen";
 import {MarketDetailScreen} from "@/screens/Market/MarketDetailScreen";
 import { ListFriend } from "@/screens/ProfileScreen/components/ListFriend";
 import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
+import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
+import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
 
 
 const RootStack = createStackNavigator();
@@ -164,15 +166,17 @@ export const Routes = memo(function Routes() {
     }
   }, []);
 
-  return (
-    <NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
-      <RootStack.Navigator initialRouteName={"Root"} headerMode={"none"} mode={"modal"}>
-        <RootStack.Screen name={"Root"} component={ModalStackComponent} />
-        <RootStack.Screen name={"VideoScreen"} component={VideoScreen} />
-        <RootStack.Screen name={"WritePostScreen"} component={WritePostScreen} />
-      </RootStack.Navigator>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
+            <RootStack.Navigator initialRouteName={'Root'} headerMode={'none'} mode={'modal'}>
+                <RootStack.Screen name={'Root'} component={ModalStackComponent}/>
+                <RootStack.Screen name={'VideoScreen'} component={VideoScreen}/>
+                <RootStack.Screen name={'WritePostScreen'} component={WritePostScreen} />
+                <RootStack.Screen name={'SelectAlbumScreen'} component={SelectAlbumScreen}/>
+                <RootStack.Screen name={'CreateAlbumScreen'} component={CreateAlbumScreen}/>
+            </RootStack.Navigator>
+        </NavigationContainer>
+    );
 });
 // sao 3 file tên khác nhau thế này
 // mà nó là dấu cộng sao lại đặt tên là close

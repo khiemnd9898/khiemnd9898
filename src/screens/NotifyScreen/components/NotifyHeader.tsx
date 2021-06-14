@@ -13,8 +13,7 @@ const StyledView = styled.View`
     justify-content: center;
 `;
 const StyledText = styled.Text`
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 25px;
     padding: 0 16px;
 
     color: ${(p) => p.theme.gray1};

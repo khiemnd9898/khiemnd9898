@@ -4,9 +4,9 @@ export enum RoleNameEnum {
     friendly = 'friendly',
 }
 
-export enum AlbumNameEnum {
-    general = 'general',
-    album1 = 'album1',
-    album2 = 'album2',
-    album3 = 'album3',
+export const ListAlbum: { [id: string]: string } = {
+    0: 'Ảnh đại diện',
+    1: 'Đà Lạt 2021',
+    2: 'Hà Giang =))',
+    3: 'Ở nhà',
 }
