@@ -7,7 +7,10 @@ import {
 import {TransitionPresets} from "@react-navigation/stack";
 import {CommentScreenProps} from "@/screens/Comment/CommentScreen";
 import { ChatScreenProps } from "@/screens/MessScreens/components/ChatScreen";
+import {ProfileScreenProps} from "@/screens/ProfileScreen/ProfileScreen"
+
 import {MarketDetailScreenProps} from "@/screens/Market/MarketDetailScreen";
+import { ListFriendProps } from "@/screens/ProfileScreen/components/ListFriend";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -85,10 +88,17 @@ export const navigateFriendlyRequestScreen = createNavigate(
 export const navigateFriendlySuggestScreen = createNavigate(
     'FriendlySuggestScreen'
 );
+export const navigateProfileScreen = createNavigate<ProfileScreenProps>(
+  'ProfileScreen'
+);
 
 export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps>(
     'MarketDetailScreen'
 );
+export const navigateListFriendScreen = createNavigate<ListFriendProps>(
+  'ListFriend'
+);
+
 
 
 /**

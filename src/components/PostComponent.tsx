@@ -24,6 +24,7 @@ import {BottomMenuSelector} from "@/components/BottomMenu";
 import {syncPosts, usePost} from "@/store/post";
 import {getPreviewData} from "@/utils/preview";
 import {PreviewContent} from "@/components/PreviewContent";
+import { navigateProfileScreen } from "@/utils/navigation";
 
 const {width} = Dimensions.get("window");
 const itemWidth = width - 32;
@@ -119,6 +120,9 @@ export const PostComponent = memo(function PostComponent(props: Props) {
     const [isLiked, setLike, setUnLike] = useBoolean(false);
     const [isShowMenu, setShowMenu, setHideMenu] = useBoolean(false);
 
+    const openProfileScreen  = useCallback(() => {
+        navigateProfileScreen({ id: "1" })
+    }, []);
 
     const goToDetail = useCallback(() => {
     }, [id]);
@@ -156,7 +160,9 @@ export const PostComponent = memo(function PostComponent(props: Props) {
         <Container>
             <ContentContainer>
                 {!hideHeader && <Row style={BaseStyles.alignItemCenter}>
-                    <Avatar source={{uri: post?.avatar || ""}}/>
+                    <TouchableOpacity onPress={openProfileScreen} >
+                        <Avatar source={{uri: post?.avatar || ""}}/>
+                    </TouchableOpacity>
                     <View style={[BaseStyles.ph9, BaseStyles.flex1]}>
                         <Name numberOfLines={1}>
                             Định Pu
@@ -202,7 +208,6 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                 onLikePress={isLiked ? setUnLike : setLike}
             />
             <Divider height={12}/>
-
             <BottomMenuSelector
                 visible={isShowMenu}
                 onHide={setHideMenu}

@@ -112,6 +112,8 @@ export const IC_CONG_TAC = require("./icons/ic_cong_tac.png");
 export const IC_TAI_KHOAN = require("./icons/ic_tai_khoan.png");
 export const IC_VIDEO_CAMERA = require("./images/ic_video_camera.png");
 export const IMG_PHOTOS = require("./images/img_photos.png");
+export const IC_GRADUATED=require("./icons/graduation_hat.png")
+export const IC_LOCATION =require("./icons/location.png")
 
 export const IMG_CUP = require("./icons/ic_cup.png");
 export const IC_FACEBOOK = require("./icons/ic_facebook.png");
@@ -168,3 +170,4 @@ export const IC_EVENT=require("./icons/event1.png")
 export const IC_BLOCK=require("./icons/blog1.png")
 export const IC_MARKET=require("./icons/market.png")
 export const IC_CHANGETHEMES=require("./icons/day_night.png")
+export const IC_ARROW=require("./icons/arrow.png")
