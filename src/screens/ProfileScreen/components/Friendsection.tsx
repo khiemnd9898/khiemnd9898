@@ -4,16 +4,20 @@ import { Fonts } from "@/assets/fonts";
 import { useFriend } from "@/store/Friend";
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get('window').width;
+const widthfull=windowWidth-32;
 const Container = styled.TouchableOpacity<{ color?: any }>`
   background: ${(p) => (p.color ? p.color : p.theme.backgroundColor)};
+  flex-direction: row;
 `;
 const ButtonItem = styled.TouchableOpacity`
-  width: ${windowWidth/3};
-  padding: 10px 16px 10px 16px;
+  width: ${widthfull/3}px;
+  height:160px;
+  align-items: center;
+  justify-content: center;
 `;
 const Avatar = styled.Image`
-  width:100px;
-  height: 100px;
+  width:${widthfull/3-10}px;
+  height:120px;
   border-radius: 10px;
 `;
 const Name = styled.Text`
@@ -35,9 +39,8 @@ export const Friendsection = memo(function Friendsection(props: Props) {
     <Container>
       <ButtonItem>
           <Avatar source={{ uri: itemload?.avatar || "" }} />
-          <Name numberOfLines={1}>{itemload?.name || ""}</Name>
+          <Name numberOfLines={2}>{itemload?.name || ""}</Name>
       </ButtonItem>
     </Container>
-
   );
 });

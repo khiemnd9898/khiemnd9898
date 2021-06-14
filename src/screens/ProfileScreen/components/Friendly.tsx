@@ -62,6 +62,8 @@ const Headerright = styled.View`
   align-items: flex-end;
 `;
 const Sixitems = styled.View`
+  padding-left: 16px;
+  padding-right: 16px;
   flex-direction: row;
   flex-wrap: wrap;
 `;
