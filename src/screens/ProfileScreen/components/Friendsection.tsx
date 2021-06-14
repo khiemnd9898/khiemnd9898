@@ -11,19 +11,19 @@ const Container = styled.TouchableOpacity<{ color?: any }>`
 `;
 const ButtonItem = styled.TouchableOpacity`
   width: ${widthfull/3}px;
-  height:160px;
   align-items: center;
   justify-content: center;
 `;
 const Avatar = styled.Image`
-  width:${widthfull/3-10}px;
-  height:120px;
-  border-radius: 10px;
+  width:${widthfull/3-12}px;
+  height:${widthfull/3-12}px;
+  border-radius: 20px;
 `;
 const Name = styled.Text`
   font-size: 14px;
   line-height: 18px;
   padding-top: 5px;
+  padding-bottom: 10px;
   letter-spacing: -0.24px;
   color: ${p => p.theme.gray1};
   font-family: ${Fonts.Medium};
