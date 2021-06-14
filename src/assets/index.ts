@@ -114,6 +114,8 @@ export const IC_VIDEO_CAMERA = require("./images/ic_video_camera.png");
 export const IMG_PHOTOS = require("./images/img_photos.png");
 export const IC_GRADUATED=require("./icons/graduation_hat.png")
 export const IC_LOCATION =require("./icons/location.png")
+export const IC_SETTINGS = require("./icons/settings.png")
+export const IC_CONTROL=require("./icons/controls.png")
 
 export const IMG_CUP = require("./icons/ic_cup.png");
 export const IC_FACEBOOK = require("./icons/ic_facebook.png");

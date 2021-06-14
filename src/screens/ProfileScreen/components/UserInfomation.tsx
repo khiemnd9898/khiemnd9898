@@ -17,12 +17,12 @@ const Nameuser = styled.View`
 `;
 const TextName = styled.Text`
   font-size: 24px;
-  font-weight: bold;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
 const TextName1 = styled.Text`
   font-size: 18px;
-  font-weight: bold;
+  font-family: ${Fonts.Medium};
   padding-left: 5px;
   color: ${p => p.theme.gray1};
 `;

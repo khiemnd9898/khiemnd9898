@@ -28,6 +28,7 @@ import { MarketScreen } from "@/screens/Market/MarketScreen";
 import {MarketDetailScreen} from "@/screens/Market/MarketDetailScreen";
 import { ListFriend } from "@/screens/ProfileScreen/components/ListFriend";
 import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
+import { SearchFriends } from "@/screens/ProfileScreen/components/SearchFriends";
 
 
 const RootStack = createStackNavigator();
@@ -131,6 +132,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <MainStack.Screen name={"ProfileScreen"} component={ProfileScreen} />
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
       <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
+      <ModalStack.Screen name={'SearchFriends'} component={SearchFriends}/>
     </ModalStack.Navigator>
   );
 

@@ -98,6 +98,9 @@ export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps
 export const navigateListFriendScreen = createNavigate<ListFriendProps>(
   'ListFriend'
 );
+export const navigationSearchFriend=createNavigate<ListFriendProps>(
+  'SearchFriends'
+)
 
 
 

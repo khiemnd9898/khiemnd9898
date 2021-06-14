@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
 import { FlatList, TouchableOpacity, View } from "react-native";
 import { Fonts } from "@/assets/fonts";
-import { navigateListFriendScreen } from "@/utils/navigation";
+import { navigateListFriendScreen, navigationSearchFriend } from "@/utils/navigation";
 import { Friendsection } from "@/screens/ProfileScreen/components/Friendsection";
 import { useFriendsByQuery } from "@/store/Friend";
 import useAsyncFn from "@/hooks/useAsyncFn";
@@ -69,6 +69,10 @@ export const Friendly = memo(function Friendly() {
   const openFriendModal = useCallback(() => {
     navigateListFriendScreen({ id: "1" });
   }, []);
+  const openSearchFriendModal = useCallback(() => {
+    navigationSearchFriend({ id: "1" });
+  }, []);
+
   const allPost = useFriendsByQuery("all") || [];
   const [{ loading, error, value }, getData] = useAsyncFn(async () => {
     requestGetFriendList();
@@ -84,7 +88,7 @@ export const Friendly = memo(function Friendly() {
           <Ftext>50 người bạn</Ftext>
         </Headerleft>
         <Headerright>
-          <FriendButton>
+          <FriendButton onPress={openSearchFriendModal}>
             <SFriend>
               Tìm bạn bè
             </SFriend>

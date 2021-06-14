@@ -13,7 +13,9 @@ const Container = styled.View`
   flex: 1;
   background-color: ${(p) => p.theme.backgroundColor};
 `;
-
+export interface ListFriendProps{
+  id: string
+}
 const renderItem = ({ item }: any) => <ItemFriend id={item.toString()} />;
 const keyExtractor = (item: any) => item.toString();
 const Headerright = styled.View``;
