@@ -26,6 +26,12 @@ export const BaseStyles = StyleSheet.create({
     mt16: {
         marginTop: 16,
     },
+    pt16: {
+        paddingTop: 16,
+    },
+    pt8: {
+        paddingTop: 8,
+    },
     mt12: {
         marginTop: 12,
     },

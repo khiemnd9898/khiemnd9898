@@ -4,6 +4,8 @@ import {IC_COMMENT, IC_LIKE, IC_LOVE, IC_SHARE} from "@/assets";
 import {Fonts} from "@/assets/fonts";
 import {Colors} from "@/themes/Colors";
 import {openCommentScreen} from "@/utils/navigation";
+import {ShareModal} from "@/components/ShareModal";
+import useBoolean from "@/hooks/useBoolean";
 
 const Container = styled.View`
   width: 100%;
@@ -42,31 +44,35 @@ interface Props {
 
 export const EmotionComponent = memo(function EmotionComponent(props: Props) {
     const {isLiked, onLikePress} = props;
+    const [isVisible, showShare, hideShare] = useBoolean(false);
 
     const openCommentModal = useCallback(() => {
         openCommentScreen({id: '1'})
     }, []);
 
     return (
-        <Container>
-            <Button onPress={onLikePress}>
-                <IconAction liked={isLiked} source={IC_LIKE}/>
-                <ButtonText isLiked={isLiked}>
-                    Thích
-                </ButtonText>
-            </Button>
-            <Button onPress={openCommentModal}>
-                <IconAction source={IC_COMMENT}/>
-                <ButtonText>
-                    Bình luận
-                </ButtonText>
-            </Button>
-            <Button>
-                <IconAction source={IC_SHARE}/>
-                <ButtonText>
-                    Chia sẻ
-                </ButtonText>
-            </Button>
-        </Container>
+        <>
+            <Container>
+                <Button onPress={onLikePress}>
+                    <IconAction liked={isLiked} source={IC_LIKE}/>
+                    <ButtonText isLiked={isLiked}>
+                        Thích
+                    </ButtonText>
+                </Button>
+                <Button onPress={openCommentModal}>
+                    <IconAction source={IC_COMMENT}/>
+                    <ButtonText>
+                        Bình luận
+                    </ButtonText>
+                </Button>
+                <Button onPress={showShare}>
+                    <IconAction source={IC_SHARE}/>
+                    <ButtonText>
+                        Chia sẻ
+                    </ButtonText>
+                </Button>
+            </Container>
+            <ShareModal isVisible={isVisible} onClose={hideShare}/>
+        </>
     )
 });
