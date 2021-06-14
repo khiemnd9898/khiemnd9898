@@ -79,7 +79,7 @@ export const BottomMenuSelector = memo(
             : placeholder;
 
         const hideMenu = useCallback(() => {
-            onHide() && onHide()
+            onHide && onHide()
         }, [onHide]);
 
         const onSelectOptionCb = useCallback(
