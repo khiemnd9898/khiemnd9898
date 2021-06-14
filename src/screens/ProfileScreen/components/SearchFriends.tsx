@@ -14,6 +14,7 @@ import { useSuggestionsByQuery } from "@/store/suggestion";
 import useAsyncFn from "@/hooks/useAsyncFn";
 import { requestSuggestList } from "@/store/suggestion/function";
 import { RequestItem } from "@/screens/NotifyScreen/components/RequestItem";
+import { HeaderBack } from "@/components/HeaderBack";
 
 const Container = styled.View`
   width: 100%;
@@ -73,23 +74,34 @@ const BuutonTest = styled.Text`
   font-weight: bold;
   color: ${p => p.theme.gray1};
 `;
+const StyledText = styled.Text`
+    color: ${p => p.theme.gray1};
+    font-family: ${Fonts.Medium};
+    font-size: 14px;
+
+    padding: 10px 0 10px 16px;
+`;
 
 export interface SearchFriendProps {
   id: string
 }
-const renderItem = ({item}: any) => (
+
+const renderItem = ({ item }: any) => (
   <RequestItem id={item.toString()} suggestion={true} />
 );
 const keyExtractor = (item: any) => item.toString();
 
 export const SearchFriends = memo(function SearchFriends() {
   const { id } = useNavigationParams();
-  const allSuggest = useSuggestionsByQuery('all') || [];
+  const allSuggest = useSuggestionsByQuery("all") || [];
   const [{}, getData] = useAsyncFn(async () => {
     requestSuggestList();
   }, []);
   useEffect(() => {
     getData();
+  }, []);
+  const openFriendModal = useCallback(() => {
+    navigateListFriendScreen({ id: "1" });
   }, []);
   return (
     <Container>
@@ -106,14 +118,19 @@ export const SearchFriends = memo(function SearchFriends() {
         <SettingView onPress={navigateFriendlySuggestScreen}>
           <BuutonTest>Gợi ý</BuutonTest>
         </SettingView>
-        <SettingView onPress={navigateListFriendScreen}>
+        <SettingView onPress={openFriendModal}>
           <BuutonTest>Tất cả bạn bè</BuutonTest>
         </SettingView>
       </IconView>
       <Divider height={2} />
       <FlatList
-        ListHeaderComponent={<AddFriends />}
-        contentContainerStyle={{paddingVertical: 16}}
+        ListHeaderComponent={
+          <>
+            <AddFriends />
+              <StyledText>Tất cả gợi ý</StyledText>
+          </>
+        }
+        contentContainerStyle={{ paddingVertical: 16 }}
         data={allSuggest}
         renderItem={renderItem}
         keyExtractor={keyExtractor}

@@ -32,12 +32,10 @@ export const ListFriend = memo(function ListFriend() {
   return (
     <Container>
       <HeaderBack title={"Tất cả bạn bè"} />
-      <>
         <FlatList data={allPost}
                   renderItem={renderItem}
                   keyExtractor={keyExtractor}
         />
-      </>
 
     </Container>
   );

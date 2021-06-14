@@ -41,7 +41,6 @@ interface Props {
 export const Friendsection = memo(function Friendsection(props: Props) {
   const { id } = props;
   const itemload = useFriend(id);
-  console.log(itemload);
   if (!itemload) return null;
   return (
     <Container>
