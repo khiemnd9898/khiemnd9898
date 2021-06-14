@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { IC_CLOCK, IC_GRADUATED, IC_HEART, IC_LOCATION, IC_MORE, IC_PLUS, IC_TAB_HOME } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 import { Divider } from "@/components";
+import { TouchableOpacity } from "react-native";
 
 const Container = styled.View`
   width: 100%;
@@ -106,31 +107,32 @@ export const UserInfomation = memo(function UserInfomation() {
         </Buttonleft>
       </ViewButton>
       <Divider height={1} />
+
       <ViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_GRADUATED} />
-          <Tex>Đã từng học ở Hà Nội </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_TAB_HOME} />
-          <Tex>Sống tại Hà Nội </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_LOCATION} />
-          <Tex>Đến từ Hà Nội</Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_HEART} />
-          <Tex>Độc thân </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_CLOCK} />
-          <Tex>Tham gia tư tháng 6 2020 </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_MORE} />
-          <Tex>Xem thông tin giới thiệu của bạn </Tex>
-        </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_GRADUATED} />
+            <Tex>Đã từng học ở Hà Nội </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_TAB_HOME} />
+            <Tex>Sống tại Hà Nội </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_LOCATION} />
+            <Tex>Đến từ Hà Nội</Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_HEART} />
+            <Tex>Độc thân </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_CLOCK} />
+            <Tex>Tham gia tháng 6 2020 </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_MORE} />
+            <Tex>Xem thông tin giới thiệu của bạn </Tex>
+          </TextViewInfo>
         <TextViewInfo>
           <Buttonabc>
             <Des>Chỉnh sửa chi tiết công khai</Des>
