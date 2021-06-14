@@ -105,10 +105,7 @@ export const navigateSelectAlbumScreen = createNavigate<SelectAlbumProps>(
     'SelectAlbumScreen'
 );
 
-export const navigateCreateAlbumScreen = createNavigate(
-    'CreateAlbumScreen'
-);
-
+export const navigateCreateAlbumScreen = createNavigate('CreateAlbumScreen');
 
 /**
  * USAGE EXAMPLE:
