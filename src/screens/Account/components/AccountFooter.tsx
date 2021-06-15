@@ -9,6 +9,7 @@ import {
     IC_FLAG1,
     IC_GROUP1, IC_MARKET
 } from "@/assets";
+import {navigateGroupScreen, navigatePageScreen} from '@/utils/navigation';
 
 const Container = styled.View`
   width: 100%;
@@ -43,12 +44,12 @@ export const AccountFooter = memo(function AccountFooter() {
                     <Icon source={IC_CONG_DONG}/>
                     <Name>Peoples </Name>
                 </ButtonIcon>
-                <ButtonIcon>
+                <ButtonIcon onPress={navigatePageScreen}>
                     <Icon
                         source={IC_FLAG1}/>
                     <Name>Pages</Name>
                 </ButtonIcon>
-                <ButtonIcon>
+                <ButtonIcon onPress={navigateGroupScreen}>
                     <Icon
                         source={IC_GROUP1}/>
                     <Name>Groups</Name>

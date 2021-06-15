@@ -30,6 +30,8 @@ import { ListFriend } from "@/screens/ProfileScreen/components/ListFriend";
 import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
+import {PageScreen} from '@/screens/Page/PageScreen';
+import {GroupScreen} from '@/screens/Group/GroupScreen';
 
 
 const RootStack = createStackNavigator();
@@ -112,8 +114,6 @@ const MainStackComponent = memo(function MainStackComponent() {
       <MainStack.Screen name={"RegisterScreen"} component={RegisterScreen} />
       <MainStack.Screen name={"MessScreen"} component={MessScreen} />
       <MainStack.Screen name={"PostComponent"} component={PostComponent} />
-
-
     </MainStack.Navigator>
   );
 });
@@ -132,25 +132,11 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <MainStack.Screen name={"MessengerScreen"} component={ChatScreen} />
       <MainStack.Screen name={"ProfileScreen"} component={ProfileScreen} />
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
-      <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
+      <ModalStack.Screen name={'ListFriend'} component={ListFriend} />
+      <ModalStack.Screen name={"PageScreen"} component={PageScreen} />
+      <ModalStack.Screen name={"GroupScreen"} component={GroupScreen} />
     </ModalStack.Navigator>
   );
-
-    return (
-        <ModalStack.Navigator
-            initialRouteName={'Routes'}
-            headerMode={'none'}
-            screenOptions={defaultScreenOptions}>
-            <ModalStack.Screen name={'Routes'} component={MainStackComponent}/>
-            <ModalStack.Screen name={'Main'} component={TabBarStackComponent}/>
-            <ModalStack.Screen name={'SearchScreen'} component={SearchScreen}/>
-            <ModalStack.Screen name={'CommentScreen'} component={CommentScreen}/>
-            <ModalStack.Screen name={'FriendlyRequestScreen'} component={FriendlyRequestScreen}/>
-            <ModalStack.Screen name={'FriendlySuggestScreen'} component={FriendlySuggestScreen}/>
-            <ModalStack.Screen name={'MarketDetailScreen'} component={MarketDetailScreen}/>
-
-        </ModalStack.Navigator>
-    );
 });
 
 export const Routes = memo(function Routes() {

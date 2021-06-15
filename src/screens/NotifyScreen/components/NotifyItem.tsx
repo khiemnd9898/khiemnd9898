@@ -1,9 +1,9 @@
 import React, {memo, useState} from 'react';
 import styled from 'styled-components/native';
-import FastImage from 'react-native-fast-image';
 import {useNotification} from '@/store/notification';
 import moment from 'moment';
 import 'moment/locale/vi';
+import {AvatarImage} from '@/components/AvatarImage';
 
 const Container = styled.TouchableOpacity<{seen?: boolean}>`
     background: ${(p) =>
@@ -17,12 +17,7 @@ const Row = styled.View`
 const ViewLeft = styled.View`
     flex: 1;
 `;
-const Avatar = styled(FastImage)`
-    width: 50px;
-    height: 50px;
-    border-radius: 32px;
-    background-color: ${p => p.theme.gray5};
-`;
+
 const ViewRight = styled.View`
     flex: 6;
     padding-left: 18px;
@@ -43,7 +38,9 @@ interface Props {
 export const NotifyItem = memo(function NotifyItem(props: Props) {
     const {id} = props;
     const notification = useNotification(id);
-    const created_at = moment(notification?.created_at).startOf('day').fromNow();
+    const created_at = moment(notification?.created_at)
+        .startOf('day')
+        .fromNow();
 
     if (!notification) return null;
     return (
@@ -53,7 +50,7 @@ export const NotifyItem = memo(function NotifyItem(props: Props) {
             seen={notification?.seen}>
             <Row>
                 <ViewLeft>
-                    <Avatar source={{uri: notification?.image}} />
+                    <AvatarImage uri={notification?.image} width={50} />
                 </ViewLeft>
 
                 <ViewRight>

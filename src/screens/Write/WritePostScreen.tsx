@@ -1,7 +1,7 @@
 import React, {memo, useCallback, useEffect, useState} from 'react';
 import styled from "styled-components/native";
 import {HeaderWrite} from "@/screens/Write/HeaderWrite";
-import {KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
+import {KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TouchableOpacity, TextInput} from "react-native";
 import {Gray1Icon, IconColor} from "@/components";
 import {IC_CAMERA, IC_CLOSE, IC_IMAGE, IC_VIDEO_CAMERA} from "@/assets";
 import ImagePicker from 'react-native-image-crop-picker';
@@ -16,7 +16,9 @@ const Container = styled.View`
   background-color: ${p => p.theme.backgroundColor};
 `;
 
-const Input = styled.TextInput`
+const Input = styled(TextInput).attrs(props => ({
+    placeholderTextColor: props.theme.gray3,
+}))`
   flex: 1;
   background-color: ${p => p.theme.backgroundColor};
   color: ${p => p.theme.gray1};
