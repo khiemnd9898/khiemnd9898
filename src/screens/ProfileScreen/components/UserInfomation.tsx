@@ -1,8 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
 import { IC_CLOCK, IC_GRADUATED, IC_HEART, IC_LOCATION, IC_MORE, IC_PLUS, IC_TAB_HOME } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 import { Divider } from "@/components";
+import { navigateChangeProfileScreen, navigateProfileScreen } from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -17,12 +18,12 @@ const Nameuser = styled.View`
 `;
 const TextName = styled.Text`
   font-size: 24px;
-  font-weight: bold;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
 const TextName1 = styled.Text`
   font-size: 18px;
-  font-weight: bold;
+  font-family: ${Fonts.Medium};
   padding-left: 5px;
   color: ${p => p.theme.gray1};
 `;
@@ -30,16 +31,8 @@ const ViewButton = styled.View`
   flex-direction: row;
   padding: 10px 16px 10px 16px;
 `;
-const Buttoninfo = styled.TouchableOpacity`
-  flex: 1;
-  flex-direction: row;
-  background-color: #253391;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-`;
 const Buttonleft = styled.TouchableOpacity`
-  height: 36px;
+  height: 44px;
   width: 40px;
   background-color: ${p => p.theme.gray5};
   border-radius: 10px;
@@ -83,14 +76,16 @@ const Tex = styled.Text`
 const Buttonabc = styled.TouchableOpacity`
   flex: 1;
   flex-direction: row;
-  height: 36px;
+  height: 44px;
   background-color: #253391;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
-  padding: 5px 16px 5px 16px;
 `;
 export const UserInfomation = memo(function UserInfomation() {
+  const openChangeProfile  = useCallback(() => {
+    navigateChangeProfileScreen({ id: "1" })
+  }, []);
   return (
     <Container>
       <Nameuser>
@@ -98,40 +93,40 @@ export const UserInfomation = memo(function UserInfomation() {
         <TextName1>(OK OK OK)</TextName1>
       </Nameuser>
       <ViewButton>
-        <Buttoninfo>
+        <Buttonabc>
           <ButtonImage source={IC_PLUS} />
           <Des>Thêm vào tin</Des>
-        </Buttoninfo>
-        <Buttonleft>
+        </Buttonabc>
+        <Buttonleft onPress={openChangeProfile}>
           <ButtonImage1 source={IC_MORE} />
         </Buttonleft>
       </ViewButton>
       <Divider height={1} />
       <ViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_GRADUATED} />
-          <Tex>Đã từng học ở Hà Nội </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_TAB_HOME} />
-          <Tex>Sống tại Hà Nội </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_LOCATION} />
-          <Tex>Đến từ Hà Nội</Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_HEART} />
-          <Tex>Độc thân </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_CLOCK} />
-          <Tex>Tham gia tư tháng 6 2020 </Tex>
-        </TextViewInfo>
-        <TextViewInfo>
-          <ButtonImage1 source={IC_MORE} />
-          <Tex>Xem thông tin giới thiệu của bạn </Tex>
-        </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_GRADUATED} />
+            <Tex>Đã từng học ở Hà Nội </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_TAB_HOME} />
+            <Tex>Sống tại Hà Nội </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_LOCATION} />
+            <Tex>Đến từ Hà Nội</Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_HEART} />
+            <Tex>Độc thân </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_CLOCK} />
+            <Tex>Tham gia tháng 6 2020 </Tex>
+          </TextViewInfo>
+          <TextViewInfo>
+            <ButtonImage1 source={IC_MORE} />
+            <Tex>Xem thông tin giới thiệu của bạn </Tex>
+          </TextViewInfo>
         <TextViewInfo>
           <Buttonabc>
             <Des>Chỉnh sửa chi tiết công khai</Des>

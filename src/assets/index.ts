@@ -30,6 +30,14 @@ export const IC_PASSWORD = require("./icons/password.png");
 export const IC_FILE_FOLDER = require("./icons/file_and_folder.png");
 export const IC_FILE_FOLDER_DISABLED = require("./icons/file_and_folder_disabled.png");
 
+export const IC_PEN=require('./icons/pen.png')
+export const IC_WARNING=require('./icons/alert.png')
+export const IC_BOX = require("./icons/box.png")
+export const IC_TEXT_DOCUMENT=require("./icons/text_document.png")
+export const IC_ACCEPT=require('./icons/accept.png')
+export const IC_LOCK=require('./icons/lock.png')
+
+
 export const IMG_GOAL = require("./icons/goal.png");
 export const IMG_VN = require("./icons/vietnam.png");
 export const IMG_EN = require("./icons/uk.png");
@@ -115,6 +123,8 @@ export const IC_VIDEO_CAMERA = require("./images/ic_video_camera.png");
 export const IMG_PHOTOS = require("./images/img_photos.png");
 export const IC_GRADUATED=require("./icons/graduation_hat.png")
 export const IC_LOCATION =require("./icons/location.png")
+export const IC_SETTINGS = require("./icons/settings.png")
+export const IC_CONTROL=require("./icons/controls.png")
 
 export const IMG_CUP = require("./icons/ic_cup.png");
 export const IC_FACEBOOK = require("./icons/ic_facebook.png");

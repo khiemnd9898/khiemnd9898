@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { setThemeAction, useTheme } from "@/store/constant";
 import { StatusBar, Switch } from "react-native";
 import { IC_CHANGETHEMES } from "@/assets";
+import { Fonts } from "@/assets/fonts";
 
 const Container = styled.View`
   flex: 1;
@@ -24,6 +25,7 @@ const Icon=styled.Image`
 `;
 const Name = styled.Text`
   font-size: 13px;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
   padding-left: 18px;
   line-height: 44px;

@@ -11,7 +11,6 @@ const Container = styled.View`
     flex: 1;
     background-color: ${(p) => p.theme.backgroundColor};
 `;
-
 const renderItem = ({item}: any) => (
     <RequestItem id={item.toString()} suggestion={true} />
 );

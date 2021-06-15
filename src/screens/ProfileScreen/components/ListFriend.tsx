@@ -8,12 +8,15 @@ import { useFriend, useFriendsByQuery } from "@/store/Friend";
 import { useAsyncFn } from "@/hooks/useAsyncFn";
 
 import { requestGetFriendList } from "@/store/Friend/functions";
+import { HeaderListFriends } from "@/screens/ProfileScreen/components/HeaderListFriends";
 
 const Container = styled.View`
   flex: 1;
   background-color: ${(p) => p.theme.backgroundColor};
 `;
-
+export interface ListFriendProps{
+  id: string
+}
 const renderItem = ({ item }: any) => <ItemFriend id={item.toString()} />;
 const keyExtractor = (item: any) => item.toString();
 const Headerright = styled.View``;
@@ -34,12 +37,11 @@ export const ListFriend = memo(function ListFriend() {
   return (
     <Container>
       <HeaderBack title={"Tất cả bạn bè"} />
-      <>
+      <HeaderListFriends />
         <FlatList data={allPost}
                   renderItem={renderItem}
                   keyExtractor={keyExtractor}
         />
-      </>
 
     </Container>
   );

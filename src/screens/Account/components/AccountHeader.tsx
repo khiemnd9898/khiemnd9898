@@ -1,8 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import { Fonts } from "@/assets/fonts";
 import {Divider} from "@/components";
+import { navigateListFriendScreen, navigateProfileScreen } from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -29,9 +30,12 @@ const Header = styled.TouchableOpacity`
 
 
 export const AccountHeader = memo(function AccountHeader() {
+  const openProfileModal = useCallback(() => {
+    navigateProfileScreen({ id: "1" });
+  }, []);
   return (
     <Container>
-      <Header>
+      <Header onPress={openProfileModal}>
         <Image
           source={{ uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg" }} />
         <Name>Nguyễn Đức Thuần</Name>
