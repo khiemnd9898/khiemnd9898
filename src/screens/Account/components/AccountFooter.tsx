@@ -9,6 +9,7 @@ import {
   IC_FLAG1,
   IC_GROUP1, IC_MARKET
 } from "@/assets";
+import {navigateGroupScreen, navigatePageScreen} from '@/utils/navigation';
 
 const Container = styled.View`
   width: 100%;
@@ -72,4 +73,5 @@ export const AccountFooter = memo(function AccountFooter() {
       </Header>
     </Container>
   );
+
 });
