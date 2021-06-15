@@ -55,7 +55,7 @@ export const ChangeHeader = memo(function ChangeHeader() {
         </ButtonInput>
         <View style={{width:30}}></View>
       </Row>
-      <Divider height={12} />
+      <Divider height={8} />
     </Container>
   );
 });

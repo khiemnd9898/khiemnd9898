@@ -1,17 +1,29 @@
 import React, { memo } from "react";
 import styled from "styled-components/native";
-import {Divider} from "@/components";
-import { IC_CART, IC_DOCUMENT1, IC_DOCUMENT2, IC_DOWNLOAD } from "@/assets";
-import {ChangeThemes} from "@/screens/Account/components/ChangeThemes";
+import { Divider } from "@/components";
+import {
+  IC_ACCEPT,
+  IC_BOX,
+  IC_CART,
+  IC_CHECK_BOX, IC_CLOCK,
+  IC_DOCUMENT1,
+  IC_DOCUMENT2,
+  IC_DOWNLOAD, IC_EYE, IC_LOCK, IC_MENU,
+  IC_PEN,
+  IC_PENCIL, IC_SEACH, IC_TEXT_DOCUMENT,
+  IC_WARNING
+} from "@/assets";
+import { ChangeThemes } from "@/screens/Account/components/ChangeThemes";
 import { Fonts } from "@/assets/fonts";
 
 const Container = styled.View`
   width: 100%;
   background-color: ${p => p.theme.backgroundColor1};
 `;
-const Icon=styled.Image`
+const Icon = styled.Image`
   width: 24px;
   height: 24px;
+  tint-color: ${p => p.theme.gray1};
 `;
 const Icondownload = styled.Image`
   width: 24px;
@@ -27,97 +39,115 @@ const Name = styled.Text`
 const Header = styled.View`
   flex-direction: column;
 `;
-const ButtonIcon=styled.TouchableOpacity`
+const ButtonIcon = styled.TouchableOpacity`
   width: 100%;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
   padding-left: 16px;
   height: 50px;
   border-bottom-width: 0.7px;
   border-bottom-color: ${p => p.theme.divider};
 `;
+const Footer = styled.View`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 const STextInput = styled.Text`
   font-size: 18px;
   font-family: ${Fonts.Bold};
-  padding-left: 16px;
+  padding:5px 16px 0px 16px;
   color: ${p => p.theme.gray1};
 `;
-const SText=styled.Text`
+const SText = styled.Text`
   font-size: 14px;
+  padding:5px 16px 5px 16px;
   color: ${p => p.theme.gray3};
-  padding-left: 16px;
 `;
 const FbUrl = styled.Text`
   font-size: 14px;
   font-weight: bold;
+  padding:0px 16px 0px 16px;
   color: ${p => p.theme.gray1};
-  padding-left: 16px;
   line-height: 44px;
 `;
-
-
-export const MenuChangeFrofile= memo(function MenuChangeFrofile() {
+const CopyView = styled.View`
+  padding:0px 16px 0px 16px;
+`;
+const CopyButton=styled.TouchableOpacity`
+  height:36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color:${p => p.theme.gray5};
+`;
+const FbUrl1 = styled.Text`
+  font-size: 13px;
+  font-weight: bold;
+  color: ${p => p.theme.gray1};
+`;
+export const MenuChangeFrofile = memo(function MenuChangeFrofile() {
   return (
     <Container>
       <Header>
         <ButtonIcon>
-          <Icondownload source={IC_DOCUMENT1}/>
+          <Icondownload source={IC_PEN} />
           <Name>Chỉnh sửa trang cá nhân </Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_WARNING} />
           <Name>Trạng thái tài khoản</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_CART} />
+            source={IC_BOX} />
           <Name>Kho lưu trữ</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icondownload
-            source={IC_DOWNLOAD} />
+            source={IC_EYE} />
           <Name>Chế độ xem </Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
-          <Name>Trạng thái tài khoản</Name>
-        </ButtonIcon>
-        <ButtonIcon>
-          <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_MENU} />
           <Name>Nhật ký hoạt động</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_ACCEPT} />
           <Name>Quản lí bài viết</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_TEXT_DOCUMENT} />
           <Name>Xem lại bài viết và thẻ</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_LOCK} />
           <Name>Xem lối tắt và quyền riêng tư</Name>
         </ButtonIcon>
         <ButtonIcon>
           <Icon
-            source={IC_DOCUMENT2} />
+            source={IC_SEACH} />
           <Name>Tìm kiếm trên trang cá nhân</Name>
         </ButtonIcon>
       </Header>
-      <Divider height={12} />
-      <Header>
+      <Divider height={8} />
+      <Footer>
         <STextInput>Liên kết đến trang cá nhân của bạn</STextInput>
         <SText>Liên kết của riêng bạn trên Facebook </SText>
         <Divider height={0.7} />
         <FbUrl>https://www.facebook.com/khiem.khuat.3</FbUrl>
-
-      </Header>
+        <CopyView>
+          <CopyButton>
+            <FbUrl1>Sao chép liên kết</FbUrl1>
+          </CopyButton>
+        </CopyView>
+      </Footer>
     </Container>
   );
 });
