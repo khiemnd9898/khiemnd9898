@@ -5,9 +5,9 @@ import {useRequest} from '@/store/request';
 import {useSuggestion} from '@/store/suggestion';
 import {Colors} from '@/themes/Colors';
 import React, {memo, useCallback} from 'react';
-import FastImage from 'react-native-fast-image';
 import styled from 'styled-components/native';
 import moment from 'moment';
+import {AvatarImage} from '@/components/AvatarImage';
 
 const Row = styled.View`
     flex-direction: row;
@@ -17,12 +17,7 @@ const Row = styled.View`
 const ViewLeft = styled.View`
     flex: 1;
 `;
-const Avatar = styled(FastImage)`
-    width: 50px;
-    height: 50px;
-    border-radius: 32px;
-    background-color: ${p => p.theme.gray5};
-`;
+
 const ViewRight = styled.View`
     flex: 6;
     padding-left: 18px;
@@ -121,7 +116,7 @@ export const RequestItem = memo(function RequestItem(props: Props) {
         <>
             <Row>
                 <ViewLeft>
-                    <Avatar source={{uri: item?.image}} />
+                    <AvatarImage uri={item?.image} width={50} />
                 </ViewLeft>
 
                 <ViewRight>
@@ -138,7 +133,9 @@ export const RequestItem = memo(function RequestItem(props: Props) {
                             <SubTitle>
                                 {suggestion
                                     ? `${item?.subTitle} bạn chung`
-                                    : `${moment(item?.subTitle).startOf('day').fromNow()}`}
+                                    : `${moment(item?.subTitle)
+                                          .startOf('day')
+                                          .fromNow()}`}
                             </SubTitle>
                         </InfoSection>
 

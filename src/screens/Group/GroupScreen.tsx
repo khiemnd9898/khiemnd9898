@@ -1,7 +1,8 @@
 import {Fonts} from '@/assets/fonts';
 import {MarketListScreen} from '@/screens/Market/MarketListScreen';
-import {ActionSection} from '@/screens/Page/components/ActionSection';
-import {PageHeader} from '@/screens/Page/components/PageHeader';
+import {HomeScreen} from '@/screens/HomeScreen/HomeScreen';
+import {ActionSection} from '@/screens/Group/components/ActionSection';
+import {GroupHeader} from '@/screens/Group/components/GroupHeader';
 import React, {memo, useCallback, useState} from 'react';
 import {View} from 'react-native';
 import {TabBar, TabBarIndicator, TabView} from 'react-native-tab-view';
@@ -34,7 +35,7 @@ const STabBarIndicator = styled(TabBarIndicator)`
     background-color: ${(p) => p.theme.gray1};
 `;
 
-export const PageScreen = memo(function PageScreen() {
+export const GroupScreen = memo(function GroupScreen() {
     const [route, setRoute] = useState({
         index: 0,
         routes: [
@@ -46,7 +47,7 @@ export const PageScreen = memo(function PageScreen() {
     });
 
     const renderScene = ({route}: any) => {
-        return <MarketListScreen />;
+        return <HomeScreen />;
     };
 
     const handleIndexChange = (_index: number) =>
@@ -76,7 +77,7 @@ export const PageScreen = memo(function PageScreen() {
 
     return (
         <Container>
-            <PageHeader />
+            <GroupHeader />
             <BannerImg uri="https://www.facebook.com/images/groups/groups-default-cover-photo-2x.png" />
             <ActionSection />
 

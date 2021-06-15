@@ -31,6 +31,7 @@ import { Friendly } from "@/screens/ProfileScreen/components/Friendly";
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
 import {PageScreen} from '@/screens/Page/PageScreen';
+import {GroupScreen} from '@/screens/Group/GroupScreen';
 
 
 const RootStack = createStackNavigator();
@@ -133,6 +134,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
       <ModalStack.Screen name={'ListFriend'} component={ListFriend} />
       <ModalStack.Screen name={"PageScreen"} component={PageScreen} />
+      <ModalStack.Screen name={"GroupScreen"} component={GroupScreen} />
     </ModalStack.Navigator>
   );
 });

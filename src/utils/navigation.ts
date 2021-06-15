@@ -110,6 +110,8 @@ export const navigateCreateAlbumScreen = createNavigate('CreateAlbumScreen');
 
 export const navigatePageScreen = createNavigate('PageScreen');
 
+export const navigateGroupScreen = createNavigate('GroupScreen');
+
 /**
  * USAGE EXAMPLE:
  *
