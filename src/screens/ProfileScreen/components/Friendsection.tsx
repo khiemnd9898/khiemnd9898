@@ -15,8 +15,8 @@ const ButtonItem = styled.TouchableOpacity`
   justify-content: center;
 `;
 const Avatar = styled.Image`
-  width:${widthfull/3-12}px;
-  height:${widthfull/3-12}px;
+  width:${widthfull/3-8}px;
+  height:${widthfull/3-8}px;
   border-radius: 20px;
 `;
 const Name = styled.Text`
