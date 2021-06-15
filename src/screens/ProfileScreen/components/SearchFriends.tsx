@@ -14,7 +14,6 @@ import { useSuggestionsByQuery } from "@/store/suggestion";
 import useAsyncFn from "@/hooks/useAsyncFn";
 import { requestSuggestList } from "@/store/suggestion/function";
 import { RequestItem } from "@/screens/NotifyScreen/components/RequestItem";
-import { HeaderBack } from "@/components/HeaderBack";
 
 const Container = styled.View`
   width: 100%;
@@ -36,13 +35,10 @@ const IconPlus = styled.Image`
   height: 20px;
   tint-color: ${p => p.theme.gray1};
 `;
-const SearchIcon = styled.Image`
-  width: 18px;
-  height: 18px;
-`;
 const STextInput = styled.Text`
   font-size: 18px;
   padding-left: 12px;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
 const ButtonInput = styled.View`
@@ -55,7 +51,7 @@ const ButtonInput = styled.View`
   padding: 0 12px
 `;
 const IconView = styled.View`
-  width: 170px;
+  width: 180px;
   padding-left: 16px;
   padding-bottom: 10px;
   flex-direction: row;
@@ -70,16 +66,15 @@ const SettingView = styled.TouchableOpacity`
 `;
 const BuutonTest = styled.Text`
   font-size: 13px;
-  margin: 5px;
-  font-weight: bold;
+  margin: 5px 10px 5px 10px;
+  font-family: ${Fonts.Bold};
   color: ${p => p.theme.gray1};
 `;
 const StyledText = styled.Text`
-    color: ${p => p.theme.gray1};
-    font-family: ${Fonts.Medium};
-    font-size: 14px;
-
-    padding: 10px 0 10px 16px;
+  color: ${p => p.theme.gray1};
+  font-family: ${Fonts.Medium};
+  font-size: 14px;
+  padding: 10px 0 10px 16px;
 `;
 
 export interface SearchFriendProps {
@@ -127,7 +122,7 @@ export const SearchFriends = memo(function SearchFriends() {
         ListHeaderComponent={
           <>
             <AddFriends />
-              <StyledText>Tất cả gợi ý</StyledText>
+            <StyledText>Tất cả gợi ý</StyledText>
           </>
         }
         contentContainerStyle={{ paddingVertical: 16 }}

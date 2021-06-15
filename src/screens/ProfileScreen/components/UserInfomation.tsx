@@ -1,9 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
 import { IC_CLOCK, IC_GRADUATED, IC_HEART, IC_LOCATION, IC_MORE, IC_PLUS, IC_TAB_HOME } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 import { Divider } from "@/components";
-import { TouchableOpacity } from "react-native";
+import { navigateChangeProfileScreen, navigateProfileScreen } from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -30,14 +30,6 @@ const TextName1 = styled.Text`
 const ViewButton = styled.View`
   flex-direction: row;
   padding: 10px 16px 10px 16px;
-`;
-const Buttoninfo = styled.TouchableOpacity`
-  flex: 1;
-  flex-direction: row;
-  background-color: #253391;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
 `;
 const Buttonleft = styled.TouchableOpacity`
   height: 44px;
@@ -91,6 +83,9 @@ const Buttonabc = styled.TouchableOpacity`
   justify-content: center;
 `;
 export const UserInfomation = memo(function UserInfomation() {
+  const openChangeProfile  = useCallback(() => {
+    navigateChangeProfileScreen({ id: "1" })
+  }, []);
   return (
     <Container>
       <Nameuser>
@@ -102,12 +97,11 @@ export const UserInfomation = memo(function UserInfomation() {
           <ButtonImage source={IC_PLUS} />
           <Des>Thêm vào tin</Des>
         </Buttonabc>
-        <Buttonleft>
+        <Buttonleft onPress={openChangeProfile}>
           <ButtonImage1 source={IC_MORE} />
         </Buttonleft>
       </ViewButton>
       <Divider height={1} />
-
       <ViewInfo>
           <TextViewInfo>
             <ButtonImage1 source={IC_GRADUATED} />

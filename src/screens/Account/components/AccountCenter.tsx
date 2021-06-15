@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import {Divider} from "@/components";
 import { IC_CART, IC_DOCUMENT1, IC_DOCUMENT2, IC_DOWNLOAD } from "@/assets";
 import {ChangeThemes} from "@/screens/Account/components/ChangeThemes";
+import { Fonts } from "@/assets/fonts";
 
 const Container = styled.View`
   width: 100%;
@@ -22,6 +23,7 @@ const Name = styled.Text`
   color: ${p => p.theme.gray1};
   padding-left: 18px;
   line-height: 44px;
+  font-family: ${Fonts.Medium};
 `;
 const Header = styled.View`
   margin-bottom: 5px;

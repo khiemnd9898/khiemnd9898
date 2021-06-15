@@ -6,6 +6,7 @@ import { Colors } from "@/themes/Colors";
 import React, { memo, useCallback } from "react";
 import FastImage from "react-native-fast-image";
 import styled from "styled-components/native";
+import { Fonts } from "@/assets/fonts";
 
 const Row = styled.View`
   flex-direction: row;
@@ -30,7 +31,7 @@ const StyledText = styled.Text`
   line-height: 20px;
 `;
 const StyledTextBold = styled(StyledText)`
-  font-weight: bold;
+  font-family: ${Fonts.Bold};
 `;
 const SubTitle = styled.Text`
   color: ${(p) => p.theme.gray3};
@@ -78,6 +79,7 @@ const DeleteBtn = styled(StyledBtn)`
 const TextBtn = styled.Text`
   font-size: 14px;
   color: #fff;
+  font-family: ${Fonts.Medium};
 `;
 
 const menuOptions = [

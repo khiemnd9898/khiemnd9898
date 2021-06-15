@@ -41,9 +41,8 @@ const Name = styled.Text`
 const Title = styled.Text`
   font-size: 12px;
   line-height: 20px;
-  font-weight: 400;
   color: ${Colors.gray4};
-  font-family: ${Fonts.Medium};
+  font-family: ${Fonts.Bold};
 `;
 const ButtonIcon = styled.TouchableOpacity`
 `;

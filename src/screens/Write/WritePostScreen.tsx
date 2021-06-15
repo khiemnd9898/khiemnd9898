@@ -65,11 +65,6 @@ const BtnClose = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 `;
-const IconClose = styled.Image`
-  width: 16px;
-  height: 16px;
-`;
-
 export interface WritePostScreenProps {
     images?: string[],
     videos?: string[]

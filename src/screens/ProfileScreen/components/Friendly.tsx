@@ -31,6 +31,7 @@ const Friend = styled.Text`
 `;
 const Ftext = styled.Text`
   font-size: 14px;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray2};
 `;
 const FriendButton = styled.TouchableOpacity`
@@ -40,6 +41,7 @@ const FriendButton = styled.TouchableOpacity`
 `;
 const SFriend = styled.Text`
   font-size: 14px;
+  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
 const AllFriend = styled.TouchableOpacity`

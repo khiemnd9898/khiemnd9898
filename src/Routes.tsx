@@ -33,6 +33,7 @@ import { SearchFriends } from "@/screens/ProfileScreen/components/SearchFriends"
 
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
+import { ChangeProfile } from "@/ChangeProfile/ChangeProfileScreen";
 
 
 
@@ -138,6 +139,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
       <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
       <ModalStack.Screen name={'SearchFriends'} component={SearchFriends}/>
+      <ModalStack.Screen name={'ChangeProfile'} component={ChangeProfile}/>
     </ModalStack.Navigator>
   );
 

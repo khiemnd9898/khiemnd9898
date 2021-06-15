@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import {
 IC_SEACH,
 } from "@/assets";
+import { Fonts } from "@/assets/fonts";
 const Container = styled.View`
   width: 100%;
   background-color: ${p => p.theme.backgroundColor};
@@ -25,6 +26,7 @@ const TextViewInput = styled.View`
 
 const STextInput = styled.TextInput`
   flex: 1;
+  font-family: ${Fonts.Medium};
   height:36px;
   margin: 0px;
   padding: 0 0 0 12px;

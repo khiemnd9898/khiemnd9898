@@ -3,10 +3,10 @@ import styled from "styled-components/native";
 import {getStatusBarHeight} from "react-native-status-bar-height";
 import {
   IC_ARROW,
-  IC_SEACH,
 } from "@/assets";
 import { goBack } from "@/utils/navigation";
 import { Divider } from "@/components";
+import { View } from "react-native";
 import { Fonts } from "@/assets/fonts";
 
 const Container = styled.View`
@@ -29,28 +29,21 @@ const IconPlus = styled.Image`
   height: 20px;
   tint-color: ${p => p.theme.gray1};
 `;
-const SearchIcon = styled.Image`
-  width: 18px;
-  height: 18px;
-`;
 const STextInput = styled.Text`
-  font-size: 13px;
+  font-size: 18px;
+  font-family: ${Fonts.Bold};
   padding-left: 12px;
-  font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
-const ButtonInput = styled.TouchableOpacity`
+const ButtonInput = styled.View`
   flex: 1;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   height: 36px;
-  border-radius: 18px;
-  background-color: ${p => p.theme.gray5};
   padding: 0 12px
 `;
-export const ProfileHeader = memo(function ProfileHeader() {
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(""); // string ko có thì để rỗng
+export const ChangeHeader = memo(function ChangeHeader() {
   return (
     <Container>
       <Row>
@@ -58,11 +51,11 @@ export const ProfileHeader = memo(function ProfileHeader() {
           <IconPlus source={IC_ARROW} />
         </ButtonIcon>
         <ButtonInput>
-          <SearchIcon source={IC_SEACH} />
-         <STextInput>Seach.... </STextInput>
+         <STextInput>Cài đặt trang cá nhân</STextInput>
         </ButtonInput>
+        <View style={{width:30}}></View>
       </Row>
-      <Divider height={1.5} />
+      <Divider height={12} />
     </Container>
   );
 });
