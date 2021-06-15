@@ -144,7 +144,7 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
       <ModalStack.Screen name={'SearchFriends'} component={SearchFriends}/>
       <ModalStack.Screen name={'ChangeProfile'} component={ChangeProfile}/>
-      
+
       <ModalStack.Screen name={"PageScreen"} component={PageScreen} />
       <ModalStack.Screen name={"GroupScreen"} component={GroupScreen} />
     </ModalStack.Navigator>
