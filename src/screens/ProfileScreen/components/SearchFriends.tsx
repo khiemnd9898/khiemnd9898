@@ -1,9 +1,7 @@
 import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
-import {
-  IC_ARROW
-} from "@/assets";
+import { IC_ARROW } from "@/assets";
 import { goBack, navigateFriendlySuggestScreen, navigateListFriendScreen } from "@/utils/navigation";
 import { Divider } from "@/components";
 import { useNavigationParams } from "@/hooks/useNavigationParams";

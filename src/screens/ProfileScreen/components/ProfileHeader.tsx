@@ -1,11 +1,8 @@
 import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
-import {getStatusBarHeight} from "react-native-status-bar-height";
-import {
-  IC_ARROW,
-  IC_SEACH,
-} from "@/assets";
-import { goBack, navigateListFriendScreen, navigateSearchScreen } from "@/utils/navigation";
+import { getStatusBarHeight } from "react-native-status-bar-height";
+import { IC_ARROW, IC_SEACH } from "@/assets";
+import { goBack, navigateSearchScreen } from "@/utils/navigation";
 import { Divider } from "@/components";
 import { Fonts } from "@/assets/fonts";
 

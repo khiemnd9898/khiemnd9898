@@ -5,7 +5,6 @@ import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from
 import {Fonts} from "@/assets/fonts";
 import { navigateSearchScreen, openWritePostScreen } from "@/utils/navigation";
 import ImagePicker from "react-native-image-crop-picker";
-import { TouchableOpacity } from "react-native";
 
 
 const Container = styled.View`

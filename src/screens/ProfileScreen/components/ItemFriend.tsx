@@ -1,9 +1,10 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import React, { memo } from "react";
 import styled from "styled-components/native";
 import { Fonts } from "@/assets/fonts";
 import { Colors } from "@/themes/Colors";
 import { IC_MORE } from "@/assets";
-import { syncFriends, useFriend } from "@/store/Friend";
+import { useFriend } from "@/store/Friend";
+
 const Container = styled.TouchableOpacity<{ color?: any }>`
   background: ${(p) => (p.color ? p.color : p.theme.backgroundColor)};
 `;

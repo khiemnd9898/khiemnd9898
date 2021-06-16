@@ -1,20 +1,14 @@
 import React, { memo, useCallback, useState } from "react";
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
-import {
-  IC_ARROW,
-  IC_SEACH
-} from "@/assets";
+import { IC_ARROW } from "@/assets";
 import { goBack } from "@/utils/navigation";
-import { Divider } from "@/components";
 import { Fonts } from "@/assets/fonts";
 import { Colors } from "@/themes/Colors";
 import { TabBar, TabBarIndicator, TabView } from "react-native-tab-view";
 import { View } from "react-native";
-import { MarketListScreen } from "@/screens/Market/MarketListScreen";
 import { useNavigationParams } from "@/hooks/useNavigationParams";
 import { ListSearch } from "@/screens/SearchScreen/ListSearch";
-import useBoolean from "@/hooks/useBoolean";
 
 const Container = styled.View`
   flex: 1;

@@ -1,9 +1,8 @@
-import React, { memo, useCallback, useEffect } from "react";
+import React, { memo } from "react";
 import styled from "styled-components/native";
 import { Fonts } from "@/assets/fonts";
 import { Colors } from "@/themes/Colors";
 import { IC_SEACH } from "@/assets";
-import { navigateListFriendScreen, navigateSearchFull } from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -18,29 +17,30 @@ const SHeader = styled.View`
 const HeaderText = styled.Text`
   font-size: 20px;
   font-family: ${Fonts.Bold};
-  color: ${Colors.gray5};
+  color: ${Colors.gray1};
 `;
-const SFooter=styled.View`
+const SFooter = styled.View`
   flex-direction: column;
-  padding:0 16px;
+  padding: 0 16px;
   padding-bottom: 12px;
-`
+`;
 const SButtonFooter = styled.TouchableOpacity`
   flex-direction: row;
-  padding:4px 0 4px 0;
-  height:44px;
+  padding: 4px 0 4px 0;
+  height: 44px;
   align-items: center;
 `;
 const SIcon = styled.Image`
-  width:20px;
+  width: 20px;
   height: 20px;
+  tint-color: ${p => p.theme.gray1};
 `;
-const Stext=styled.Text`
-  font-size:14px;
+const Stext = styled.Text`
+  font-size: 14px;
   font-family: ${Fonts.Medium};
-  color: ${Colors.gray5};
+  color: ${Colors.gray1};
   padding-left: 12px;
-  
+
 `;
 export const FooterSearchScreen = memo(function FooterSearchScreen() {
 

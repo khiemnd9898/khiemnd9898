@@ -1,17 +1,11 @@
 import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
-import { FlatList, TouchableOpacity, View } from "react-native";
 import { Fonts } from "@/assets/fonts";
-import { navigateListFriendScreen, navigateSearchFull, navigationSearchFriend } from "@/utils/navigation";
-import { Friendsection } from "@/screens/ProfileScreen/components/Friendsection";
-import { useFriendsByQuery } from "@/store/Friend";
+import { navigateSearchFull } from "@/utils/navigation";
 import useAsyncFn from "@/hooks/useAsyncFn";
-import { requestGetFriendList } from "@/store/Friend/functions";
-import { Divider } from "@/components";
-import { useSearch, useSearchsByQuery } from "@/store/ListSearch";
+import { useSearchsByQuery } from "@/store/ListSearch";
 import { requestGeTSearchList } from "@/store/ListSearch/functions";
 import { SearchSection } from "@/screens/SearchScreen/SearchSection";
-import { SearchScreen } from "@/screens/Preload/SearchScreen";
 
 const Container = styled.View`
   width: 100%;
@@ -62,7 +56,7 @@ export const CenterSeachScreen = memo(function CenterSeachScreen() {
   return (
     <Container>
       <Header>
-        <Headerleft >
+        <Headerleft>
           <Friend>Tìm kiếm gần đây</Friend>
         </Headerleft>
         <Headerright>
