@@ -17,7 +17,7 @@ const SHeader = styled.View`
 const HeaderText = styled.Text`
   font-size: 20px;
   font-family: ${Fonts.Bold};
-  color: ${Colors.gray1};
+  color: ${p=>p.theme.gray1};
 `;
 const SFooter = styled.View`
   flex-direction: column;
@@ -38,7 +38,7 @@ const SIcon = styled.Image`
 const Stext = styled.Text`
   font-size: 14px;
   font-family: ${Fonts.Medium};
-  color: ${Colors.gray1};
+  color: ${p => p.theme.gray1};
   padding-left: 12px;
 
 `;
