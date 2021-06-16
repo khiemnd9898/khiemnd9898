@@ -54,7 +54,6 @@ const Sicon = styled.Image`
 interface Props {
   id: string;
 }
-
 export const ItemFriend = memo(function ItemFriend(props: Props) {
   const { id } = props;
   const itemload = useFriend(id);
@@ -77,6 +76,5 @@ export const ItemFriend = memo(function ItemFriend(props: Props) {
         </Comlumn3>
       </ButtonItem>
     </Container>
-
   );
 });

@@ -21,12 +21,13 @@ const Row = styled.View`
 `;
 
 const ButtonIcon = styled.TouchableOpacity`
-  width: 30px;
+  width: 32px;
+  height:36px;
   justify-content: center;
 `;
 const IconPlus = styled.Image`
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   tint-color: ${p => p.theme.gray1};
 `;
 const SearchIcon = styled.Image`
