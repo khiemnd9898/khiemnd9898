@@ -11,6 +11,7 @@ import { notificationReducer, setNotificationStore } from "@/store/notification"
 import { requestReducer, setRequestStore } from "@/store/request";
 import { suggestionReducer, setSuggestionStore } from "@/store/suggestion";
 import { friendReducer, setFriendStore } from "@/store/Friend";
+import { searchReducer, setSearchStore } from "@/store/ListSearch";
 
 const middlewares: any[] = [];
 
@@ -23,7 +24,8 @@ const appReducer = combineReducers({
   notifications: notificationReducer,
   requests: requestReducer,
   suggestions: suggestionReducer,
-  friends: friendReducer
+  friends: friendReducer,
+  search:searchReducer
 });
 
 const rootReducer = (state: any, action: any) => {
@@ -63,4 +65,5 @@ setNotificationStore(store);
 setRequestStore(store);
 setSuggestionStore(store);
 setFriendStore(store);
+setSearchStore(store);
 constantSetStore(store);

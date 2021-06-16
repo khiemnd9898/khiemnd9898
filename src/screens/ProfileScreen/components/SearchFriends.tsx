@@ -76,11 +76,6 @@ const StyledText = styled.Text`
   font-size: 14px;
   padding: 10px 0 10px 16px;
 `;
-
-export interface SearchFriendProps {
-  id: string
-}
-
 const renderItem = ({ item }: any) => (
   <RequestItem id={item.toString()} suggestion={true} />
 );

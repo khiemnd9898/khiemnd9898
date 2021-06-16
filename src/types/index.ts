@@ -109,3 +109,9 @@ export interface RawFriend {
     title: string;
 
 }
+export interface RawListSearch {
+    id: string;
+    name: string;
+    avatar:string;
+
+}

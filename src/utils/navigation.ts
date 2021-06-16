@@ -14,6 +14,7 @@ import { ListFriendProps } from "@/screens/ProfileScreen/components/ListFriend";
 import {SelectAlbumProps} from '@/screens/SelectAlbum/SelectAlbumScreen'
 import {WritePostScreenProps} from "@/screens/Write/WritePostScreen";
 import { ChangeProfileProps } from "@/ChangeProfile/ChangeProfileScreen";
+import { SearchScreenProps } from "@/screens/Preload/SearchScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -100,6 +101,9 @@ export const navigateMarketDetailScreen = createNavigate<MarketDetailScreenProps
 );
 export const navigateListFriendScreen = createNavigate<ListFriendProps>(
   'ListFriend'
+);
+export const navigateSearchScreen = createNavigate<SearchScreenProps>(
+  'SearchScreen'
 );
 export const navigateChangeProfileScreen = createNavigate<ChangeProfileProps>(
   'ChangeProfile'

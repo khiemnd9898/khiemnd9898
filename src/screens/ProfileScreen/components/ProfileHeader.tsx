@@ -1,11 +1,11 @@
-import React, {memo} from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
 import {getStatusBarHeight} from "react-native-status-bar-height";
 import {
   IC_ARROW,
   IC_SEACH,
 } from "@/assets";
-import { goBack } from "@/utils/navigation";
+import { goBack, navigateListFriendScreen, navigateSearchScreen } from "@/utils/navigation";
 import { Divider } from "@/components";
 import { Fonts } from "@/assets/fonts";
 
@@ -17,12 +17,13 @@ const Container = styled.View`
 
 const Row = styled.View`
   flex-direction: row;
-  padding: 7px 16px;
+  padding: 8px 16px 8px 0;
 `;
 
 const ButtonIcon = styled.TouchableOpacity`
-  width: 32px;
+  width: 50px;
   height:36px;
+  padding-left: 16px;
   justify-content: center;
 `;
 const IconPlus = styled.Image`
@@ -50,15 +51,16 @@ const ButtonInput = styled.TouchableOpacity`
   padding: 0 12px
 `;
 export const ProfileHeader = memo(function ProfileHeader() {
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(""); // string ko có thì để rỗng
+  const openSearchScreenModal = useCallback(() => {
+    navigateSearchScreen({ id: "1" });
+  }, []);
   return (
     <Container>
       <Row>
         <ButtonIcon onPress={goBack}>
           <IconPlus source={IC_ARROW} />
         </ButtonIcon>
-        <ButtonInput>
+        <ButtonInput onPress={openSearchScreenModal}>
           <SearchIcon source={IC_SEACH} />
          <STextInput>Seach.... </STextInput>
         </ButtonInput>

@@ -1,5 +1,5 @@
 import {createDynamicReducer} from '@/utils/createDynamicReducer';
-import {RawFriend} from '@/types';
+import { RawFriend, RawListSearch } from "@/types";
 import {batch, useSelector} from 'react-redux';
 
 const {
@@ -9,16 +9,16 @@ const {
   useByKey,
   setQueries,
   useKeysByQuery,
-} = createDynamicReducer<RawFriend>('friends', 'id');
+} = createDynamicReducer<RawListSearch>('friends', 'id');
 
-export const setFriendStore = setStore;
-export const friendReducer = reducer;
-export const syncFriends = sync;
-export const useFriend = useByKey;
-export const setFriendQueries = setQueries;
-export const useFriendsByQuery = useKeysByQuery;
+export const setSearchStore = setStore;
+export const searchReducer = reducer;
+export const syncSearch = sync;
+export const useSearch = useByKey;
+export const setSearchQueries = setQueries;
+export const useSearchsByQuery = useKeysByQuery;
 
-export const syncAllFiends = (accessories: RawFriend[]) => {
+export const syncAllSearch = (accessories: RawListSearch[]) => {
   let query: { [id: string]: string[] } = {};
   let ids: string[] = [];
 
@@ -27,8 +27,8 @@ export const syncAllFiends = (accessories: RawFriend[]) => {
   }
 
   batch(() => {
-    syncFriends(accessories);
-    setFriendQueries({
+    syncSearch(accessories);
+    setSearchQueries({
       all: ids,
       ...query,
     });

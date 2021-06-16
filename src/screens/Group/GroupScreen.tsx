@@ -80,7 +80,6 @@ export const GroupScreen = memo(function GroupScreen() {
             <GroupHeader />
             <BannerImg uri="https://www.facebook.com/images/groups/groups-default-cover-photo-2x.png" />
             <ActionSection />
-
             <TabView
                 navigationState={route}
                 renderScene={renderScene}
