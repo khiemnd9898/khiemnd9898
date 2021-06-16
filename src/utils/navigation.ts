@@ -15,6 +15,7 @@ import {SelectAlbumProps} from '@/screens/SelectAlbum/SelectAlbumScreen'
 import {WritePostScreenProps} from "@/screens/Write/WritePostScreen";
 import { ChangeProfileProps } from "@/ChangeProfile/ChangeProfileScreen";
 import { SearchScreenProps } from "@/screens/Preload/SearchScreen";
+import { SearchFullScreenProps } from "@/screens/SearchScreen/SearchFullScreen";
 
 export const defaultScreenOptions = TransitionPresets.SlideFromRightIOS;
 
@@ -110,7 +111,10 @@ export const navigateChangeProfileScreen = createNavigate<ChangeProfileProps>(
 );
 export const navigationSearchFriend=createNavigate<ListFriendProps>(
   'SearchFriends'
-)
+);
+export const navigateSearchFull=createNavigate<SearchFullScreenProps>(
+  'SearchFullScreen'
+);
 
 
 export const navigateSelectAlbumScreen = createNavigate<SelectAlbumProps>(

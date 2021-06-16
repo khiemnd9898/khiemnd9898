@@ -10,7 +10,7 @@ const Container = styled.TouchableOpacity<{ color?: any }>`
 `;
 const ButtonItem = styled.TouchableOpacity`
   flex-direction: row;
-  padding: 8px 0px 8px 0px;
+  padding: 8px 16px 8px 16px;
 `;
 const Column = styled.View`
   width: 60px;
@@ -48,6 +48,7 @@ const ButtonIcon = styled.TouchableOpacity`
 const Sicon = styled.Image`
   width: 24px;
   height: 24px;
+  tint-color: ${p => p.theme.gray1};
 `;
 
 interface Props {

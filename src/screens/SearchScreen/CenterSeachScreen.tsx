@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
 import { FlatList, TouchableOpacity, View } from "react-native";
 import { Fonts } from "@/assets/fonts";
-import { navigateListFriendScreen, navigationSearchFriend } from "@/utils/navigation";
+import { navigateListFriendScreen, navigateSearchFull, navigationSearchFriend } from "@/utils/navigation";
 import { Friendsection } from "@/screens/ProfileScreen/components/Friendsection";
 import { useFriendsByQuery } from "@/store/Friend";
 import useAsyncFn from "@/hooks/useAsyncFn";
@@ -33,11 +33,6 @@ const Friend = styled.Text`
   font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
-const Ftext = styled.Text`
-  font-size: 14px;
-  font-family: ${Fonts.Medium};
-  color: ${p => p.theme.gray2};
-`;
 const FriendButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
@@ -47,30 +42,16 @@ const SFriend = styled.Text`
   font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;
-const AllFriend = styled.TouchableOpacity`
-  background-color: ${p => p.theme.gray5};
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-`;
-const Des = styled.Text`
-  font-size: 13px;
-  line-height: 19px;
-  margin: 10px 5px 10px 5px;
-  color: ${p => p.theme.gray1};
-  font-family: ${Fonts.Medium};
-`;
-const BotFriends = styled.View`
-  padding: 5px 16px 10px 16px;
-`;
 const Headerright = styled.View`
   align-items: flex-end;
 `;
 const Sixitems = styled.View`
-  padding: 0 16px;
   flex-direction: column;
 `;
 export const CenterSeachScreen = memo(function CenterSeachScreen() {
+  const openSearchFullModal = useCallback(() => {
+    navigateSearchFull({ id: "1" });
+  }, []);
   const allSearch = useSearchsByQuery("all") || [];
   const [{ loading, error, value }, getData] = useAsyncFn(async () => {
     requestGeTSearchList();
@@ -81,11 +62,11 @@ export const CenterSeachScreen = memo(function CenterSeachScreen() {
   return (
     <Container>
       <Header>
-        <Headerleft>
+        <Headerleft >
           <Friend>Tìm kiếm gần đây</Friend>
         </Headerleft>
         <Headerright>
-          <FriendButton>
+          <FriendButton onPress={openSearchFullModal}>
             <SFriend>
               Xem tất cả
             </SFriend>

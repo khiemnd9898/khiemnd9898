@@ -98,13 +98,14 @@ export const MarketScreen = memo(function MarketScreen() {
                     <Icon source={IC_HOME_SEARCH}/>
                 </TouchableOpacity>
             </Header>
-            <TabView
-                navigationState={route}
-                renderScene={renderScene}
-                onIndexChange={handleIndexChange}
-                renderTabBar={renderTabBar}
-                renderLazyPlaceholder={renderLazyPlaceholder}
-            />
+                <TabView
+                  navigationState={route}
+                  renderScene={renderScene}
+                  onIndexChange={handleIndexChange}
+                  renderTabBar={renderTabBar}
+                  renderLazyPlaceholder={renderLazyPlaceholder}
+                />
+
 
         </Container>
     )

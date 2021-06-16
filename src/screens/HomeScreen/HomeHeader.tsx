@@ -3,8 +3,9 @@ import styled from "styled-components/native";
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from "@/assets";
 import {Fonts} from "@/assets/fonts";
-import {openWritePostScreen} from "@/utils/navigation";
+import { navigateSearchScreen, openWritePostScreen } from "@/utils/navigation";
 import ImagePicker from "react-native-image-crop-picker";
+import { TouchableOpacity } from "react-native";
 
 
 const Container = styled.View`
@@ -22,7 +23,9 @@ const Row = styled.View`
   height: 44px;
   padding: 0 16px;
 `;
-
+const BntSearch = styled.TouchableOpacity`
+  height:44px
+`;
 const Row2 = styled(Row)`
   height: 56px;
 `;
@@ -97,7 +100,9 @@ export const HomeHeader = memo(function HomeHeader() {
     const openWritePost = useCallback(() => {
         openWritePostScreen({images: [], videos: []})
     }, []);
-
+    const openSearchScreenModal = useCallback(() => {
+        navigateSearchScreen({ id: "1" });
+    }, []);
     const onImagePicker = useCallback(() => {
         ImagePicker.openPicker({
             mediaType: "photo",
@@ -124,7 +129,9 @@ export const HomeHeader = memo(function HomeHeader() {
         <Container>
             <Row>
                 <LogoApp resizeMode={"contain"} source={IMG_LOGO_APP}/>
-                <IconSearch source={IC_HOME_SEARCH}/>
+                <BntSearch onPress={openSearchScreenModal}>
+                    <IconSearch source={IC_HOME_SEARCH}/>
+                </BntSearch>
             </Row>
             <Row2>
                 <Avatar

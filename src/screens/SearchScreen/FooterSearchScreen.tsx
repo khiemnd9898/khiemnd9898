@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { Fonts } from "@/assets/fonts";
 import { Colors } from "@/themes/Colors";
 import { IC_SEACH } from "@/assets";
+import { navigateListFriendScreen, navigateSearchFull } from "@/utils/navigation";
 
 const Container = styled.View`
   width: 100%;
@@ -42,6 +43,7 @@ const Stext=styled.Text`
   
 `;
 export const FooterSearchScreen = memo(function FooterSearchScreen() {
+
   return (
     <Container>
       <SHeader>
