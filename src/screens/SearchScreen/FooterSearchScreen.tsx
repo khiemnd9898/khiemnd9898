@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components/native";
 import { Fonts } from "@/assets/fonts";
-import { Colors } from "@/themes/Colors";
 import { IC_SEACH } from "@/assets";
 
 const Container = styled.View`

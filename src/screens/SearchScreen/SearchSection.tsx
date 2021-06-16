@@ -46,8 +46,8 @@ const Title = styled.Text`
 const ButtonIcon = styled.TouchableOpacity`
 `;
 const Sicon = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   tint-color: ${p => p.theme.gray1};
 `;
 
