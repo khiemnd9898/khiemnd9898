@@ -34,7 +34,7 @@ import { SearchFriends } from "@/screens/ProfileScreen/components/SearchFriends"
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
 
-import { ChangeProfile } from "@/ChangeProfile/ChangeProfileScreen";
+import { ChangeProfile } from "@/screens/ChangeProfile/ChangeProfileScreen";
 
 
 import {PageScreen} from '@/screens/Page/PageScreen';
