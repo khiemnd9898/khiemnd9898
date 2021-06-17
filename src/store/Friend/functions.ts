@@ -1,8 +1,4 @@
-import { Fetch } from "@/utils/fetch";
-import { syncAllCategories } from "@/store/categories";
-import { RawCategory, RawFriend, RawPost } from "@/types";
-import { syncAllPosts } from "@/store/post/index";
-import { getPreviewData } from "@/utils/preview";
+import { RawFriend } from "@/types";
 import { syncAllFiends } from "@/store/Friend/index";
 
 
