@@ -40,7 +40,8 @@ const InfoSectionSub2 = styled(InfoSectionSub)`
     margin-left: 5px;
 `;
 const LikeSection = styled.TouchableOpacity`
-    width: 56px;
+    width: 60px;
+    padding: 5px 0;
     align-items: center;
     justify-content: center;
 `;

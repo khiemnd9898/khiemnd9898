@@ -8,12 +8,13 @@ import { navigateListFriendScreen, navigateProfileScreen } from "@/utils/navigat
 const Container = styled.View`
   width: 100%;
   background-color: ${p => p.theme.backgroundColor1};
-  padding: 12px 16px
+  padding: 12px 16px;
 `;
 const Image = styled.Image`
   width: 44px;
   height: 44px;
-  border-radius: ${60 / 2}px;
+  border-radius: ${44 / 2}px;
+  background-color: ${p => p.theme.gray5};
 `;
 const Name = styled.Text`
   font-size: 15px;

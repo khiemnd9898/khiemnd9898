@@ -15,11 +15,13 @@ const Row = styled.View`
     align-items: center;
 `;
 const ViewLeft = styled.View`
-    flex: 1;
+    width: 55px;
+    justify-content: center;
+    align-items: center;
 `;
 
 const ViewRight = styled.View`
-    flex: 6;
+    flex: 1;
     padding-left: 18px;
 `;
 const StyledText = styled.Text`

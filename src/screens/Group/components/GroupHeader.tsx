@@ -1,11 +1,8 @@
-import React, {memo, ReactElement} from 'react';
-import styled from 'styled-components/native';
-import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {Colors} from '@/themes/Colors';
 import {IC_BACK, IC_MORE, IC_SEACH, IC_SHARE} from '@/assets';
 import {goBack} from '@/utils/navigation';
-import {TextStyle, ViewStyle} from 'react-native';
-import {Fonts} from '@/assets/fonts';
+import React, {memo} from 'react';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
     height: ${getStatusBarHeight() + 56}px;
@@ -33,6 +30,8 @@ const Right = styled.View`
 
 const IconButton = styled.TouchableOpacity`
     padding: 0 10px 0 15px;
+    height: 100%;
+    justify-content: center;
 `;
 const Icon = styled.Image<{color?: string}>`
     width: 24px;

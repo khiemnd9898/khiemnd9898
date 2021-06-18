@@ -1,31 +1,19 @@
-import React, {memo} from "react";
-import styled from "styled-components/native";
-import {getStatusBarHeight} from "react-native-status-bar-height";
-import FastImage from "react-native-fast-image";
-import {
-    IC_HOME_SEARCH,
-    IC_MENU,
-    IC_MOREDOT,
-    IC_PLUS, IC_SEACH, IC_SHARE,
-    IC_VIDEO_CAMERA,
-    IMG_LOGO_APP,
-    IMG_PHOTOS
-} from "@/assets";
-import {TextInput, View, Image} from "react-native";
-import {Colors} from "@/themes/Colors";
-import {Fonts} from "@/assets/fonts";
-import {BaseStyles} from "@/themes/BaseStyles";
-
+import {IC_PLUS, IC_SEACH} from '@/assets';
+import React, {memo} from 'react';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import styled from 'styled-components/native';
+import {TextInput} from 'react-native';
 
 const Container = styled.View`
   width: 100%;
-  padding-top: ${getStatusBarHeight()};
+  padding-top: ${getStatusBarHeight()}px;
   background-color: ${p => p.theme.backgroundColor};
 `;
 
 const Row = styled.View`
   flex-direction: row;
-  padding: 7px 16px;
+  align-items: center;
+  padding: 0 16px;
 `;
 
 const Avatar = styled.Image`
@@ -37,6 +25,7 @@ const Avatar = styled.Image`
 
 const ViewFull = styled.TouchableOpacity`
   flex: 1;
+  padding: 5px 0;
 `;
 
 const TextMind = styled.Text`
@@ -49,6 +38,7 @@ const TextMind = styled.Text`
 `;
 const ButtonIcon = styled.TouchableOpacity`
   width: 40px;
+  padding: 5px 0;
   justify-content: center;
   align-items: flex-end;
 `;
@@ -72,7 +62,9 @@ const TextViewInput = styled.View`
   padding: 0 12px
 `;
 
-const STextInput = styled.TextInput`
+const STextInput = styled(TextInput).attrs((props) => ({
+  placeholderTextColor: props.theme.gray3,
+}))`
   flex: 1;
   height:36px;
   margin: 0px;

@@ -9,7 +9,7 @@ import ImagePicker from "react-native-image-crop-picker";
 
 const Container = styled.View`
   width: 100%;
-  padding-top: ${getStatusBarHeight()};
+  padding-top: ${getStatusBarHeight()}px;
   background-color: ${p => p.theme.backgroundColor};
   border-bottom-width: 12px;
   border-bottom-color: ${p => p.theme.divider};
@@ -74,6 +74,7 @@ const IconMenu = styled(IconAction)`
 
 const Button = styled.TouchableOpacity`
   flex: 1;
+  height: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: row;

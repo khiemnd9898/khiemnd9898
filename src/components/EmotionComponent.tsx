@@ -25,6 +25,7 @@ const IconAction = styled.Image<{ liked?: boolean }>`
 
 const Button = styled.TouchableOpacity`
   flex: 1;
+  height: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: row;
