@@ -1,93 +1,97 @@
-import {Fonts} from '@/assets/fonts';
-import {MarketListScreen} from '@/screens/Market/MarketListScreen';
-import {ActionSection} from '@/screens/Page/components/ActionSection';
-import {PageHeader} from '@/screens/Page/components/PageHeader';
-import React, {memo, useCallback, useState} from 'react';
-import {View} from 'react-native';
-import {TabBar, TabBarIndicator, TabView} from 'react-native-tab-view';
-import styled from 'styled-components/native';
-import {BannerImg} from '@/screens/Page/components/BannerImg';
+import { Fonts } from "@/assets/fonts";
+import { MarketListScreen } from "@/screens/Market/MarketListScreen";
+import { ActionSection } from "@/screens/Page/components/ActionSection";
+import { PageHeader } from "@/screens/Page/components/PageHeader";
+import React, { memo, useCallback, useState } from "react";
+import { View } from "react-native";
+import { TabBar, TabBarIndicator, TabView } from "react-native-tab-view";
+import styled from "styled-components/native";
+import { BannerImg } from "@/screens/Page/components/BannerImg";
 
 const Container = styled.View`
-    flex: 1;
-    background-color: ${(p) => p.theme.backgroundColor};
+  flex: 1;
+  background-color: ${(p) => p.theme.backgroundColor};
 `;
 
 const STabBar = styled(TabBar).attrs((props) => ({
-    tabStyle: {
-        width: 'auto',
-    },
-    indicatorStyle: {
-        backgroundColor: '#1877f2',
-    },
-    labelStyle: {
-        textTransform: 'capitalize',
-        fontFamily: Fonts.Bold,
-    },
-    activeColor: '#1877f2',
-    inactiveColor: props.theme.gray3,
-    scrollEnabled: false,
+  tabStyle: {
+    width: "auto"
+  },
+  indicatorStyle: {
+    backgroundColor: "#1877f2"
+  },
+  labelStyle: {
+    textTransform: "capitalize",
+    fontFamily: Fonts.Bold
+  },
+  activeColor: "#1877f2",
+  inactiveColor: props.theme.gray3,
+  scrollEnabled: false
 }))`
-    background-color: ${(p) => p.theme.backgroundColor};
+  background-color: ${(p) => p.theme.backgroundColor};
 `;
 const STabBarIndicator = styled(TabBarIndicator)`
-    background-color: ${(p) => p.theme.gray1};
+  background-color: ${(p) => p.theme.gray1};
+`;
+const SViewLightBlue = styled.View`
+  flex: 1;
+  background-color: lightblue;
 `;
 
 export const PageScreen = memo(function PageScreen() {
-    const [route, setRoute] = useState({
-        index: 0,
-        routes: [
-            {key: 'first', title: 'Trang chủ'},
-            {key: 'second', title: 'Cửa hàng'},
-            {key: '333', title: 'Bài viết'},
-            {key: '2', title: 'Giới thiệu'},
-        ],
-    });
+  const [route, setRoute] = useState({
+    index: 0,
+    routes: [
+      { key: "first", title: "Trang chủ" },
+      { key: "second", title: "Cửa hàng" },
+      { key: "333", title: "Bài viết" },
+      { key: "2", title: "Giới thiệu" }
+    ]
+  });
 
-    const renderScene = ({route}: any) => {
-        return <MarketListScreen />;
-    };
+  const renderScene = ({ route }: any) => {
+    return <SViewLightBlue />;
+  };
 
-    const handleIndexChange = (_index: number) =>
-        setRoute({...route, index: _index});
+  const handleIndexChange = (_index: number) =>
+    setRoute({ ...route, index: _index });
 
-    const renderTabBarIndicator = useCallback((props) => {
-        return <STabBarIndicator {...props} />;
-    }, []);
+  const renderTabBarIndicator = useCallback((props) => {
+    return <STabBarIndicator {...props} />;
+  }, []);
 
-    const renderTabBar = useCallback(
-        (props) => {
-            return (
-                <STabBar
-                    scrollEnabled={true}
-                    lazy={true}
-                    renderIndicator={renderTabBarIndicator}
-                    {...props}
-                />
-            );
-        },
-        [renderTabBarIndicator],
-    );
+  const renderTabBar = useCallback(
+    (props) => {
+      return (
+        <STabBar
+          scrollEnabled={true}
+          lazy={true}
+          renderIndicator={renderTabBarIndicator}
+          {...props}
+        />
+      );
+    },
+    [renderTabBarIndicator]
+  );
 
-    const renderLazyPlaceholder = useCallback(() => {
-        return <View />;
-    }, []);
+  const renderLazyPlaceholder = useCallback(() => {
+    return <View />;
+  }, []);
 
-    return (
-        <Container>
-            <PageHeader />
-            <BannerImg uri="https://www.facebook.com/images/groups/groups-default-cover-photo-2x.png" />
-            <ActionSection />
+  return (
+    <Container>
+      <PageHeader />
+      <BannerImg uri="https://www.facebook.com/images/groups/groups-default-cover-photo-2x.png" />
+      <ActionSection />
 
-            <TabView
-                navigationState={route}
-                renderScene={renderScene}
-                onIndexChange={handleIndexChange}
-                renderTabBar={renderTabBar}
-                renderLazyPlaceholder={renderLazyPlaceholder}
-                swipeEnabled={false}
-            />
-        </Container>
-    );
+      <TabView
+        navigationState={route}
+        renderScene={renderScene}
+        onIndexChange={handleIndexChange}
+        renderTabBar={renderTabBar}
+        renderLazyPlaceholder={renderLazyPlaceholder}
+        swipeEnabled={false}
+      />
+    </Container>
+  );
 });

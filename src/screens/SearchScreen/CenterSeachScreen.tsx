@@ -14,7 +14,8 @@ const Container = styled.View`
 `;
 const Header = styled.View`
   flex-direction: row;
-  padding: 12px 16px 12px 16px;
+  align-items: center;
+  padding: 12px 16px;
 `;
 const Headerleft = styled.View`
   flex: 1;
@@ -33,6 +34,7 @@ const FriendButton = styled.TouchableOpacity`
 `;
 const SFriend = styled.Text`
   font-size: 14px;
+  padding: 10px;
   font-family: ${Fonts.Medium};
   color: ${p => p.theme.gray1};
 `;

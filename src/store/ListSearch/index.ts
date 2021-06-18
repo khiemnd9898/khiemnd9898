@@ -1,6 +1,6 @@
-import {createDynamicReducer} from '@/utils/createDynamicReducer';
-import { RawFriend, RawListSearch } from "@/types";
-import {batch, useSelector} from 'react-redux';
+import { createDynamicReducer } from "@/utils/createDynamicReducer";
+import { RawListSearch } from "@/types";
+import { batch } from "react-redux";
 
 const {
   setStore,

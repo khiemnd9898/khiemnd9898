@@ -1,6 +1,4 @@
-import { Fetch } from "@/utils/fetch";
-import { syncAllCategories } from "@/store/categories";
-import {  RawListSearch } from "@/types";
+import { RawListSearch } from "@/types";
 import { syncAllSearch } from "@/store/ListSearch/index";
 
 
