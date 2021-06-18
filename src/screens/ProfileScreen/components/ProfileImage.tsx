@@ -1,18 +1,20 @@
-import React, {memo, useCallback} from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
 import {
     IC_CAMERA,
     IC_FACEBOOK_WHITE,
-    IC_FLAG, IC_IMAGE,
+    IC_FLAG,
+    IC_IMAGE,
     IC_UP_SQUARE,
-    IC_URL, IC_USER,
+    IC_URL,
+    IC_USER,
     IC_VIDEO_CAMERA
 } from "@/assets";
-import {Dimensions, TouchableOpacity, View} from "react-native";
-import {UserInfomation} from "@/screens/ProfileScreen/components/UserInfomation";
-import {BottomMenuSelector} from "@/components/BottomMenu";
+import { Dimensions } from "react-native";
+import { UserInfomation } from "@/screens/ProfileScreen/components/UserInfomation";
+import { BottomMenuSelector } from "@/components/BottomMenu";
 import useBoolean from "@/hooks/useBoolean";
-import {Divider} from "@/components";
+import { Divider } from "@/components";
 import FastImage from "react-native-fast-image";
 
 const {width} = Dimensions.get("window");

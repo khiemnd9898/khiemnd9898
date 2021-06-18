@@ -1,9 +1,9 @@
-import React, {memo, useCallback, useState} from 'react';
+import React, { memo, useCallback, useState } from "react";
 import styled from "styled-components/native";
-import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS} from "@/assets";
-import {Fonts} from "@/assets/fonts";
-import {openWritePostScreen} from "@/utils/navigation";
+import { getStatusBarHeight } from "react-native-status-bar-height";
+import { IC_HOME_SEARCH, IC_MENU, IC_VIDEO_CAMERA, IMG_LOGO_APP, IMG_PHOTOS } from "@/assets";
+import { Fonts } from "@/assets/fonts";
+import { navigateSearchScreen, openWritePostScreen } from "@/utils/navigation";
 import ImagePicker from "react-native-image-crop-picker";
 
 
@@ -22,7 +22,10 @@ const Row = styled.View`
   height: 44px;
   padding: 0 16px;
 `;
-
+const BntSearch = styled.TouchableOpacity`
+  height: 44px;
+  padding: 10px;
+`;
 const Row2 = styled(Row)`
   height: 56px;
 `;
@@ -52,12 +55,12 @@ const ViewFull = styled.TouchableOpacity`
 `;
 
 const TextMind = styled.Text`
-    padding-left: 12px;
-    padding-right: 10px;
-    font-size: 13px;
-    line-height: 20px;
-    letter-spacing: -0.24px;
-    color: #A8A8A8;
+  padding-left: 12px;
+  padding-right: 10px;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  color: #A8A8A8;
 `;
 
 const IconAction = styled.Image`
@@ -94,69 +97,73 @@ const DividerVertical = styled.View`
   background-color: ${p => p.theme.gray5};
 `;
 export const HomeHeader = memo(function HomeHeader() {
-    const openWritePost = useCallback(() => {
-        openWritePostScreen({images: [], videos: []})
-    }, []);
+  const openWritePost = useCallback(() => {
+    openWritePostScreen({ images: [], videos: [] });
+  }, []);
+  const openSearchScreenModal = useCallback(() => {
+    navigateSearchScreen({ id: "1" });
+  }, []);
+  const onImagePicker = useCallback(() => {
+    ImagePicker.openPicker({
+      mediaType: "photo",
+      multiple: true,
+      compressImageQuality: 0.6
+    }).then((values) => {
+      const urls = values.map(item => item.path);
+      openWritePostScreen({ images: urls, videos: [] });
+    });
+  }, []);
 
-    const onImagePicker = useCallback(() => {
-        ImagePicker.openPicker({
-            mediaType: "photo",
-            multiple: true,
-            compressImageQuality: 0.6
-        }).then((values) => {
-            const urls = values.map(item => item.path);
-            openWritePostScreen({images: urls, videos: []})
-        })
-    }, []);
+  const onVideoPicker = useCallback(() => {
+    ImagePicker.openPicker({
+      mediaType: "video",
+      multiple: true,
+      compressImageQuality: 0.6
+    }).then((values) => {
+      const urls = values.map(item => item.path);
+      openWritePostScreen({ images: [], videos: urls });
+    });
+  }, []);
 
-    const onVideoPicker = useCallback(() => {
-        ImagePicker.openPicker({
-            mediaType: "video",
-            multiple: true,
-            compressImageQuality: 0.6
-        }).then((values) => {
-            const urls = values.map(item => item.path);
-            openWritePostScreen({images: [], videos: urls})
-        })
-    }, []);
-
-    return (
-        <Container>
-            <Row>
-                <LogoApp resizeMode={"contain"} source={IMG_LOGO_APP}/>
-                <IconSearch source={IC_HOME_SEARCH}/>
-            </Row>
-            <Row2>
-                <Avatar
-                    source={{uri: 'https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg'}}/>
-                <ViewFull onPress={openWritePost}>
-                    <TextMind numberOfLines={1}>
-                        What is on your mind? #Hashtag.. @Mention.. Link..
-                    </TextMind>
-                </ViewFull>
-            </Row2>
-            <Footer>
-                <Button onPress={onImagePicker}>
-                    <IconAction source={IMG_PHOTOS}/>
-                    <ButtonText>
-                        Photo
-                    </ButtonText>
-                </Button>
-                <DividerVertical/>
-                <Button onPress={onVideoPicker}>
-                    <IconAction source={IC_VIDEO_CAMERA}/>
-                    <ButtonText>
-                        Video
-                    </ButtonText>
-                </Button>
-                <DividerVertical/>
-                <Button>
-                    <IconMenu source={IC_MENU}/>
-                    <ButtonText>
-                        More
-                    </ButtonText>
-                </Button>
-            </Footer>
-        </Container>
-    )
+  return (
+    <Container>
+      <Row>
+        <LogoApp resizeMode={"contain"} source={IMG_LOGO_APP} />
+        <BntSearch onPress={openSearchScreenModal}>
+          <IconSearch source={IC_HOME_SEARCH} />
+        </BntSearch>
+      </Row>
+      <Row2>
+        <Avatar
+          source={{ uri: "https://hinhgaixinh.com/wp-content/uploads/2021/03/20210314-hinh-gai-xinh-1-835x1253.jpg" }} />
+        <ViewFull onPress={openWritePost}>
+          <TextMind numberOfLines={1}>
+            What is on your mind? #Hashtag.. @Mention.. Link..
+          </TextMind>
+        </ViewFull>
+      </Row2>
+      <Footer>
+        <Button onPress={onImagePicker}>
+          <IconAction source={IMG_PHOTOS} />
+          <ButtonText>
+            Photo
+          </ButtonText>
+        </Button>
+        <DividerVertical />
+        <Button onPress={onVideoPicker}>
+          <IconAction source={IC_VIDEO_CAMERA} />
+          <ButtonText>
+            Video
+          </ButtonText>
+        </Button>
+        <DividerVertical />
+        <Button>
+          <IconMenu source={IC_MENU} />
+          <ButtonText>
+            More
+          </ButtonText>
+        </Button>
+      </Footer>
+    </Container>
+  );
 });

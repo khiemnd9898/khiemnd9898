@@ -1,9 +1,7 @@
 import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
-import {
-  IC_ARROW
-} from "@/assets";
+import { IC_ARROW } from "@/assets";
 import { goBack, navigateFriendlySuggestScreen, navigateListFriendScreen } from "@/utils/navigation";
 import { Divider } from "@/components";
 import { useNavigationParams } from "@/hooks/useNavigationParams";
@@ -76,11 +74,6 @@ const StyledText = styled.Text`
   font-size: 14px;
   padding: 10px 0 10px 16px;
 `;
-
-export interface SearchFriendProps {
-  id: string
-}
-
 const renderItem = ({ item }: any) => (
   <RequestItem id={item.toString()} suggestion={true} />
 );

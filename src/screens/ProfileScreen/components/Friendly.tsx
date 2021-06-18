@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect } from "react";
 import styled from "styled-components/native";
-import { FlatList, TouchableOpacity, View } from "react-native";
 import { Fonts } from "@/assets/fonts";
 import { navigateListFriendScreen, navigationSearchFriend } from "@/utils/navigation";
 import { Friendsection } from "@/screens/ProfileScreen/components/Friendsection";

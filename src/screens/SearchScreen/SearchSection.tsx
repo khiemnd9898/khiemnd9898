@@ -2,35 +2,33 @@ import React, { memo } from "react";
 import styled from "styled-components/native";
 import { Fonts } from "@/assets/fonts";
 import { Colors } from "@/themes/Colors";
-import { IC_MORE } from "@/assets";
-import { useFriend } from "@/store/Friend";
+import { IC_CLOSE } from "@/assets";
+import { useSearch } from "@/store/ListSearch";
 
 const Container = styled.TouchableOpacity<{ color?: any }>`
   background: ${(p) => (p.color ? p.color : p.theme.backgroundColor)};
 `;
 const ButtonItem = styled.TouchableOpacity`
   flex-direction: row;
-  padding: 10px 16px 5px 16px;
+  padding: 8px 16px 8px 16px;
 `;
 const Column = styled.View`
   width: 60px;
 `;
 const Column2 = styled.View`
   flex: 1;
-  padding-left: 10px;
   flex-direction: column;
   justify-content: center;
 `;
 const Comlumn3 = styled.View`
-  width: 60px;
   align-items: flex-end;
   justify-content: center;
 
 `;
 const Avatar = styled.Image`
-  width: 50px;
-  height: 50px;
-  border-radius: ${50 / 2}px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
 `;
 const Name = styled.Text`
   font-size: 14px;
@@ -48,16 +46,17 @@ const Title = styled.Text`
 const ButtonIcon = styled.TouchableOpacity`
 `;
 const Sicon = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  tint-color: ${p => p.theme.gray1};
 `;
 
 interface Props {
   id: string;
 }
-export const ItemFriend = memo(function ItemFriend(props: Props) {
+export const SearchSection= memo(function SearchSection(props: Props) {
   const { id } = props;
-  const itemload = useFriend(id);
+  const itemload = useSearch(id);
 
   if (!itemload) return null;
   return (
@@ -68,11 +67,10 @@ export const ItemFriend = memo(function ItemFriend(props: Props) {
         </Column>
         <Column2>
           <Name numberOfLines={1}>{itemload?.name || ""}</Name>
-          <Title numberOfLines={1}>{itemload?.title || ""}</Title>
         </Column2>
         <Comlumn3>
           <ButtonIcon>
-            <Sicon source={IC_MORE} />
+            <Sicon source={IC_CLOSE} />
           </ButtonIcon>
         </Comlumn3>
       </ButtonItem>

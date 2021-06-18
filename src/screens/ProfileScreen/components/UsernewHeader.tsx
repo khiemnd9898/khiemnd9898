@@ -1,19 +1,8 @@
 import React, { memo, useCallback } from "react";
 import styled from "styled-components/native";
-import { getStatusBarHeight } from "react-native-status-bar-height";
-import {
-  IC_CONTROL,
-  IC_HOME_SEARCH,
-  IC_MENU,
-  IC_PLUS,
-  IC_SETTINGS,
-  IC_VIDEO_CAMERA,
-  IMG_LOGO_APP,
-  IMG_PHOTOS
-} from "@/assets";
+import { IC_CONTROL, IC_MENU, IC_SETTINGS, IC_VIDEO_CAMERA, IMG_PHOTOS } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 import { openWritePostScreen } from "@/utils/navigation";
-import { Divider } from "@/components";
 import ImagePicker from "react-native-image-crop-picker";
 
 

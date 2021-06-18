@@ -1,10 +1,8 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import styled from "styled-components/native";
-import { HomeHeader } from "@/screens/HomeScreen/HomeHeader";
 import { useNavigationParams } from "@/hooks/useNavigationParams";
-import { HeaderBack } from "@/components/HeaderBack";
-import { ChangeHeader } from "@/ChangeProfile/HeaderChange";
-import { MenuChangeFrofile } from "@/ChangeProfile/components/MenuChangeFrofile";
+import { ChangeHeader } from "@/screens/ChangeProfile/HeaderChange";
+import { MenuChangeFrofile } from "@/screens/ChangeProfile/components/MenuChangeFrofile";
 
 
 const Container = styled.View`

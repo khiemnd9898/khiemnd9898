@@ -1,19 +1,7 @@
 import React, { memo } from "react";
 import styled from "styled-components/native";
 import { Divider } from "@/components";
-import {
-  IC_ACCEPT,
-  IC_BOX,
-  IC_CART,
-  IC_CHECK_BOX, IC_CLOCK,
-  IC_DOCUMENT1,
-  IC_DOCUMENT2,
-  IC_DOWNLOAD, IC_EYE, IC_LOCK, IC_MENU,
-  IC_PEN,
-  IC_PENCIL, IC_SEACH, IC_TEXT_DOCUMENT,
-  IC_WARNING
-} from "@/assets";
-import { ChangeThemes } from "@/screens/Account/components/ChangeThemes";
+import { IC_ACCEPT, IC_BOX, IC_EYE, IC_LOCK, IC_MENU, IC_PEN, IC_SEACH, IC_TEXT_DOCUMENT, IC_WARNING } from "@/assets";
 import { Fonts } from "@/assets/fonts";
 
 const Container = styled.View`
@@ -44,7 +32,7 @@ const ButtonIcon = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   padding-left: 16px;
-  height: 50px;
+  height: 48px;
   border-bottom-width: 0.7px;
   border-bottom-color: ${p => p.theme.divider};
 `;
@@ -57,23 +45,23 @@ const Footer = styled.View`
 const STextInput = styled.Text`
   font-size: 18px;
   font-family: ${Fonts.Bold};
-  padding:5px 16px 0px 16px;
+  padding:4px 16px 0 16px;
   color: ${p => p.theme.gray1};
 `;
 const SText = styled.Text`
   font-size: 14px;
-  padding:5px 16px 5px 16px;
+  padding:4px 16px 4px 16px;
   color: ${p => p.theme.gray3};
 `;
 const FbUrl = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  padding:0px 16px 0px 16px;
+  padding:0 16px 0 16px;
   color: ${p => p.theme.gray1};
   line-height: 44px;
 `;
 const CopyView = styled.View`
-  padding:0px 16px 0px 16px;
+  padding:0 16px 0 16px;
 `;
 const CopyButton=styled.TouchableOpacity`
   height:36px;

@@ -34,11 +34,12 @@ import { SearchFriends } from "@/screens/ProfileScreen/components/SearchFriends"
 import {SelectAlbumScreen} from '@/screens/SelectAlbum/SelectAlbumScreen';
 import {CreateAlbumScreen} from '@/screens/CreateAlbum/CreateAlbumScreen';
 
-import { ChangeProfile } from "@/ChangeProfile/ChangeProfileScreen";
+import { ChangeProfile } from "@/screens/ChangeProfile/ChangeProfileScreen";
 
 
 import {PageScreen} from '@/screens/Page/PageScreen';
 import {GroupScreen} from '@/screens/Group/GroupScreen';
+import { SearchFullScreen } from "@/screens/SearchScreen/SearchFullScreen";
 
 
 
@@ -137,9 +138,10 @@ export const ModalStackComponent = memo(function ModalStackComponent() {
       <ModalStack.Screen name={"SearchScreen"} component={SearchScreen} />
       <ModalStack.Screen name={"CommentScreen"} component={CommentScreen} />
       <ModalStack.Screen name={"FriendlyRequestScreen"} component={FriendlyRequestScreen} />
-      <MainStack.Screen name={"MessengerScreen"} component={ChatScreen} />
-      <MainStack.Screen name={"ProfileScreen"} component={ProfileScreen} />
+      <ModalStack.Screen name={"MessengerScreen"} component={ChatScreen} />
+      <ModalStack.Screen name={"ProfileScreen"} component={ProfileScreen} />
       <ModalStack.Screen name={"FriendlySuggestScreen"} component={FriendlySuggestScreen} />
+      <ModalStack.Screen name={"SearchFullScreen"} component={SearchFullScreen}/>
 
       <ModalStack.Screen name={'ListFriend'} component={ListFriend}/>
       <ModalStack.Screen name={'SearchFriends'} component={SearchFriends}/>

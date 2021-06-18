@@ -11,7 +11,7 @@ const Container = styled.View`
 export const AddFriends = memo(function AddFriends() {
   return (
     <Container>
-      <FriendRequestSection/>
+      <FriendRequestSection />
     </Container>
   );
 });

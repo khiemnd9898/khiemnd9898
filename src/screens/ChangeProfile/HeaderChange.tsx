@@ -21,7 +21,7 @@ const Row = styled.View`
 `;
 
 const ButtonIcon = styled.TouchableOpacity`
-  width: 30px;
+  width: 32px;
   justify-content: center;
 `;
 const IconPlus = styled.Image`

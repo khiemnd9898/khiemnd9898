@@ -204,8 +204,8 @@ export const PostComponent = memo(function PostComponent(props: Props) {
                 }
             </ContentContainer>
             <EmotionComponent
-                isLiked={isLiked}
-                onLikePress={isLiked ? setUnLike : setLike}
+              isLiked={isLiked}
+              onLikePress={isLiked ? setUnLike : setLike}
             />
             <Divider height={12}/>
             <BottomMenuSelector
