@@ -29,7 +29,12 @@ const STextInput = styled(TextInput).attrs((props) => ({
     margin: 0px;
     padding: 0 0 0 12px;
 `;
-const RightAction = styled.TouchableOpacity``;
+const RightAction = styled.TouchableOpacity`
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+`;
 
 export const PageHeader = memo(function PageHeader() {
     return (

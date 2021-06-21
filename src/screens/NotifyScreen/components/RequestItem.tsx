@@ -8,18 +8,22 @@ import React, {memo, useCallback} from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import {AvatarImage} from '@/components/AvatarImage';
+import {TouchableOpacity, TouchableHighlight} from 'react-native';
 
 const Row = styled.View`
     flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 6px 16px;
 `;
 const ViewLeft = styled.View`
-    flex: 1;
+    width: 55px;
+    justify-content: center;
+    align-items: center;
 `;
 
 const ViewRight = styled.View`
-    flex: 6;
+    flex: 1;
     padding-left: 18px;
 `;
 const StyledText = styled.Text`
@@ -44,9 +48,14 @@ const InfoSection = styled.View`
 const RowInfoText = styled.View`
     flex-direction: row;
 `;
-const BtnMoreInfo = styled.TouchableOpacity`
+const BtnMoreInfo = styled(TouchableHighlight).attrs(props => ({
+    underlayColor: props.theme.gray5,
+}))`
     justify-content: center;
     align-items: flex-end;
+    border-radius: 18px;
+    width: 35px;
+    height: 35px;
 `;
 const IconMore = styled.Image`
     width: 35px;
@@ -66,7 +75,7 @@ const StyledBtn = styled.TouchableOpacity<{suggestion?: boolean}>`
     justify-content: center;
     background-color: ${(p) => (p?.suggestion ? '#1d87cc' : '#0077cc')};
     border-radius: 4px;
-    padding: 10px 0;
+    padding: 8px 0;
 `;
 const DeleteBtn = styled(StyledBtn)`
     background-color: ${Colors.grey2};
@@ -123,7 +132,11 @@ export const RequestItem = memo(function RequestItem(props: Props) {
                     <RowInfo>
                         <InfoSection>
                             <RowInfoText>
-                                <StyledTextBold>{item?.title}</StyledTextBold>
+                                <TouchableOpacity>
+                                    <StyledTextBold>
+                                        {item?.title}
+                                    </StyledTextBold>
+                                </TouchableOpacity>
                                 {!suggestion ? (
                                     <StyledText>
                                         &nbsp;sent you a friend request.

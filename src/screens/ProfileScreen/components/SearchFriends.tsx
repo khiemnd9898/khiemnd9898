@@ -15,7 +15,7 @@ import { RequestItem } from "@/screens/NotifyScreen/components/RequestItem";
 
 const Container = styled.View`
   width: 100%;
-  padding-top: ${getStatusBarHeight()};
+  padding-top: ${getStatusBarHeight()}px;
   background-color: ${p => p.theme.backgroundColor};
 `;
 
